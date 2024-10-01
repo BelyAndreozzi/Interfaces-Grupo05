@@ -1,0 +1,30 @@
+[
+    {
+        "imagen": "src/games/4_en_linea.webp",
+        "nombre_del_juego": "Mortal Kombat",
+        "precio": 0.00,
+        "es_gratis": true,
+        "categoria": "Accion"
+    },
+    {
+        "imagen": "src/games/4_en_linea.webp",
+        "nombre_del_juego": "Ajedrez",
+        "precio": 29.99,
+        "es_gratis": false,
+        "categoria": "Estrategia"
+    },
+    {
+        "imagen": "src/games/4_en_linea.webp",
+        "nombre_del_juego": "TEG",
+        "precio": 46,
+        "es_gratis": false,
+        "categoria": "Estrategia"
+    },
+    {
+        "imagen": "src/games/4_en_linea.webp",
+        "nombre_del_juego": "Call Of Duty",
+        "precio": 22,
+        "es_gratis": false,
+        "categoria": "Accion"
+    }
+]

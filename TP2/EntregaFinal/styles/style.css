@@ -21,6 +21,7 @@ header{
     border-bottom: #EB00FF 1px solid;
     position: fixed;
     width: 100%;
+    z-index: 1;
 }
 
 .header-container-left {
@@ -101,10 +102,10 @@ nav {
     width: 50px;
     transition: width 1s;
     display: flex;
-    height: 969px;
+    height: max-content;
     padding: 7px 6px;
     flex-direction: column;
-    align-items: center;
+    align-items: end;
     flex-shrink: 0;
     gap: 16px;
 }
@@ -116,6 +117,7 @@ nav:hover {
 .icon {
     width: 16px;
     height: 16px;
+    margin: 5px;
 }
 
 nav > div {
@@ -167,10 +169,11 @@ main{
 .card-description{
     width: 100%;
     height: fit-content;
+    background-color: #2E3366;
     
 }
 
-.card-bottom-container {
+.card-bottom-container, .ft-card-bottom-container {
     display: flex;
     width: 100%;
     height: 30px;
@@ -183,7 +186,7 @@ main{
 .card-btn {
     margin-right: 5px;
     color: red;
-    background-color: #1C1F3E;
+    background-color: #2E3366;
 }
 .card-price, .card-name {
     margin-left: 5px;
@@ -192,9 +195,23 @@ main{
     height: 30px;
 }
 
-/* #featured-cards{
-    
-} */
+                              /*FEATURED CARDS*/
+
+                              
+.featured-card{
+    width: 350px;
+
+}
+
+.ft-card-image {
+    object-fit: cover;
+    width: 100%;
+    height: 400px;
+}
+
+.ft-card-bottom-container{
+    height: 45px;
+}
 
 
 
