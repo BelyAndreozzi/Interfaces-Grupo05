@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/carousel.css">
+    <link rel="stylesheet" href="styles/card-slider.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" rel="stylesheet">
@@ -41,91 +42,53 @@
             </button>
         </div>
     </header>
-    <nav>
-        <div>
-            <p>Accion</p>
-            <img src="src/categorias/accion.png" class="icon" alt="Accion">
-        </div>
-        <div>
-            <p>Armas</p>
-            <img src="src/categorias/armas.png" class="icon" alt="Armas">
-        </div>  
-        <div>
-            <p>Baloncesto</p>
-            <img src="src/categorias/baloncesto.png" class="icon" alt="Baloncesto">
-        </div>
-        <div>
-            <p>Bolas</p>
-            <img src="src/categorias/bolas.png" class="icon" alt="Bolas">
-        </div>
-        <div>
-            <p>Carreras</p>
-            <img src="src/categorias/carreras.png" class="icon" alt="Carreras">
-        </div>
-        <div>
-            <p>Cartas</p>
-            <img src="src/categorias/cartas.png" class="icon" alt="Cartas">
-        </div>
-        <div>
-            <p>Clasicos</p>
-            <img src="src/categorias/clasicos.png" class="icon" alt="Clasicos">
-        </div>
-        <div>
-            <p>Cocinar</p>
-            <img src="src/categorias/cocinar.png" class="icon" alt="Cocinar">
-        </div>
-        <div>
-            <p>Dinosaurios</p>
-            <img src="src/categorias/dinosaurio.png" class="icon" alt="Dinosaurios">
-        </div>
-        <div>
-            <p>Escape</p>
-            <img src="src/categorias/escape.png" class="icon" alt="Escape">
-        </div>
-        <div>
-            <p>Estrategia</p>
-            <img src="src/categorias/estrategia.png" class="icon" alt="Estrategia">
-        </div>
-        <div>
-            <p>Futbol</p>
-            <img src="src/categorias/futbol.png" class="icon" alt="Futbol">
-        </div>
-        <div>
-            <p>Guerra</p>
-            <img src="src/categorias/guerra.png" class="icon" alt="Guerra">
-        </div>
-        <div>
-            <p>Infantiles</p>
-            <img src="src/categorias/infantiles.png" class="icon" alt="Infantiles">
-        </div>
+    <nav id="nav-bar">
     </nav>
     <main>
-        <section class="game-carrousel">
-            <div class="slider-wrapper">
-                <div class="carousel-card-list">
-                    <div class="carousel-card-game">
-                        <img class="carousel-card-image" src="src/games/4_en_linea.webp" alt="Juego">
-                        <h1>4 en linea</h1>
-                        <img src="src/carousel/boton-start.png" alt="Boton para jugar" class="overlay-image">
+        <div class="carousel-container">
+            <button class="arrow left">
+                <img src="src/carousel/flecha-izquierda.png" alt="Flecha izquierda">
+            </button>
+            <div class="carousel-wrapper">
+                <div class="carousel">
+                    <div class="carousel-item">
+                        <img src="src/games/Minercat4.jpg" alt="Miner Cat 4" class="game-img">
+                        <h4 class="game-title">Miner Cat 4</h4>
+                    </div>
+                    <a class="carousel-item">
+                        <img src="src/games/4_en_linea.webp" alt="4 en línea" class="game-img">
+                        <h4 class="game-title">4 en línea</h4>
+                        <button class="start-btn">
+                            <img src="src/carousel/boton-start.png" alt="Boton para jugar" srcset="">
+                        </button>
+                    </a>
+                    <div class="carousel-item">
+                        <img src="src/games/kitty-cats.avif" alt="Cat House" class="game-img">
+                        <h4 class="game-title">Kitty Cats</h4>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="src/games/cat-life-simulator.avif" alt="Cat Life Simulator" class="game-img">
+                        <h4 class="game-title">Cat Life Simulator</h4>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="src/games/cat-lovescapes.avif" alt="Cat Lovescape" class="game-img">
+                        <h4 class="game-title">Cat Lovescape</h4>
                     </div>
                 </div>
             </div>
-        </section>
-
-        <h2>Juegos destacados</h2>
-        <section id="featured-cards">
-        
-        <!-- <div class="card" class="featured-card">
-            <img class="card-image" src="src/cards/4_en_linea.webp" alt="Juego">
-            <div class="card-description">
-                <h3 class="card-name">TARJETA DESTACADA</h3>
-                <div class="card-bottom-container">
-                    <p class="card-price">$$$</p>
-                    <button class="card-btn">Jugar</button>
+            <button class="arrow right">
+                <img src="src/carousel/flecha-derecha.png" alt="Flecha derecha">
+            </button>
+        </div>
+        <div id="container2">
+            <h2>Juegos destacados</h2>
+            <div id="featured-cards-container">
+                <span onclick="slideRight()" class="slide-btn"></span>
+                <div id="featured-cards">
                 </div>
+                <span onclick="slideLeft()" class="slide-btn"></span>
             </div>
-        </div> -->
-        </section>
+        </div>
 
 
         <div class="game-categories"></div>
@@ -171,6 +134,8 @@
     </footer>
     <script src="scripts/carousel.js"></script>
     <script src="scripts/cards.js"></script>
+    <script src="scripts/sidebar.js"></script>
+    <script src="scripts/card-slider.js"></script>
 </body>
 
 </html>

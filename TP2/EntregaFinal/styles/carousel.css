@@ -1,43 +1,89 @@
-.carousel-card-game {
-    position: relative;
+.carousel-container {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    width: 590px;
-    height: 345px;
-    cursor: pointer
+    justify-content: space-around;
+    width: 1500px           ; /* Ocupa el 100% del contenedor */
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
 }
 
-.carousel-card-image {
+.carousel-wrapper {
+    overflow: hidden;
+    width: 85%; /* Ajusta el ancho del carrusel */
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+    flex: 0 0 33.33%; 
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: center;
+    position: relative;
+    transition: transform 0.5s ease-in-out;
+    transform: scale(0.8);
+    
+}
+
+.carousel-item .game-img {
+    width: 400px;
+    height: 225px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 5px 1px gold;
+}
+
+.carousel-item.active{
     width: 575px;
     height: 300px;
-    object-fit: cover;
-    border-radius: 5%;
-    border: #FFE031 1px solid;
-    box-shadow: #FFE031 0px 0px 10px;
-    transition: 0.4s ease;
+    background-color: aqua;
+    transform: scale(1.2); /* Imagen central más grande */
 }
 
-.carousel-card-game h1 {
-    font-weight: 400;
+.carousel-item .game-img:hover {
+    box-shadow: 0 0 15px 3px gold;
+    cursor: pointer;
 }
 
-.carousel-card-image:hover{
-    box-shadow:#FFE031 0px 0px 20px;
+.start-btn img{
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none; /* Oculto por defecto */
 }
 
-.overlay-image {
+.carousel-item:hover .start-btn img{
+    z-index:10;
+    display: block;
+    cursor: pointer;
+}
+
+.arrow img{
+    width: 34px;
+    height: 32px;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 24px;
     position: absolute;
     top: 50%;
-    left: 50%;
-    width: 250px;
-    /* Tamaño de la imagen */
-    height: auto;
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    transform: translateY(-50%);
 }
 
-.carousel-card-game:hover .overlay-image {
-    opacity: 1;
+.arrow:hover{
+    filter: drop-shadow(0 0px 8px #FFE031);
+    /*Peter Crack
+    BYE*/
+}
+
+.game-title{
+    font-weight: 400px;
 }

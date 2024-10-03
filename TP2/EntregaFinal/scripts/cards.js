@@ -1,7 +1,3 @@
-/* import { gameCategories } from "../resources/categories.json"; */
-/* import { featuredGames } from "../resources/featuredGames.json";
-import { games } from "../resources/games.json"; */
-
 let gameCategories = [
     {
         nombre: "Accion",
@@ -85,25 +81,41 @@ let gameCategories = [
     }
 ];
 
-// function traerCategorias() {
-//     fetch('./resources/categories.json')
-//         .then(response => {
-//             if (!response.ok) {
-//                 throw new Error('Error al cargar el archivo JSON'); 
-//             }
-//             return response.json();
-//         })
-//             .then(gameCategories => {
-//                 console.log(gameCategories); 
-//             })
-//     .catch(error => {
-//         console.error('Se produjo un error:', error);
-//     });    
-// }
+let games = [
+    {
+        "imagen": "src/games/4_en_linea.webp",
+        "nombre_del_juego": "Mortal Kombat",
+        "precio": 0.00,
+        "es_gratis": true,
+        "categoria": "Accion"
+    },
+    {
+        "imagen": "src/games/4_en_linea.webp",
+        "nombre_del_juego": "Ajedrez",
+        "precio": 29.99,
+        "es_gratis": false,
+        "categoria": "Estrategia"
+    },
+    {
+        "imagen": "src/games/4_en_linea.webp",
+        "nombre_del_juego": "TEG",
+        "precio": 46,
+        "es_gratis": false,
+        "categoria": "Estrategia"
+    },
+    {
+        "imagen": "src/games/4_en_linea.webp",
+        "nombre_del_juego": "Call Of Duty",
+        "precio": 22,
+        "es_gratis": false,
+        "categoria": "Accion"
+    }
+]
+
+
 
 
 createCategories(gameCategories);
-// createFeaturedCards(featuredGames);
 
 function createCategories(gameCategories) {
     let categoriesContainer = document.querySelector('.game-categories');
@@ -116,7 +128,7 @@ function createCategories(gameCategories) {
                 </div>
             </section>
         `
-        // createCards(games, category); 
+        createCards(games, category); 
     });
 }
 
@@ -151,33 +163,5 @@ function createCards(games, category) {
     });
 }
 
-function createFeaturedCards(featuredGames) {
-    let featuredCardsContainer = document.getElementById('featured-cards')
-    featuredGames.forEach(game => {
-        let textPrice;
-        let textBtn;
-        if (game.es_gratis) {
-            textPrice = "Gratis";
-            textBtn = "Jugar";
 
-        } else {
-            textPrice = `$${game.precio}`;
-            textBtn = "Comprar";
-        }
-        featuredCardsContainer.innerHTML +=
-            `
-                <div class="card featured-card">
-                            <img class="ft-card-image" src="${game.imagen}" alt="${game.nombre_del_juego}">
-                            <div class="card-description">
-                                <h3 class="card-name">${game.nombre_del_juego}</h3>
-                                <div class="ft-card-bottom-container">
-                                    <p class="card-price">${textPrice}</p>
-                                    <button class="card-btn">${textBtn}</button> 
-                                </div>
-                            </div>
-                        </div>    
-                `
-        
-    });
-}
 

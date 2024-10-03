@@ -1,4 +1,4 @@
-[
+const categorias = [
         {
             "nombre" :"Accion",
             "imagen" : "src/categorias/accion.png"   
@@ -80,4 +80,8 @@
             "nombre" : "Terror",
             "imagen" : "src/categorias/terror.png"
         }
-]
+];
+
+export function getCategorias(){
+    return categorias;
+}
