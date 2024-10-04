@@ -54,50 +54,7 @@ let featuredGames = [
         "precio": 22,
         "es_gratis": false,
         "categoria": "Destacados"
-    },
-    {
-        "imagen": "src/games/cat-life-simulator.avif",
-        "nombre_del_juego": "Cat Life Simulator",
-        "precio": 29.99,
-        "es_gratis": false,
-        "categoria": "Destacados"
-    },
-    {
-        "imagen": "src/games/cat-life-simulator.avif",
-        "nombre_del_juego": "Cat Life Simulator",
-        "precio": 46,
-        "es_gratis": false,
-        "categoria": "Destacados"
-    },
-    {
-        "imagen": "src/games/cat-life-simulator.avif",
-        "nombre_del_juego": "Cat Life Simulator",
-        "precio": 22,
-        "es_gratis": false,
-        "categoria": "Destacados"
-    },
-    {
-        "imagen": "src/games/cat-life-simulator.avif",
-        "nombre_del_juego": "Cat Life Simulator",
-        "precio": 29.99,
-        "es_gratis": false,
-        "categoria": "Destacados"
-    },
-    {
-        "imagen": "src/games/cat-life-simulator.avif",
-        "nombre_del_juego": "Cat Life Simulator",
-        "precio": 46,
-        "es_gratis": false,
-        "categoria": "Destacados"
-    },
-    {
-        "imagen": "src/games/cat-life-simulator.avif",
-        "nombre_del_juego": "Cat Life Simulator",
-        "precio": 22,
-        "es_gratis": false,
-        "categoria": "Destacados"
     }
-
 ]
 
 
@@ -192,8 +149,8 @@ setParams();
 
 function slideRight(){
     if (currentPosition != 0) {
-        featuredCards.style.marginLeft = currentMargin + (100 / cardsPerPage) + '%';
-        currentMargin += (100 / cardsPerPage);
+        featuredCards.style.marginLeft = currentMargin + (100 / (cardsPerPage - 0.1)) + '%';
+        currentMargin += (100 / (cardsPerPage - 0.1));
         currentPosition--;
     };
     if (currentPosition === 0) {
@@ -207,8 +164,8 @@ function slideRight(){
 
 function slideLeft(){
     if (currentPosition != cardsCount) {
-        featuredCards.style.marginLeft = currentMargin - (100 / cardsPerPage) + '%';
-        currentMargin -= (100 / cardsPerPage);
+        featuredCards.style.marginLeft = currentMargin - (100 / (cardsPerPage - 0.1)) + '%';
+        currentMargin -= (100 / (cardsPerPage - 0.1));
         currentPosition++;
     };
     if (currentPosition === cardsCount) {

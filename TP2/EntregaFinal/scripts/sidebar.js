@@ -100,19 +100,38 @@ const onPageLoad = () => {
 function agregarClase() {
     const categorias = document.querySelectorAll('.icon-name');
     categorias.forEach(elemento => {
-        elemento.classList.add('parr-deploy');
+        elemento.classList.toggle('parr-deploy');
     });
 }
-
+/*
 function quitarClase() {
     const categorias = document.querySelectorAll('.icon-name');
     categorias.forEach(elemento => {
         elemento.classList.remove('parr-deploy');
     });
 }
+*/
 
 document.addEventListener("DOMContentLoaded", onPageLoad);
-const navBar = document.getElementById("nav-bar");
+document.getElementById("burguer").addEventListener('click', agregarClase);
 
-navBar.addEventListener('mouseover', agregarClase);
-navBar.addEventListener('mouseout', quitarClase);
+
+/*
+
+        const contenedores = document.querySelectorAll('.contenedor');
+        const hijos2 = document.querySelectorAll('.hijo2');
+
+        contenedores.forEach(contenedor => {
+            contenedor.addEventListener('mouseover', () => {
+                hijos2.forEach(hijo => {
+                    hijo.classList.add('mostrar'); // Aniadir la clase 'mostrar' a todos los hijo2
+                });
+            });
+
+            contenedor.addEventListener('mouseout', () => {
+                hijos2.forEach(hijo => {
+                    hijo.classList.remove('mostrar'); // Quitar la clase 'mostrar' a todos los hijo2
+                });
+            });
+        });
+*/

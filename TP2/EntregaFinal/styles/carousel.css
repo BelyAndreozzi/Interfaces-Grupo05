@@ -38,11 +38,8 @@
     box-shadow: 0 0 5px 1px gold;
 }
 
-.carousel-item.active{
-    width: 575px;
-    height: 300px;
-    background-color: aqua;
-    transform: scale(1.2); /* Imagen central más grande */
+.central{
+    transform: scale(1.1); /* Imagen central más grande */
 }
 
 .carousel-item .game-img:hover {

@@ -1,0 +1,60 @@
+main{
+    padding-top: 80px;
+    height: auto;
+}
+
+.thumbnail-container{
+    background-color: rgba(0, 0, 0, 0.432);
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    margin: 0px;
+}
+
+.breadcrums {
+    padding: 15px;
+    display: flex;
+}
+
+.game-container {
+    height: 100%;
+    margin: 0%;
+    padding: 0%;
+}
+
+#in-game-game {
+    width: 1205px;
+    height: 775px;
+    object-fit: cover;
+}
+
+.game-bottom-container {
+    width: 100%;
+    margin: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.game-information {
+    width: 50%;
+}
+
+.game-actions {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.game-description {
+
+}
+
+.game-controls-container {
+    width: 40%;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+
+}
+

@@ -94,28 +94,48 @@ header{
     height: 40px;
 }
 
+.title{
+    text-shadow: #EB00FF 2px 2px 2px ;
+}
+
                                 /* NAV VERTICAL */
 
 nav {
     background-color: #2E3366;
     position: fixed;
-    width: min-content;
     display: flex;
-    padding: 7px 6px;
+    padding: 6px 6px;
     flex-direction: column;
-    align-items: end;
-    flex-shrink: 0;
     gap: 16px;
-    z-index: 100;
-    margin-top: 93px;
+    z-index: 10;
+    margin-top: 92.5px;  /* El tamaño de all*/
+    height: 90vh;
+    overflow: scroll;
+    scroll-behavior: smooth;
 }
 
-nav:hover {
-    width: max-content;
+/* Estilo para la barra de desplazamiento */
+nav::-webkit-scrollbar {
+    width: 4px;  /* Ancho de la barra */
+}
+  
+/* Estilo para el "thumb" (la parte que se desplaza) */
+nav::-webkit-scrollbar-thumb {
+    background-color: #EB00FF; /* Color de la parte desplazable */
+    border-radius: 10px;        /* Bordes redondeados */
+    border: 3px solid rgba(255, 255, 255, 0); /* Añadir un borde de color claro */
+}
+  
+/* Estilo para el "track" (la pista de fondo) */
+nav::-webkit-scrollbar-track {
+    background-color: #2E3366; /* Color de fondo del track */
+    border-radius: 10px;
 }
 
 nav div {
     display: flex;
+    margin: 0;
+    padding: 0;
 }
 
 nav img {
@@ -127,23 +147,31 @@ nav img {
 
 .icon-name {
     display: none;
-    transition: 2s;
-    margin-right: 100px;
-    height: max-content;
-    align-content: center;
+    align-self: center; 
+    position: relative;
+    left: -200px;
+    margin-top: 4px;
+    width: 90px;
+    background-color: #2E3366;
 }
 
 .parr-deploy {
-    display: flex;
-    min-width: 100px;
-    margin-right: 0px;
+    display: block;
+    left: 0;
+    margin-left: 10px;
+    color: white;
 }
+
 
 
                                 /* MAIN */
 main{
     padding-top: 150px;
     background-color: #1C1F3E;
+}
+
+.game-categories {
+    margin-left: 58px;
 }
 
 .category {
