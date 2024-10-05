@@ -99,10 +99,13 @@ const onPageLoad = () => {
 
 function agregarClase() {
     const categorias = document.querySelectorAll('.icon-name');
+    document.getElementById("nav-bar").classList.toggle('nav-deploy'); 
     categorias.forEach(elemento => {
         elemento.classList.toggle('parr-deploy');
-    });
+    }); 
 }
+
+
 /*
 function quitarClase() {
     const categorias = document.querySelectorAll('.icon-name');

@@ -10,11 +10,13 @@
 
 .carousel-wrapper {
     overflow: hidden;
-    width: 85%; /* Ajusta el ancho del carrusel */
+    width: 85%;
+    height: 38vh;
 }
 
 .carousel {
     display: flex;
+    align-items: center;
     transition: transform 0.5s ease-in-out;
 }
 
@@ -77,8 +79,6 @@
 
 .arrow:hover{
     filter: drop-shadow(0 0px 8px #FFE031);
-    /*Peter Crack
-    BYE*/
 }
 
 .game-title{

@@ -12,7 +12,7 @@
 
                                 /* HEADER */
 
-header{
+header {
     background-color: #2E3366;
     display: flex;
     justify-content: space-between;
@@ -21,7 +21,7 @@ header{
     border-bottom: #EB00FF 1px solid;
     position: fixed;
     width: 100%;
-    z-index: 1;
+    z-index: 99;
 }
 
 .header-container-left {
@@ -79,6 +79,10 @@ header{
     height: 24px;
 }
 
+.header-container-right {
+    padding-right: 20px;
+}
+
 .header-container-right button {
     border: 1px solid #EB00FF;
     border-radius: 100%;
@@ -105,30 +109,33 @@ nav {
     position: fixed;
     display: flex;
     padding: 6px 6px;
+    padding-left: 0;
     flex-direction: column;
     gap: 16px;
     z-index: 10;
-    margin-top: 92.5px;  /* El tamaño de all*/
+    margin-top: 92.5px;
     height: 90vh;
     overflow: scroll;
-    scroll-behavior: smooth;
+    width: 50px;
+    transition: all 0.3s;
 }
 
-/* Estilo para la barra de desplazamiento */
+.nav-deploy {
+    width: 160px;
+}
+
 nav::-webkit-scrollbar {
-    width: 4px;  /* Ancho de la barra */
-}
-  
-/* Estilo para el "thumb" (la parte que se desplaza) */
+    width: 3px;
+}  
+
 nav::-webkit-scrollbar-thumb {
-    background-color: #EB00FF; /* Color de la parte desplazable */
-    border-radius: 10px;        /* Bordes redondeados */
-    border: 3px solid rgba(255, 255, 255, 0); /* Añadir un borde de color claro */
+    background-color: #EB00FF;
+    border-radius: 10px;
+    border: 3px solid rgba(255, 255, 255, 0);
 }
   
-/* Estilo para el "track" (la pista de fondo) */
 nav::-webkit-scrollbar-track {
-    background-color: #2E3366; /* Color de fondo del track */
+    background-color: #2E3366;
     border-radius: 10px;
 }
 
@@ -141,22 +148,24 @@ nav div {
 nav img {
     width: 36px;
     height: 36px;
-    margin: 5px;  
-    z-index: 10; 
+    margin: 5px;
+    padding-left: 11px; 
+    margin-left: 0px; 
+    z-index: 10;
+    background-color: #2E3366;
 }
 
 .icon-name {
-    display: none;
     align-self: center; 
     position: relative;
     left: -200px;
     margin-top: 4px;
     width: 90px;
     background-color: #2E3366;
+    transition: all 0.4s ease;
 }
 
 .parr-deploy {
-    display: block;
     left: 0;
     margin-left: 10px;
     color: white;
@@ -166,7 +175,8 @@ nav img {
 
                                 /* MAIN */
 main{
-    padding-top: 150px;
+    padding-top: 15vh;
+    padding-left: 53px;
     background-color: #1C1F3E;
 }
 
@@ -177,14 +187,15 @@ main{
 .category {
     height: fit-content;
     /* border: #EB00FF solid 1px; */
-    padding: 10px;
-    
+    padding: 10px;    
 }
+
 .category-name {
     margin: 10px;
     margin-top: 0px;
     padding-top: 10px;
 }
+
 .cards, #featured-cards {
     display: flex;
     height: fit-content;
@@ -200,6 +211,7 @@ main{
     border-radius: 4px;
     margin: 10px;
 }
+
 .card-image {
     width: 100%;
     height: 202px;
@@ -229,9 +241,11 @@ main{
     color: red;
     background-color: #2E3366;
 }
+
 .card-price, .card-name {
     margin-left: 5px;
 }
+
 .card-name {
     height: 30px;
 }
@@ -241,9 +255,11 @@ main{
                               
 
 
+                                /*BOTONES*/
 
-
-
+.button-1 {
+    
+}
 
                                 /*FOOTER*/
 								
