@@ -81,6 +81,7 @@ header {
 
 .header-container-right {
     padding-right: 20px;
+    display: flex;
 }
 
 .header-container-right button {
@@ -96,6 +97,17 @@ header {
 .header-container-right button img {
     width: 40px;
     height: 40px;
+}
+
+.header-container-right .text-img-btn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border-radius: 10%;
+}
+
+.text-img-btn p {
+    font-size: 16px;
 }
 
 .title{
@@ -323,3 +335,21 @@ footer {
 	border-radius: 10px;
     margin: 22px 9px 22px 9px;
 }
+
+
+/* FORMS */
+#loginForm::backdrop{
+    background-color: #1c1f3e9c;
+}
+
+
+/* .form-container {
+    
+    background-color: #2E3366;
+    display: flex;
+    
+}
+
+.sideContent{
+    background-color: #1C1F3E;
+} */

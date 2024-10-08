@@ -18,16 +18,19 @@
     top: calc(50% - 30px);
     height: 15px;
     width: 15px;
-    border-left: 8px solid #696969;
-    border-top: 8px solid #696969;
+    border-left: 4px solid #FF00B2;
+    border-top: 4px solid #FF00B2;
     cursor: pointer;
 }
 
 #featured-cards-container .slide-btn:hover {
     transform: scale(1.2);
+    filter: drop-shadow(0 0px 6px #FF00B2)
 }
 #featured-cards-container .slide-btn.inactive {
-    border-color: #ff0404;
+    border-color: #F8B2FE;
+    cursor: default;
+    filter: none;
     
 }
 #featured-cards-container .slide-btn:first-of-type {

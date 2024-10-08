@@ -138,14 +138,18 @@ function createCards(games, category) {
         if (category.nombre.toLowerCase() === game.categoria.toLowerCase()) {
             let textPrice;
             let textBtn;
+            let btnClass;
             if (game.es_gratis) {
                 textPrice = "Gratis";
                 textBtn = "Jugar";
+                btnClass = "card-btn-free";
 
             } else {
                 textPrice = `$${game.precio}`;
                 textBtn = "Comprar";
+                btnClass = "card-btn-not-free";
             }
+
             cardsContainer.innerHTML +=
                 `
             <div class="card" id="card-${game.nombre_del_juego}">
@@ -154,10 +158,10 @@ function createCards(games, category) {
                             <h3 class="card-name">${game.nombre_del_juego}</h3>
                             <div class="card-bottom-container">
                                 <p class="card-price">${textPrice}</p>
-                                <button class="card-btn">${textBtn}</button> 
+                                <button class="card-btn ${btnClass}">${textBtn}</button> 
                             </div>
                         </div>
-                    </div>    
+                    </div>
             `
         }
     });
