@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="styles/registrationForm.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="shortcut icon" href="src/header/logato-cortado.jpg" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" rel="stylesheet">
     <title>MeowTrópolis</title>
 </head>
@@ -46,6 +47,7 @@
             <p>Tu carrito</p>
         </div> -->
 
+        <!-- Formulario de inicio de sesión y registro -->
         <div popover id="loginForm">
             <div class="container" id="formContainerJS">
                 <div class="form-container sign-up-container">
@@ -53,12 +55,12 @@
                         <h1>Inicia sesión</h1>
                         <label for="email">Email</label>
                         <div class="input-box">
-                            <input class="formInput" type="email" id="email"/>
+                            <input class="formInput" type="email" id="email" required/>
                             <img src="src/login-registration-form/correo-electronico.png" alt="Correo electronico">
                         </div>
                         <label for="password">Contraseña</label>
                         <div class="input-box">
-                            <input class="formInput" type="password" id="password"/>
+                            <input class="formInput" type="password" id="password" required/>
                             <img src="src/login-registration-form/contrasenia.png" alt="Contraseña">
                         </div>
                         <div class="input-checkbox">
@@ -83,7 +85,7 @@
                         <h1>Registrate</h1>
                         <label for="apellidonombre">Apellido y nombre</label>
                         <div class="input-box">
-                            <input class="formInput" type="text" id="apellidonombre"/>
+                            <input class="formInput" type="text" id="apellidonombre" required/>
                             <img src="src/login-registration-form/persona.png" alt="Apellido y nombre">
                         </div>
                         <label for="nickname">Nickname <span> (opcional)</span></label>
@@ -93,22 +95,22 @@
                         </div>
                         <label for="age">Edad</label>
                         <div class="input-box">
-                            <input class="formInput" type="number" id="age" min="0"/>
+                            <input class="formInput" type="number" id="age" min="0" required/>
                             <img src="src/login-registration-form/calendario.png" alt="Edad">
                         </div>
                         <label for="email">Email</label>
                         <div class="input-box">
-                            <input class="formInput" type="email" id="email"/>
+                            <input class="formInput" type="email" id="email" required/>
                             <img src="src/login-registration-form/correo-electronico.png" alt="Correo electronico">
                         </div>
                         <label for="password">Contraseña</label>
                         <div class="input-box">
-                            <input class="formInput" type="password" id="password"/>
+                            <input class="formInput" type="password" id="password" required/>
                             <img src="src/login-registration-form/contrasenia.png" alt="Contraseña">
                         </div>
                         <label for="REpassword">Repetir contraseña</label>
                         <div class="input-box">
-                            <input class="formInput" type="password" id="REpassword"/>
+                            <input class="formInput" type="password" id="REpassword" required/>
                             <img src="src/login-registration-form/contrasenia.png" alt="Contraseña">
                         </div>
                         <button class="formButton">Registrarse</button>
@@ -156,7 +158,7 @@
                     </div>
                     <a class="carousel-item" href="game.html">
                         <img src="src/games/4_en_linea.webp" alt="4 en línea" class="game-img">
-                        <h4 class="game-title">4 en línea</h4>
+                        <h4 class="game-title">4 En Línea</h4>
                         <button class="start-btn">
                             <img src="src/carousel/boton-start.png" alt="Boton para jugar" srcset="">
                         </button>
@@ -175,12 +177,11 @@
                     </div>
                 </div>
             </div>
-            <button class="arrow right">
-                <img src="src/carousel/flecha-derecha.png" alt="Flecha derecha">
-            </button>
+                <button class="arrow right">
+                    <img src="src/carousel/flecha-derecha.png" alt="Flecha derecha">
+                </button>
         </div>
         <div id="container2">
-            <h2>Juegos destacados</h2>
             <div id="featured-cards-container">
                 <span onclick="slideRight()" class="slide-btn"></span>
                 <div id="featured-cards">

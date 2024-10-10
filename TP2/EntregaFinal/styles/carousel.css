@@ -1,20 +1,20 @@
 .carousel-container {
     display: flex;
-    align-items: center;
-    justify-content: space-around;
-    width: 1500px           ; /* Ocupa el 100% del contenedor */
-    position: relative;
-    overflow: hidden;
+    justify-content: center;
+    width: 80%;
+    height: 320px;
+    max-width: 1500px;
     margin: 0 auto;
 }
 
 .carousel-wrapper {
     overflow: hidden;
-    width: 85%;
-    height: 38vh;
+    width: 100%;
+    height: 100%;   
 }
 
 .carousel {
+    height: 100%;
     display: flex;
     align-items: center;
     transition: transform 0.5s ease-in-out;
@@ -41,7 +41,7 @@
 }
 
 .central{
-    transform: scale(1.1); /* Imagen central más grande */
+    transform: scale(1.1);
 }
 
 .carousel-item .game-img:hover {
@@ -56,7 +56,7 @@
     top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
-    display: none; /* Oculto por defecto */
+    display: none; 
 }
 
 .carousel-item:hover .start-btn img{
@@ -65,16 +65,16 @@
     cursor: pointer;
 }
 
+.arrow{
+    background-color: transparent;
+}
+
 .arrow img{
     width: 34px;
     height: 32px;
     border: none;
     padding: 10px;
     cursor: pointer;
-    font-size: 24px;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
 }
 
 .arrow:hover{
@@ -82,5 +82,6 @@
 }
 
 .game-title{
+    padding-top: 4%;
     font-weight: 400px;
 }

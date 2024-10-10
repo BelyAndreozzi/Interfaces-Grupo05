@@ -1,4 +1,9 @@
-
+#loginForm{
+	background-color: transparent;
+	position:absolute;
+	top: 5%;
+	left: 30%;
+}
 
 .formButton {
 	border-radius: 20px;
@@ -7,7 +12,7 @@
 	font-size: 16px;
 	padding: 12px 45px;
 	transition: transform 80ms ease-in;
-    margin-top: 5%;
+	margin-top: 5%;
 }
 
 .formButton:active {
@@ -35,55 +40,59 @@
 }
 
 .registrationForm h1 {
-    font-size: 48px;
+	font-size: 48px;
 }
 
-.input-box{
-    display: flex;
-    align-items: center;
-    width: 100%;
-    border: 1px solid gray;
-    border-radius: 50px;
-    background-color: #eee;
-    height: 40px;
+.input-box {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	border: 1px solid gray;
+	border-radius: 50px;
+	background-color: #eee;
+	height: 40px;
 }
+
 .registrationForm label {
-    align-self: self-start;
-    font-size: 14px;
-    padding-left: 8%;
-    padding-top: 6%;
+	align-self: self-start;
+	font-size: 14px;
+	padding-left: 8%;
+	padding-top: 6%;
 }
 
 .registrationForm label span {
-    color: lightgray;
+	color: lightgray;
 }
 
 .formInput {
 	background-color: #eee;
 	border: none;
-    border-radius: 50px;
+	border-radius: 50px;
 	padding: 12px 15px;
 	margin: 8px 0;
 	width: 100%;
-    outline: none;
-    color: #1C1F3E;
+	outline: none;
+	color: #1C1F3E;
 }
 
 .input-box img {
-    width: 24px;
-   padding-right: 16px;
+	width: 24px;
+	padding-right: 16px;
+}
+
+.input-checkbox { 
+	display: flex;
+	align-items: center;
 }
 
 .container {
 	background-color: #2E3366;
-	border-radius: 10px;
-  	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
-			0 10px 10px rgba(0,0,0,0.22);
+	border-radius: 40px;
 	position: relative;
 	overflow: hidden;
 	width: 750px;
 	max-width: 100%;
-    height: 840px;
+	height: 840px;
 	min-height: 480px;
 }
 
@@ -119,12 +128,15 @@
 }
 
 @keyframes show {
-	0%, 49.99% {
+
+	0%,
+	49.99% {
 		opacity: 0;
 		z-index: 1;
 	}
-	
-	50%, 100% {
+
+	50%,
+	100% {
 		opacity: 1;
 		z-index: 5;
 	}
@@ -141,7 +153,7 @@
 	z-index: 100;
 }
 
-.container.right-panel-active .overlay-container{
+.container.right-panel-active .overlay-container {
 	transform: translateX(-100%);
 }
 
@@ -155,12 +167,12 @@
 	left: -100%;
 	height: 100%;
 	width: 200%;
-  	transform: translateX(0);
+	transform: translateX(0);
 	transition: transform 0.6s ease-in-out;
 }
 
 .container.right-panel-active .overlay {
-  	transform: translateX(50%);
+	transform: translateX(50%);
 }
 
 .overlay-panel {
@@ -192,7 +204,12 @@
 }
 
 .overlay-right img {
-    transform: translateX(-24%);
+	transform: translateX(-24%);
+}
+
+
+.overlay-left img {
+	transform: translateX(24%);
 }
 
 .container.right-panel-active .overlay-right {
@@ -208,25 +225,30 @@
 }
 
 .social img {
-    width: 36px;
+	width: 36px;
 }
 
 .divisores {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px 0;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 20px 0;
 }
 
-.divisor{
-    width: 30%;
-    height: 1px;
-    background-color: #F8B2FE;
-    margin: 10px 20px;
+.divisor {
+	width: 30%;
+	height: 1px;
+	background-color: #F8B2FE;
+	margin: 10px 20px;
 
 }
 
 p .link {
-    color:#FF00B2
+	color: #FF00B2;
+}
+
+p .link:hover {
+	cursor: pointer;
+	font-weight: bold;
 }

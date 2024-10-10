@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/game.css">
+    <link rel="shortcut icon" href="src/header/logato-cortado.jpg" type="image/x-icon">
 </head>
 
 <body>
@@ -73,8 +74,8 @@
                 <h1 id="game-title">4 en linea</h1>
             </div>
             <div class="game-actions">
-                <button> Agregar a favoritos </button>
-                <button> Compartir </button>
+                <button class="game-actions-btn" > Agregar a favoritos <img class="btn-image" src="src/misc/corazon.png" alt="fav-icon">  </button>
+                <button class="game-actions-btn"> Compartir <img class="btn-image" src="src/misc/share.png" alt="fav-icon">  </button>
             </div>
         </div>
         <!-- CONTAINER DESCRIPCION Y CONTROLES -->
@@ -94,9 +95,9 @@
                 </p>
                 <h2>Galería</h2>
                 <div>
-                    <img src="" alt="peter1">
-                    <img src="" alt="peter2">
-                    <img src="" alt="peter3">
+                    <img class="game-galery" src="src/games/4_en_linea.webp" alt="peter1">
+                    <img class="game-galery" src="src/games/4_en_linea_2.webp" alt="peter2">
+                    <img class="game-galery" src="src/games/4_en_linea_3.webp" alt="peter3">
                 </div>
                 <p class="text-description">El juego 4 en Línea fue creado por Howard Wexler y Ned Strongin y fue
                     lanzado al mercado en 1974 por la empresa Hasbro. Esta empresa es conocida por crear algunos de los
@@ -117,6 +118,10 @@
                         <img src="src/misc/objetivo.png" alt="">
                         <p>Juntar 4 fichas del mismo equipo de manera horizontal, vertical o diagonal</p>
                     </div>
+                    <a class="peter">
+                        Jugar
+                        <img src="src/misc/castillo (1).png" class="iconito" alt="">
+                    </a>
                 </div>
             </div>
         </div>
@@ -182,9 +187,10 @@
 
             <div class="comment-input">
                 <input type="text" placeholder="¿Qué piensas de este juego?">
+                <div class="comment-input-bottom-line"></div>
                 <div class="comment-buttons">
-                    <button>Cancelar</button>
-                    <button>Enviar</button>
+                    <button class="btn-secundary">Cancelar</button>
+                    <button class="btn-secundary">Enviar</button>
                 </div>
             </div>
 
