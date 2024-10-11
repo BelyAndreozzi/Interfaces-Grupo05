@@ -24,6 +24,16 @@ header {
     z-index: 99;
 }
 
+#burguer {
+    filter: drop-shadow(0 0px 3px #FFE031);
+    transition: ease-in-out 0.4s;
+}
+
+#burguer:hover {
+    transition: ease-in-out 0.2s;
+    filter: drop-shadow(0 0px 8px #FFE031);
+}
+
 .header-container-left {
     display: flex;
     align-items: center;
@@ -63,7 +73,7 @@ header {
     flex: 1;
     padding: 5px;
     font-size: 16px;
-    border-radius: 25px;
+    border-radius: 36px;
     color: black;
 }
 
@@ -86,24 +96,47 @@ header {
 
 .header-container-right button {
     border: 1px solid #EB00FF;
+    box-shadow: 0 0 10px 0px #EB00FF;
     border-radius: 100px;
     background: none;
     cursor: pointer;
     margin-left: 20px;
     padding: 8px;
-    background-color: #6B6E92;
+    background-color: #1C1F3E;
+    display: flex;
+    transition: ease-in-out 0.4s;
+}
+
+.header-container-right button:hover {
+    transition: ease-in-out 0.4s;
+    background-color: #ea00ff34;
+    box-shadow: inset 0 0 10px 0px #EB00FF;
 }
 
 .header-container-right button img {
-    width: 40px;
-    height: 40px;
+    padding: 4px;
+    width: 32px;
+    height: 32px;
 }
 
 .header-container-right .text-img-btn {
     display: flex;
     align-items: center;
     gap: 5px;
-    border-radius: 10px;
+    border-radius: 30px;
+}
+
+.header-container-right .text-img-btn img {
+    width: 32px;
+    height: 32px;
+}
+
+.header-container-right .text-img-btn p {
+    padding-left: 5px;
+}
+
+.hidden-btn{
+    display: none;
 }
 
 .text-img-btn p {
@@ -157,7 +190,7 @@ nav div {
     padding: 0;
 }
 
-nav img {
+nav .icon {
     width: 36px;
     height: 36px;
     margin: 5px;
@@ -210,8 +243,7 @@ main{
 
 .cards, #featured-cards {
     display: flex;
-    height: fit-content;
-    
+    height: fit-content; 
 }
 
 .card {
@@ -244,8 +276,7 @@ main{
     height: 30px;
     justify-content: space-between;
     align-items: end;
-    margin-bottom: 8px;
-    
+    margin-bottom: 8px; 
 }
 
 .card-btn {
@@ -268,10 +299,48 @@ main{
 
 
                                 /*BOTONES*/
+/*btn-type-1*/
 
-.button_slide {
+.btn-type-1 {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-color: #FF00B2;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    overflow: hidden;
+    transition: background-color 0.3s ease;
+    padding-right: 10px;
+
+    border-radius: 30px;
+    width: 70px;
+    padding: 8px 16px;
+}
+
+.btn-type-1:hover {
+    background-color: #EB00FF;
+}
+
+.icon-type-1 {
+    position: static; 
+    right: 20px;
+    width: 20px;
+    height: 20px; 
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.btn-type-1:hover .icon-type-1 {
+    transform: translateX(20px);
+    opacity: 0;
+}
+
+/*btn-type-2*/
+
+.btn-type-2 {
     color: #FFF;
-    border: 2px solid rgb(216, 2, 134);
+    border: 2px solid #FF00B2;
     border-radius: 0px;
     padding: 5px 18px;
     display: inline-block;
@@ -283,29 +352,29 @@ main{
     /*ESTANDARIZAR HACIA COLORES Y MEDIDAS DE LA PAGINA*/
 }
 
-.slide_down:hover {
+.btn-type-2-down:hover {
     box-shadow: inset 0 100px 0 0 #D80286;
 }
   
-.slide_right:hover {
+.btn-type-2-right:hover {
     box-shadow: inset 400px 0 0 0 #D80286;
 }
   
-.slide_left:hover {
+.btn-type-2-left:hover {
     box-shadow: inset 0 0 0 50px #D80286;
 }
   
-.slide_diagonal:hover {
+.btn-type-2-diagonal:hover {
     box-shadow: inset 400px 50px 0 0 #D80286;
 }
   
-#outer {
+#btn-type-2-outer {
     width: 364px;
     margin: 50px auto 0 auto;
     text-align: center;
 }
 
-.button-game {
+.btn-type-2-add {
     padding: 4px 8px;
     margin-right: 4px;
 }
@@ -372,21 +441,3 @@ footer {
 	border-radius: 10px;
     margin: 22px 9px 22px 9px;
 }
-
-
-/* FORMS */
-#loginForm::backdrop{
-    background-color: #1c1f3e9c;
-}
-
-
-/* .form-container {
-    
-    background-color: #2E3366;
-    display: flex;
-    
-}
-
-.sideContent{
-    background-color: #1C1F3E;
-} */

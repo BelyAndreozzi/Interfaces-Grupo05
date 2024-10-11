@@ -11,3 +11,12 @@ signInButton.addEventListener('click', () => {
 	formContainer.classList.remove("right-panel-active")
     console.log("signInButton");
 });
+
+
+// let accederButton = document.getElementsByClassName('text-img-btn');
+// const form = document.getElementsByClassName('registrationForm');
+
+// form.addEventListener('submit', (event) => {
+//     accederButton.classList.add("hidden-btn");
+//     event.preventDefault();
+// })
