@@ -816,7 +816,7 @@ function createCards(games, category) {
             let textBtn;
             let btnClass;
             if (game.es_gratis) {
-                textPrice = "Gratis";
+                textPrice = "GRATIS";
                 textBtn = "Jugar";
                 btnClass = "card-btn-free";
 
