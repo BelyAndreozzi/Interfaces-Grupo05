@@ -8,7 +8,7 @@ main{
     margin: 10px;
     width: 70px;
     height: 31px;
-    border-radius: 20px;
+    border-radius: 80px;
     background-color: #1C1F3E;
     border: aqua solid 1px;
     display: flex;
@@ -18,10 +18,11 @@ main{
 }
 
 .game-actions-btn {
+    margin-right: 20px;
     width: max-content;
     padding: 15px;
     font-size: 16px;
-    height: 43px;
+    height: 52px;
 }
 
 
@@ -195,6 +196,15 @@ main{
     margin-left: 5%;
 }
 
+.comment-title {
+   font-size: 40px; 
+   margin-left: 5px;
+}
+
+.comments-container .category-title-container .category-title img {
+    width: 56px;
+    height: 56px;
+}
 .comment-input {
     margin-top: 30px;
     margin-bottom: 30px;
@@ -233,9 +243,6 @@ main{
     margin-top: 30px;
 }
 
-.comment-title {
-   font-size: 48px; 
-}
 
 .comment-upper-container {
     display: flex;

@@ -1,0 +1,125 @@
+/* BOTON COMPARTIR */
+.share-container a img {
+
+    width: 20px;
+    opacity: 0;
+    font-size: 28px;
+    color: #1F1E1E;
+    will-change: transform;
+    transform: scale(.1);
+    transition: all .3s ease;
+}
+
+.share-btn-wrap {
+    border: aqua solid 1px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    cursor: pointer;
+    width: 120px;
+    height: 52px;
+    background-color: #1C1F3E;
+    border-radius: 80px;
+    padding: 0 18px;
+    will-change: transform;
+    transition: all .2s ease-in-out;
+}
+
+
+.share-btn-wrap span {
+    position: absolute;
+    z-index: 99;
+    width: 120px;
+    height: 72px;
+    border-radius: 80px;
+    font-size: 20px;
+    text-align: center;
+    line-height: 70px;
+    letter-spacing: 2px;
+    color: #EEEEED;
+    background-color: aqua;
+    color: black;
+    padding: 0 18px;
+    transition: all 1.2s ease;
+}
+
+.share-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 240px;
+    height: 64px;
+    border-radius: 80px;
+}
+
+.share-container a img {
+                    transition: 1.1s;
+}
+
+.share-btn-wrap:hover span {
+    transition-delay: .25s;
+    transform: translateX(-280px)
+}
+
+.share-btn-wrap:hover img {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* BOTONES HEADER */
+
+.header-icon-container {
+    width: 100%;
+    height: fit-content;
+  }
+  .header-icon-container button{
+    border: none;
+  }
+  
+  .header-icon{
+    margin-left: 20px;
+    padding: 8px;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    width: 60px;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 80px;
+    box-shadow: 0px 0px 5px 1px #EB00FF;
+  }
+  
+  .header-icon::before,
+  .header-icon::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 80px;
+  }
+  
+  .header-icon img {
+    width: 40px;
+    height: 40px;
+    position: relative;
+  }
+  
+  .header-icon-expand::after {
+    box-shadow: inset 0 0 0 1px #EB00FF;
+  }
+  
+  .header-icon-expand::before {
+    transition-duration: 0.5s;
+    background-color: #EB00FF;
+    box-shadow: inset 0 0 0 60px #1C1F3E;
+  }
+  
+  .header-icon-expand:hover::before {
+    transition-duration: 0.5s;
+    box-shadow: inset 0 0 0 1px #1C1F3E;;
+  }

@@ -1,5 +1,8 @@
 main {	
     background: no-repeat top url(../src/carousel/Carrusel.svg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .carousel-container {

@@ -1,10 +1,33 @@
-#loginForm::backdrop{
-    background-color: #1c1f3e9c;
+.closeButton{
+	z-index: 100;
+	position: absolute;
+	right: 2%;
+	top: 2%;
+	width: 40px;
+	height: 40px;
+	background: transparent;
+	border-radius: 50px;
+	border: solid 1px #01D3C5;
 }
 
-#loginForm{
+.closeButton:hover {
+	transition: ease-in-out 0.4s;
+	box-shadow: inset 0px 0px 5px 2px #01D3C5, 0px 0px 5px 1px #01D3C5;
+	cursor: pointer;
+}
+
+.closeButton img { 
+	width: 60%;
+	border-radius: 50px;
+}
+
+#loginForm::backdrop {
+	background-color: #1c1f3e9c;
+}
+
+#loginForm {
 	background-color: transparent;
-	position:absolute;
+	position: absolute;
 	top: 5%;
 	left: 30%;
 }
@@ -38,7 +61,7 @@
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
-	padding: 0 50px;
+	padding: 0 40px;
 	height: 100%;
 	text-align: center;
 }
@@ -84,9 +107,45 @@
 	padding-right: 16px;
 }
 
-.input-checkbox { 
+.custom-checkbox {
 	display: flex;
 	align-items: center;
+	
+}
+
+.custom-checkbox input {
+	display: none;
+}
+
+.custom-checkbox .checkmark {
+	width: 15px;
+	height: 15px;
+	border: 2px solid #ff00c8;
+	background-color: transparent;
+	position: relative;
+	margin-right: 10px;
+	cursor: pointer;
+	transition: all 0.3s;
+}
+
+.custom-checkbox input:checked+.checkmark {
+	background-color: #ff00c8;
+}
+
+.custom-checkbox .checkmark::before {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+	transition: all 0.3s;
+}
+
+.custom-checkbox input:checked+.checkmark::before {
+	border-color: #ff00c8;
+}
+
+.captcha-container {
+	margin: 5%;
 }
 
 .container {

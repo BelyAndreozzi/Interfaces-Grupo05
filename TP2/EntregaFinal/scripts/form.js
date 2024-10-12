@@ -1,22 +1,30 @@
 const signUpButton = document.getElementById('signUp');
 const signInButton = document.getElementById('signIn');
 const formContainer = document.getElementById('formContainerJS');
+const regForm = document.getElementById('regForm');
+const logForm = document.getElementById('logForm');
+const headerBtn = document.getElementsByClassName('text-img-btn')[0];
+
 
 signUpButton.addEventListener('click', () => {
-	formContainer.classList.add("right-panel-active")
+    formContainer.classList.add("right-panel-active")
     console.log("signUpButton");
 });
 
 signInButton.addEventListener('click', () => {
-	formContainer.classList.remove("right-panel-active")
+    formContainer.classList.remove("right-panel-active")
     console.log("signInButton");
 });
 
 
-// let accederButton = document.getElementsByClassName('text-img-btn');
-// const form = document.getElementsByClassName('registrationForm');
+regForm.addEventListener('submit', (e) => {
+    /* e.preventDefault(); */
 
-// form.addEventListener('submit', (event) => {
-//     accederButton.classList.add("hidden-btn");
-//     event.preventDefault();
-// })
+    headerBtn.querySelector('.button-text').classList.add('button-text-hidden');
+});
+
+logForm.addEventListener('submit', (e) => {
+    /* e.preventDefault(); */
+    
+    headerBtn.querySelector('.button-text').classList.add('button-text-hidden');
+});

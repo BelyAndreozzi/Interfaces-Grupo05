@@ -1,56 +1,56 @@
 let featuredGames = [
     {
-        "imagen": "src/games/cat-life-simulator.avif",
-        "nombre_del_juego": "Cat Life Simulator",
+        "imagen": "https://images.crazygames.com/free-the-cat-puzzle-game_16x9/20231113164504/free-the-cat-puzzle-game_16x9-cover?auto=format%2Ccompress&q=90&cs=strip&ch=DPR&w=1920&h=1080&fit=crop",
+        "nombre_del_juego": "Free The Cat Puzzle",
         "precio": 0.00,
         "es_gratis": true,
         "categoria": "Destacados"
     },
     {
-        "imagen": "src/games/cat-life-simulator.avif",
-        "nombre_del_juego": "Cat Life Simulator",
+        "imagen": "https://images.crazygames.com/cats-and-bees/20230106042701/cats-and-bees-cover?auto=format%2Ccompress&q=90&cs=strip&ch=DPR&w=1920&h=1080&fit=crop",
+        "nombre_del_juego": "Cats and Bees",
         "precio": 29.99,
         "es_gratis": false,
         "categoria": "Destacados"
     },
     {
-        "imagen": "src/games/cat-life-simulator.avif",
-        "nombre_del_juego": "Cat Life Simulator",
+        "imagen": "https://images.crazygames.com/cat-bakery_16x9/20240320084916/cat-bakery_16x9-cover?auto=format%2Ccompress&q=90&cs=strip&ch=DPR&w=1920&h=1080&fit=crop",
+        "nombre_del_juego": "Cat Bakery",
         "precio": 46,
         "es_gratis": false,
         "categoria": "Destacados"
     },
     {
-        "imagen": "src/games/cat-life-simulator.avif",
-        "nombre_del_juego": "Cat Life Simulator",
+        "imagen": "https://images.crazygames.com/push-push-cat/20230214072349/push-push-cat-cover?auto=format%2Ccompress&q=90&cs=strip&ch=DPR&w=1920&h=1080&fit=crop",
+        "nombre_del_juego": "Push Push Cat",
         "precio": 22,
         "es_gratis": false,
         "categoria": "Destacados"
     },
     {
-        "imagen": "src/games/cat-life-simulator.avif",
-        "nombre_del_juego": "Cat Life Simulator",
+        "imagen": "https://images.crazygames.com/trap-the-cat-pix_16x9/20240315041246/trap-the-cat-pix_16x9-cover?auto=format%2Ccompress&q=90&cs=strip&ch=DPR&w=1920&h=1080&fit=crop",
+        "nombre_del_juego": "Trap The Cat",
         "precio": 0.00,
         "es_gratis": true,
         "categoria": "Destacados"
     },
     {
-        "imagen": "src/games/cat-life-simulator.avif",
-        "nombre_del_juego": "Cat Life Simulator",
+        "imagen": "https://images.crazygames.com/funny-kitty-care/20220512164504/funny-kitty-care-cover?auto=format%2Ccompress&q=90&cs=strip&ch=DPR&w=1920&h=1080&fit=crop",
+        "nombre_del_juego": "Funny Kitty Care",
         "precio": 29.99,
         "es_gratis": false,
         "categoria": "Destacados"
     },
     {
-        "imagen": "src/games/cat-life-simulator.avif",
-        "nombre_del_juego": "Cat Life Simulator",
+        "imagen": "https://images.crazygames.com/games/strikeforce-kitty/cover-1670391803483.png?auto=format%2Ccompress&q=90&cs=strip&ch=DPR&w=1920&h=1080&fit=crop",
+        "nombre_del_juego": "Strikeforce Kitty",
         "precio": 46,
         "es_gratis": false,
         "categoria": "Destacados"
     },
     {
-        "imagen": "src/games/cat-life-simulator.avif",
-        "nombre_del_juego": "Cat Life Simulator",
+        "imagen": "https://images.crazygames.com/kity-builder/20210504122712/kity-builder-cover?auto=format%2Ccompress&q=90&cs=strip&ch=DPR&w=1920&h=1080&fit=crop",
+        "nombre_del_juego": "Kitty Builder",
         "precio": 22,
         "es_gratis": false,
         "categoria": "Destacados"

@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/card-slider.css">
     <link rel="stylesheet" href="styles/registrationForm.css">
+    <link rel="stylesheet" href="styles/buttons.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="shortcut icon" href="src/header/logato-cortado.jpg" type="image/x-icon">
@@ -31,27 +32,30 @@
                 <img src="src/header/lupa.png" alt="Buscar">
             </button>
         </div>
+
         <div class="header-container-right">
-            <button popovertarget="cart">
-                <img src="src/header/cart.png" alt="Carrito">
-            </button>
-            <button>
-                <img src="src/header/fav.png" alt="Favoritos">
-            </button>
+            <div class="header-icon-container">
+                <button class="header-icon header-icon-expand">
+                  <img src="src/header/cart.png" alt="Favoritos">
+                </button>
+            </div>
+            <div class="header-icon-container">
+                <button class="header-icon header-icon-expand">
+                  <img src="src/header/fav.png" alt="Favoritos">
+                </button>
+            </div>
             <button popovertarget="loginForm" class="text-img-btn">
-                <p>Acceder</p>
+                <span class="button-text">Acceder</span>
                 <img src="src/header/gamer-profile.png" alt="Usuario">
             </button>
         </div>
-        <!-- <div popover id="cart">
-            <p>Tu carrito</p>
-        </div> -->
+        
 
         <!-- Formulario de inicio de sesión y registro -->
-        <div popover id="loginForm">
+        <dialog popover id="loginForm">
             <div class="container" id="formContainerJS">
                 <div class="form-container sign-up-container">
-                    <form action="#" class="registrationForm">
+                    <form action="#" class="registrationForm" id="logForm">
                         <h1>Inicia sesión</h1>
                         <label for="emailLogin">Email</label>
                         <div class="input-box">
@@ -63,11 +67,11 @@
                             <input class="formInput" type="password" id="password" required/>
                             <img src="src/login-registration-form/contrasenia.png" alt="Contraseña">
                         </div>
-                        <div class="input-checkbox">
-                            <input type="checkbox" name="recuerdame" id="recuerdame"> 
-                            <label for="recuerdame">Recuérdame</label>
-                        </div>
-                        <button type="submit" class="formButton">Inicia sesión</button>
+                        <label class="custom-checkbox">
+                            <input type="checkbox">
+                            <span class="checkmark"></span> Recuérdame
+                        </label>
+                        <button type="submit" class="formButton"  popovertarget="loginForm">Inicia sesión</button>
                         <div class="divisores">
                             <div class="divisor"></div>
                             <span>o</span>
@@ -81,7 +85,7 @@
                     </form>
                 </div>
                 <div class="form-container sign-in-container">
-                    <form action="#" class="registrationForm">
+                    <form action="#" class="registrationForm" id="regForm">
                         <h1>Registrate</h1>
                         <label for="apellidonombre">Apellido y nombre</label>
                         <div class="input-box">
@@ -108,12 +112,16 @@
                             <input class="formInput" type="password" id="RegPassword" required/>
                             <img src="src/login-registration-form/contrasenia.png" alt="Contraseña">
                         </div>
-                        <label for="RegREpassword">Repetir contraseña</label>
+                        <label for="RegREpassword">Confirmar contraseña</label>
                         <div class="input-box">
                             <input class="formInput" type="password" id="RegREpassword" required/>
                             <img src="src/login-registration-form/contrasenia.png" alt="Contraseña">
                         </div>
-                        <button type="submit" class="formButton">Registrarse</button>
+                        <div class="captcha-container">
+                            <img src="src/login-registration-form/Captcha.svg" alt="">
+                        </div>
+                        <button type="submit" class="formButton"
+                        popovertarget="loginForm">Registrarse</button>
                         <div class="divisores">
                             <div class="divisor"></div>
                             <span>o</span>
@@ -138,8 +146,11 @@
                         </div>
                     </div>
                 </div>
+                <button class="closeButton" popovertarget="loginForm">
+                    <img src="src/misc/x.png" alt="Cerrar formulario">
+                </button>
             </div>
-        </div>
+        </dialog>
     </header>
     <nav id="nav-bar">
     </nav>
@@ -160,7 +171,7 @@
                     </div>
                     <div class="carousel-item">
                         <img src="src/games/4_en_linea.webp" alt="4 en línea" class="game-img">
-                        <h4 class="game-title">4 En Línea</h4>
+                        <h4 class="game-title">Luna vs Rayo</h4>
                         <a class="start-btn" href="game.html">
                             <img src="src/carousel/boton-start.png" alt="Boton para jugar">
                         </a>
@@ -194,10 +205,10 @@
         </div>
         <div id="container2">
             <div id="featured-cards-container">
-                <span onclick="slideRight()" class="slide-btn"></span>
-                <div id="featured-cards">
-                </div>
-                <span onclick="slideLeft()" class="slide-btn"></span>
+                <span onclick="slideRight()" class="slide-btn slide-btn-left"></span>
+                <div id="featured-cards"></div>    
+                <span onclick="slideLeft()" class="slide-btn slide-btn-right"></span>
+                
             </div>
         </div>
 
