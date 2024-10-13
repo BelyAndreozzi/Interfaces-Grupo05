@@ -368,7 +368,7 @@ let games = [
         "precio": 88,
         "es_gratis": true,
         "categoria": "Armas"
-    },    
+    },
     {
         "imagen": "https://images.crazygames.com/gun-master/20210602102349/gun-master-thumb?auto=format%2Ccompress&q=90&cs=strip&ch=DPR&w=1920&h=1080&fit=crop",
         "nombre_del_juego": "Gun Master",
@@ -791,7 +791,7 @@ function createCategories(gameCategories) {
     let categoriesContainer = document.querySelector('.game-categories');
     gameCategories.forEach(category => {
         categoriesContainer.innerHTML +=
-        `
+            `
             <section class="category" id="category-${category.nombre}">
             <div class= "category-title-container">
                 <div class="category-title">
@@ -804,7 +804,8 @@ function createCategories(gameCategories) {
                 </div>
             </section>
         `
-        createCards(games, category); 
+
+        createCards(games, category);
     });
 }
 
@@ -818,12 +819,12 @@ function createCards(games, category) {
             if (game.es_gratis) {
                 textPrice = "GRATIS";
                 textBtn = "Jugar";
-                btnClass = "card-btn-free";
+                btnClass = "btn--action";
 
             } else {
                 textPrice = `$${game.precio}`;
-                textBtn = "Comprar";
-                btnClass = "card-btn-not-free";
+                textBtn = "Agregar";
+                btnClass = "btn--action-comprar";
             }
 
             cardsContainer.innerHTML +=
@@ -834,11 +835,28 @@ function createCards(games, category) {
                     <h3 class="card-name">${game.nombre_del_juego}</h3>
                         <div class="card-bottom-container">
                             <p class="card-price">${textPrice}</p>
-                            <button class="card-btn ${btnClass}">${textBtn}</button> 
+                            <div>
+                                <a href="#" class=" card-button ${btnClass}"><span> ${textBtn} </span></a>
+                            </div>
                         </div>
                     </div>
                 </div>
             `
+
+            // `
+            // <div class="card" id="card-${game.nombre_del_juego}">
+            //     <img class="card-image" src="${game.imagen}" alt="${game.nombre_del_juego}">
+            //     <div class="card-description">
+            //         <h3 class="card-name">${game.nombre_del_juego}</h3>
+            //             <div class="card-bottom-container">
+            //                 <p class="card-price">${textPrice}</p>
+            //                 <button class="card-btn ${btnClass}">${textBtn}</button> 
+            //             </div>
+            //         </div>
+            //     </div>
+            // `
+
+
         }
     });
 }

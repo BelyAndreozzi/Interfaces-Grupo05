@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="styles/card-slider.css">
     <link rel="stylesheet" href="styles/registrationForm.css">
     <link rel="stylesheet" href="styles/buttons.css">
+    <link rel="stylesheet" href="styles/loader.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="shortcut icon" href="src/header/logato-cortado.jpg" type="image/x-icon">
@@ -16,10 +18,25 @@
 </head>
 
 <body>
+    <div id="loader">
+        <div class="cat-loader">
+            <div class="paw"><img class="icon" src="src/misc/pata.png" alt="Pata de gato"></div>
+            <div class="paw"><img class="icon" src="src/misc/pata.png" alt="Pata de gato"></div>
+            <div class="paw"><img class="icon" src="src/misc/pata.png" alt="Pata de gato"></div>
+            <div class="paw"><img class="icon" src="src/misc/pata.png" alt="Pata de gato"></div>
+            <div class="paw"><img class="icon" src="src/misc/pata.png" alt="Pata de gato"></div>
+            <div class="paw"><img class="icon" src="src/misc/pata.png" alt="Pata de gato"></div>
+            <div class="paw"><img class="icon" src="src/misc/pata.png" alt="Pata de gato"></div>
+            <div class="paw"><img class="icon" src="src/misc/pata.png" alt="Pata de gato"></div>
+        </div>
+
+        <div class="percentage" id="percentage">0%</div>
+    </div>
+
     <header>
         <div class="header-container-left">
             <button id="burguer">
-                <img src="src/header/menu-hamburguesa.png" alt=""  height="36px">
+                <img src="src/header/menu-hamburguesa.png" alt="" height="36px">
             </button>
             <button class="homeButton">
                 <img src="src/header/logato-cortado.jpg" alt="Logo de la página" height="60px">
@@ -36,12 +53,12 @@
         <div class="header-container-right">
             <div class="header-icon-container">
                 <button class="header-icon header-icon-expand">
-                  <img src="src/header/cart.png" alt="Favoritos">
+                    <img src="src/header/cart.png" alt="Favoritos">
                 </button>
             </div>
             <div class="header-icon-container">
                 <button class="header-icon header-icon-expand">
-                  <img src="src/header/fav.png" alt="Favoritos">
+                    <img src="src/header/fav.png" alt="Favoritos">
                 </button>
             </div>
             <button popovertarget="loginForm" class="text-img-btn">
@@ -49,7 +66,7 @@
                 <img src="src/header/gamer-profile.png" alt="Usuario">
             </button>
         </div>
-        
+
 
         <!-- Formulario de inicio de sesión y registro -->
         <dialog popover id="loginForm">
@@ -59,29 +76,37 @@
                         <h1>Inicia sesión</h1>
                         <label for="emailLogin">Email</label>
                         <div class="input-box">
-                            <input class="formInput" type="email" id="emailLogin" required/>
+                            <input class="formInput" type="email" id="emailLogin" required />
                             <img src="src/login-registration-form/correo-electronico.png" alt="Correo electronico">
                         </div>
                         <label for="password">Contraseña</label>
                         <div class="input-box">
-                            <input class="formInput" type="password" id="password" required/>
+                            <input class="formInput" type="password" id="password" required />
                             <img src="src/login-registration-form/contrasenia.png" alt="Contraseña">
                         </div>
                         <label class="custom-checkbox">
                             <input type="checkbox">
                             <span class="checkmark"></span> Recuérdame
                         </label>
-                        <button type="submit" class="formButton"  popovertarget="loginForm">Inicia sesión</button>
+                        <div>
+                            <button id="logSubmitBtn" class="submitBtn" type="submit">
+                                <p id="logBtnSubmitText">Iniciar sesion</p>
+                                <div class="check-box">
+                                    <img src="src/login-registration-form/check.png" alt="Inicio correcto">
+                                </div>
+                            </button>
+                        </div>
                         <div class="divisores">
                             <div class="divisor"></div>
                             <span>o</span>
                             <div class="divisor"></div>
                         </div>
                         <div class="social-container">
-                            <a href="#" class="social"><img src="src/redes-sociales/facebook.png" alt="Registrate con Facebook"></a>
+                            <a href="#" class="social"><img src="src/redes-sociales/facebook.png"
+                                    alt="Registrate con Facebook"></a>
                             <a href="#" class="social"><img src="src/redes-sociales/google.png" alt=""></a>
                         </div>
-                        <p>¿NO tienes cuenta? <a  id="signIn" class="link">Registrate</a></p>
+                        <p class="pSignIn">¿NO tienes cuenta? <a id="signIn" class="link">Registrate</a></p>
                     </form>
                 </div>
                 <div class="form-container sign-in-container">
@@ -89,59 +114,66 @@
                         <h1>Registrate</h1>
                         <label for="apellidonombre">Apellido y nombre</label>
                         <div class="input-box">
-                            <input class="formInput" type="text" id="apellidonombre" required/>
+                            <input class="formInput" type="text" id="apellidonombre" required />
                             <img src="src/login-registration-form/persona.png" alt="Apellido y nombre">
                         </div>
                         <label for="nickname">Nickname <span> (opcional)</span></label>
                         <div class="input-box">
-                            <input class="formInput" type="text" id="nickname"/>
+                            <input class="formInput" type="text" id="nickname" />
                             <img src="src/header/gamer-profile.png" alt="Nickname">
                         </div>
                         <label for="age">Edad</label>
                         <div class="input-box">
-                            <input class="formInput" type="number" id="age" min="0" required/>
+                            <input class="formInput" type="number" id="age" min="0" required />
                             <img src="src/login-registration-form/calendario.png" alt="Edad">
                         </div>
                         <label for="emailReg">Email</label>
                         <div class="input-box">
-                            <input class="formInput" type="email" id="emailReg" required/>
+                            <input class="formInput" type="email" id="emailReg" required />
                             <img src="src/login-registration-form/correo-electronico.png" alt="Correo electronico">
                         </div>
                         <label for="RegPassword">Contraseña</label>
                         <div class="input-box">
-                            <input class="formInput" type="password" id="RegPassword" required/>
+                            <input class="formInput" type="password" id="RegPassword" required />
                             <img src="src/login-registration-form/contrasenia.png" alt="Contraseña">
                         </div>
                         <label for="RegREpassword">Confirmar contraseña</label>
                         <div class="input-box">
-                            <input class="formInput" type="password" id="RegREpassword" required/>
+                            <input class="formInput" type="password" id="RegREpassword" required />
                             <img src="src/login-registration-form/contrasenia.png" alt="Contraseña">
                         </div>
                         <div class="captcha-container">
                             <img src="src/login-registration-form/Captcha.svg" alt="">
                         </div>
-                        <button type="submit" class="formButton"
-                        popovertarget="loginForm">Registrarse</button>
+                        <button id="regSubmitBtn" class="submitBtn formButton" type="submit">
+                            <p id="regBtnSubmitText">Registrarse</p>
+                            <div class="check-box">
+                                <img src="src/login-registration-form/check.png" alt="dislkike">
+                            </div>
+                        </button>
                         <div class="divisores">
                             <div class="divisor"></div>
                             <span>o</span>
                             <div class="divisor"></div>
                         </div>
                         <div class="social-container">
-                            <a href="#" class="social"><img src="src/redes-sociales/facebook.png" alt="Registrate con Facebook"></a>
+                            <a href="#" class="social"><img src="src/redes-sociales/facebook.png"
+                                    alt="Registrate con Facebook"></a>
                             <a href="#" class="social"><img src="src/redes-sociales/google.png" alt=""></a>
                         </div>
-                        <p>Ya tienes cuenta? <a  id="signUp" class="link">Inicia sesion</a></p>
+                        <p>Ya tienes cuenta? <a id="signUp" class="link">Inicia sesion</a></p>
                     </form>
                 </div>
                 <div class="overlay-container">
                     <div class="overlay">
                         <div class="overlay-panel overlay-left">
                             <h1>¿Listo para seguir ganando?</h1>
-                            <img src="src/login-registration-form/michiJuzgador.png" alt="Gatito que te juzga mientras te logueas">
+                            <img src="src/login-registration-form/michiJuzgador.png"
+                                alt="Gatito que te juzga mientras te logueas">
                         </div>
                         <div class="overlay-panel overlay-right">
-                            <img src="src/login-registration-form/michiJuzgadorDer.png" alt="Gatito que te juzga mientras te logueas">
+                            <img src="src/login-registration-form/michiJuzgadorDer.png"
+                                alt="Gatito que te juzga mientras te logueas">
                             <h1>¿Listo para comenzar la aventura?</h1>
                         </div>
                     </div>
@@ -199,17 +231,56 @@
                     </div>
                 </div>
             </div>
-                <button class="arrow right">
-                    <img src="src/carousel/flecha-derecha.png" alt="Flecha derecha">
-                </button>
+            <button class="arrow right">
+                <img src="src/carousel/flecha-derecha.png" alt="Flecha derecha">
+            </button>
         </div>
-        <div id="container2">
+
+        <div class="containerMiniCarusel">
+            <div class="inner-container">
+                <a class="itemMC" href="game.html"> 
+                    <img src="src/games/4_en_linea.webp" alt="juego">
+                    <h4>Rayo y Luna</h4>
+                </a>
+                <a class="itemMC" href="game.html"> 
+                    <img src="src/games/Minercat4.jpg" alt="juego">
+                    <h4>Miner Cat 4</h4>
+                </a>
+                <a class="itemMC" href="game.html"> 
+                    <img src="src/games/kitty-cats.avif" alt="juego">
+                    <h4>Kitty Cats</h4>
+                </a>
+                <a class="itemMC" href="game.html"> 
+                    <img src="src/games/cat-life-simulator.avif" alt="juego">                  
+                    <h4>Cat Life Simulator</h4>
+                </a>
+                <a class="itemMC" href="game.html"> 
+                    <img src="src/games/cat-lovescapes.avif" alt="juego">
+                    <h4>Cat Lovescapes</h4>
+                </a>
+            </div>
+        </div>
+
+        <div id="card-slider">
             <div id="featured-cards-container">
                 <span onclick="slideRight()" class="slide-btn slide-btn-left"></span>
-                <div id="featured-cards"></div>    
+                <div id="featured-cards"></div>
                 <span onclick="slideLeft()" class="slide-btn slide-btn-right"></span>
-                
             </div>
+        </div>
+        <div class="card-slider-mobile-container">
+            <section id="card-slider-mobile">
+                <input type="radio" name="slider" id="s1">
+                <input type="radio" name="slider" id="s2">
+                <input type="radio" name="slider" id="s3" checked>
+                <input type="radio" name="slider" id="s4">
+                <input type="radio" name="slider" id="s5">
+                <label href="#" for="s1" id="slide1"><img src="https://images.crazygames.com/free-the-cat-puzzle-game_16x9/20231113164504/free-the-cat-puzzle-game_16x9-cover?auto=format%2Ccompress&q=90&cs=strip&ch=DPR&w=1920&h=1080&fit=crop" alt="juego1"></label>
+                <label href="#" for="s2" id="slide2"><img src="https://images.crazygames.com/cats-and-bees/20230106042701/cats-and-bees-cover?auto=format%2Ccompress&q=90&cs=strip&ch=DPR&w=1920&h=1080&fit=crop" alt="juego1"></label>
+                <label href="#" for="s3" id="slide3"><img src="https://images.crazygames.com/cat-bakery_16x9/20240320084916/cat-bakery_16x9-cover?auto=format%2Ccompress&q=90&cs=strip&ch=DPR&w=1920&h=1080&fit=crop" alt="juego1"></label>
+                <label href="#" for="s4" id="slide4"><img src="https://images.crazygames.com/push-push-cat/20230214072349/push-push-cat-cover?auto=format%2Ccompress&q=90&cs=strip&ch=DPR&w=1920&h=1080&fit=crop" alt="juego1"></label>
+                <label href="#" for="s5" id="slide5"><img src="https://images.crazygames.com/kity-builder/20210504122712/kity-builder-cover?auto=format%2Ccompress&q=90&cs=strip&ch=DPR&w=1920&h=1080&fit=crop" alt="juego1"></label>
+            </section>
         </div>
 
 
@@ -252,6 +323,7 @@
             </p>
         </div>
     </footer>
+    <script src="scripts/loader.js"></script>
     <script src="scripts/carousel.js"></script>
     <script src="scripts/cards.js"></script>
     <script src="scripts/sidebar.js"></script>

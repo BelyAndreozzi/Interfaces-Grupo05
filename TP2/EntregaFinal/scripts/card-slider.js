@@ -67,12 +67,14 @@ function createFeaturedCards(featuredGames) {
         let textPrice;
         let textBtn;
         if (game.es_gratis) {
-            textPrice = "Gratis";
+            textPrice = "GRATIS";
             textBtn = "Jugar";
+            btnClass = "btn--action";
 
         } else {
             textPrice = `$${game.precio}`;
-            textBtn = "Comprar";
+            textBtn = "Agregar";
+            btnClass = "btn--action-comprar";
         }
         featuredCardsContainer.innerHTML +=
             `
@@ -82,19 +84,21 @@ function createFeaturedCards(featuredGames) {
                                 <h3 class="card-name">${game.nombre_del_juego}</h3>
                                 <div class="ft-card-bottom-container">
                                     <p class="card-price">${textPrice}</p>
-                                    <button class="card-btn">${textBtn}</button> 
+                                    <div>
+                                        <a href="#" class=" card-button ${btnClass}"><span> ${textBtn} </span></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>    
                 `
-        
+
     });
 }
 
 
 
 
-let container = document.getElementById('container2');
+let container = document.getElementById('card-slider');
 let featuredCards = document.getElementById('featured-cards');
 let cards = document.getElementsByClassName('featured-card').length;
 let buttons = document.getElementsByClassName('slide-btn');
@@ -147,7 +151,7 @@ function setParams(w) {
 
 setParams();
 
-function slideRight(){
+function slideRight() {
     if (currentPosition != 0) {
         featuredCards.style.marginLeft = currentMargin + (100 / (cardsPerPage - 0.1)) + '%';
         currentMargin += (100 / (cardsPerPage - 0.1));
@@ -162,7 +166,7 @@ function slideRight(){
 
 }
 
-function slideLeft(){
+function slideLeft() {
     if (currentPosition != cardsCount) {
         featuredCards.style.marginLeft = currentMargin - (100 / (cardsPerPage - 0.1)) + '%';
         currentMargin -= (100 / (cardsPerPage - 0.1));

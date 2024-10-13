@@ -32,29 +32,6 @@
 	left: 30%;
 }
 
-.formButton {
-	border-radius: 20px;
-	background-color: #FF00B2;
-	color: #FFFFFF;
-	font-size: 16px;
-	padding: 12px 45px;
-	transition: transform 80ms ease-in;
-	margin-top: 5%;
-}
-
-.formButton:active {
-	transform: scale(0.95);
-}
-
-.formButton:focus {
-	outline: none;
-}
-
-.formButton.ghost {
-	background-color: transparent;
-	border-color: #FFFFFF;
-}
-
 .registrationForm {
 	background-color: #2E3366;
 	display: flex;
@@ -68,6 +45,7 @@
 
 .registrationForm h1 {
 	font-size: 48px;
+	margin-top: auto;
 }
 
 .input-box {
@@ -145,7 +123,7 @@
 }
 
 .captcha-container {
-	margin: 5%;
+	margin: 5% 5% 0 5%;
 }
 
 .container {
@@ -280,7 +258,7 @@
 }
 
 .social-container {
-	margin: 20px 0;
+	margin: 10px 0 15px 0;
 }
 
 .social-container a {
@@ -307,6 +285,14 @@
 
 }
 
+.registrationForm p {
+	margin-bottom: 10px;
+}
+
+.pSignIn{
+	margin-top: auto;
+}
+
 p .link {
 	color: #FF00B2;
 }
@@ -314,4 +300,8 @@ p .link {
 p .link:hover {
 	cursor: pointer;
 	font-weight: bold;
+}
+
+.hide-popover {
+	display: none;
 }
