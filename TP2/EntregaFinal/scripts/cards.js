@@ -85,8 +85,8 @@ let games = [
     {
         "imagen": "https://images.crazygames.com/dwarves-glory-death-and-loot/20230510063256/dwarves-glory-death-and-loot-cover?auto=format%2Ccompress&q=65&cs=strip&ch=DPR&w=1920&h=1080&fit=crop",
         "nombre_del_juego": "Dwarves Glory: Death and Loot",
-        "precio": 0.00,
-        "es_gratis": true,
+        "precio": 45.99,
+        "es_gratis": false,
         "categoria": "Accion"
     },
     {
@@ -113,8 +113,8 @@ let games = [
     {
         "imagen": "https://images.crazygames.com/epic-empire-tower-defense_16x9/20240819044402/epic-empire-tower-defense_16x9-cover?auto=format%2Ccompress&q=65&cs=strip&ch=DPR&w=1920&h=1080&fit=crop",
         "nombre_del_juego": "Epic Empire: Tower Defense",
-        "precio": 0.00,
-        "es_gratis": true,
+        "precio": 32.50,
+        "es_gratis": false,
         "categoria": "Accion"
     },
     {
@@ -134,15 +134,15 @@ let games = [
     {
         "imagen": "https://images.crazygames.com/jump-up-3d-basketball-game_16x9/20240930101128/jump-up-3d-basketball-game_16x9-cover?auto=format%2Ccompress&q=65&cs=strip&ch=DPR&w=1920&h=1080&fit=crop",
         "nombre_del_juego": "Jump Up 3D",
-        "precio": 0.00,
-        "es_gratis": true,
+        "precio": 27.75,
+        "es_gratis": false,
         "categoria": "Baloncesto"
     },
     {
         "imagen": "https://images.crazygames.com/games/tap-tap-shots/cover-1655202548222.png?auto=format%2Ccompress&q=65&cs=strip&ch=DPR&w=1920&h=1080&fit=crop",
         "nombre_del_juego": "Tap Tap Shots",
-        "precio": 0.00,
-        "es_gratis": true,
+        "precio": 89.20,
+        "es_gratis": false,
         "categoria": "Baloncesto"
     },
     {
@@ -197,8 +197,8 @@ let games = [
     {
         "imagen": "https://images.crazygames.com/spooky-tripeaks/20221010121338/spooky-tripeaks-cover?auto=format%2Ccompress&q=65&cs=strip&ch=DPR&w=1920&h=1080&fit=crop",
         "nombre_del_juego": "Spooky Tripeaks",
-        "precio": 0.00,
-        "es_gratis": true,
+        "precio": 15.49,
+        "es_gratis": false,
         "categoria": "Cartas"
     },
     {
@@ -211,8 +211,8 @@ let games = [
     {
         "imagen": "https://images.crazygames.com/games/solitaire-farm-seasons-2/cover-1683001381829.jpeg?auto=format%2Ccompress&q=65&cs=strip&ch=DPR&w=1920&h=1080&fit=crop",
         "nombre_del_juego": "Soliitaire Farm: Seasons 2",
-        "precio": 0.00,
-        "es_gratis": true,
+        "precio": 78.99,
+        "es_gratis": false,
         "categoria": "Cartas"
     },
     {
@@ -225,8 +225,8 @@ let games = [
     {
         "imagen": "https://images.crazygames.com/games/fireboy-and-watergirl-the-forest-temple/cover-1586285142530.jpg?auto=format%2Ccompress&q=65&cs=strip&ch=DPR&w=1920&h=1080&fit=crop",
         "nombre_del_juego": "Fireboy and Watergirl: The Forest Temple",
-        "precio": 0.00,
-        "es_gratis": true,
+        "precio": 66.40,
+        "es_gratis": false,
         "categoria": "Clasicos"
     },
     {
@@ -239,8 +239,8 @@ let games = [
     {
         "imagen": "https://images.crazygames.com/words-of-wonders_16x9/20231019163757/words-of-wonders_16x9-cover?auto=format%2Ccompress&q=65&cs=strip&ch=DPR&w=1920&h=1080&fit=crop",
         "nombre_del_juego": "Words of Wonders",
-        "precio": 0.00,
-        "es_gratis": true,
+        "precio": 53.10,
+        "es_gratis": false,
         "categoria": "Clasicos"
     },
     {
@@ -267,15 +267,15 @@ let games = [
     {
         "imagen": "https://images.crazygames.com/max-mixed-cocktails_16x9/20240513091908/max-mixed-cocktails_16x9-cover?auto=format%2Ccompress&q=90&cs=strip&ch=DPR&w=1920&h=1080&fit=crop",
         "nombre_del_juego": "Max Mixed Cocktails",
-        "precio": 0.00,
-        "es_gratis": true,
+        "precio": 12.99,
+        "es_gratis": false,
         "categoria": "Cocinar"
     },
     {
         "imagen": "https://images.crazygames.com/cooking-live_16x9/20231213131049/cooking-live_16x9-cover?auto=format%2Ccompress&q=90&cs=strip&ch=DPR&w=1920&h=1080&fit=crop",
         "nombre_del_juego": "Cooking Live",
-        "precio": 0.00,
-        "es_gratis": true,
+        "precio": 9.25,
+        "es_gratis": false,
         "categoria": "Cocinar"
     },
     {
@@ -288,15 +288,15 @@ let games = [
     {
         "imagen": "https://images.crazygames.com/merge-cooking-game_16x9/20240404074012/merge-cooking-game_16x9-cover?auto=format%2Ccompress&q=90&cs=strip&ch=DPR&w=1920&h=1080&fit=crop",
         "nombre_del_juego": "Merge Cooking Game",
-        "precio": 0.00,
-        "es_gratis": true,
+        "precio": 58.80,
+        "es_gratis": false,
         "categoria": "Cocinar"
     },
     {
         "imagen": "https://images.crazygames.com/daily-room-escape_16x9/20240214031258/daily-room-escape_16x9-cover?auto=format%2Ccompress&q=65&cs=strip&ch=DPR&w=1920&h=1080&fit=crop",
         "nombre_del_juego": "Daily Room Escape",
-        "precio": 0.00,
-        "es_gratis": true,
+        "precio": 34.60,
+        "es_gratis": false,
         "categoria": "Escape"
     },
     {
@@ -323,8 +323,8 @@ let games = [
     {
         "imagen": "https://images.crazygames.com/games/stealing-the-diamond/cover-1657103226139.png?auto=format%2Ccompress&q=65&cs=strip&ch=DPR&w=1920&h=1080&fit=crop",
         "nombre_del_juego": "Stealing the Diamond",
-        "precio": 0.00,
-        "es_gratis": true,
+        "precio": 44.55,
+        "es_gratis": false,
         "categoria": "Escape"
     },
     {
@@ -337,15 +337,15 @@ let games = [
     {
         "imagen": "https://images.crazygames.com/sort-parking_16x9/20240603130328/sort-parking_16x9-cover?auto=format%2Ccompress&q=65&cs=strip&ch=DPR&w=1920&h=1080&fit=crop",
         "nombre_del_juego": "Sort Parking",
-        "precio": 0.00,
-        "es_gratis": true,
+        "precio": 23.89,
+        "es_gratis": false,
         "categoria": "Estrategia"
     },
     {
         "imagen": "https://images.crazygames.com/chess-free_16x9/20240820031635/chess-free_16x9-cover?auto=format%2Ccompress&q=65&cs=strip&ch=DPR&w=1920&h=1080&fit=crop",
         "nombre_del_juego": "Chess Free",
-        "precio": 0.00,
-        "es_gratis": true,
+        "precio": 67.25,
+        "es_gratis": false,
         "categoria": "Estrategia"
     },
     {
@@ -365,8 +365,8 @@ let games = [
     {
         "imagen": "https://images.crazygames.com/gun-strike-runner_16x9/20240913040956/gun-strike-runner_16x9-cover?auto=format%2Ccompress&q=90&cs=strip&ch=DPR&w=1920&h=1080&fit=crop",
         "nombre_del_juego": "Gun Strike Runner",
-        "precio": 88,
-        "es_gratis": true,
+        "precio": 18.70,
+        "es_gratis": false,
         "categoria": "Armas"
     },
     {
@@ -379,22 +379,22 @@ let games = [
     {
         "imagen": "https://images.crazygames.com/guns-and-magic/20220615125059/guns-and-magic-cover?auto=format%2Ccompress&q=90&cs=strip&ch=DPR&w=1920&h=1080&fit=crop",
         "nombre_del_juego": "Guns And Magic",
-        "precio": 110,
-        "es_gratis": true,
+        "precio": 85.50,
+        "es_gratis": false,
         "categoria": "Armas"
     },
     {
         "imagen": "https://images.crazygames.com/muscle-gun-io_16x9/20240722033441/muscle-gun-io_16x9-cover?auto=format%2Ccompress&q=90&cs=strip&ch=DPR&w=1920&h=1080&fit=crop",
         "nombre_del_juego": "Muscle Gun",
-        "precio": 110,
-        "es_gratis": true,
+        "precio": 110.14,
+        "es_gratis": false,
         "categoria": "Armas"
     },
     {
         "imagen": "https://images.crazygames.com/idlegun/20220420165343/idlegun-cover?auto=format%2Ccompress&q=90&cs=strip&ch=DPR&w=1920&h=1080&fit=crop",
         "nombre_del_juego": "Idle Gun",
-        "precio": 110,
-        "es_gratis": true,
+        "precio": 110.14,
+        "es_gratis": false,
         "categoria": "Armas"
     },
     {
@@ -435,35 +435,35 @@ let games = [
     {
         "imagen": "https://images.crazygames.com/dino-domination/20230224172650/dino-domination-cover?auto=format%2Ccompress&q=90&cs=strip&ch=DPR&w=1920&h=1080&fit=crop",
         "nombre_del_juego": "Dino Domination",
-        "precio": 88,
-        "es_gratis": true,
+        "precio": 74.35,
+        "es_gratis": false,
         "categoria": "Dinosaurios"
     },
     {
         "imagen": "https://images.crazygames.com/dino-hunting-jurassic-world_16x9/20240425061518/dino-hunting-jurassic-world_16x9-cover?auto=format%2Ccompress&q=90&cs=strip&ch=DPR&w=1920&h=1080&fit=crop",
         "nombre_del_juego": "Dino Hunting",
-        "precio": 88,
-        "es_gratis": true,
+        "precio": 19.99,
+        "es_gratis": false,
         "categoria": "Dinosaurios"
     },
     {
         "imagen": "https://images.crazygames.com/dino-defense_16x9/20230906132455/dino-defense_16x9-cover?auto=format%2Ccompress&q=90&cs=strip&ch=DPR&w=1920&h=1080&fit=crop",
         "nombre_del_juego": "Dino Defense",
-        "precio": 88,
+        "precio": 0,
         "es_gratis": true,
         "categoria": "Dinosaurios"
     },
     {
         "imagen": "https://images.crazygames.com/dino-crowd/20230718174343/dino-crowd-cover?auto=format%2Ccompress&q=90&cs=strip&ch=DPR&w=1920&h=1080&fit=crop",
         "nombre_del_juego": "Dino Crowd",
-        "precio": 88,
+        "precio": 0,
         "es_gratis": true,
         "categoria": "Dinosaurios"
     },
     {
         "imagen": "https://images.crazygames.com/dino-s-farm-shop/20230713171510/dino-s-farm-shop-cover?auto=format%2Ccompress&q=90&cs=strip&ch=DPR&w=1920&h=1080&fit=crop",
         "nombre_del_juego": "Dino's Farm Shop",
-        "precio": 88,
+        "precio": 0,
         "es_gratis": true,
         "categoria": "Dinosaurios"
     },
@@ -547,8 +547,8 @@ let games = [
     {
         "imagen": "https://images.crazygames.com/a-small-world-cup-snk_16x9/20240607095737/a-small-world-cup-snk_16x9-cover?auto=format%2Ccompress&q=65&cs=strip&ch=DPR&w=1920&h=1080&fit=crop",
         "nombre_del_juego": "A Small World Cup",
-        "precio": 0.00,
-        "es_gratis": true,
+        "precio": 45.99,
+        "es_gratis": false,
         "categoria": "Futbol"
     },
     {
@@ -561,8 +561,8 @@ let games = [
     {
         "imagen": "https://images.crazygames.com/free-kick-underground-v3_16x9/20240924034613/free-kick-underground-v3_16x9-cover?auto=format%2Ccompress&q=65&cs=strip&ch=DPR&w=1920&h=1080&fit=crop",
         "nombre_del_juego": "Free Kick Underground",
-        "precio": 0.00,
-        "es_gratis": true,
+        "precio": 27.75,
+        "es_gratis": false,
         "categoria": "Futbol"
     },
     {
@@ -617,22 +617,22 @@ let games = [
     {
         "imagen": "https://images.crazygames.com/math-push/20220103160234/math-push-cover?auto=format%2Ccompress&q=90&cs=strip&ch=DPR&w=1920&h=1080&fit=crop",
         "nombre_del_juego": "Math Push",
-        "precio": 0.00,
-        "es_gratis": true,
+        "precio": 78.99,
+        "es_gratis": false,
         "categoria": "Matematicas"
     },
     {
         "imagen": "https://images.crazygames.com/math-expressions/20220916215659/math-expressions-cover?auto=format%2Ccompress&q=90&cs=strip&ch=DPR&w=1920&h=1080&fit=crop",
         "nombre_del_juego": "Math Express-ions",
-        "precio": 0.00,
-        "es_gratis": true,
+        "precio": 12.99,
+        "es_gratis": false,
         "categoria": "Matematicas"
     },
     {
         "imagen": "https://images.crazygames.com/dino-addition-race/20230117035122/dino-addition-race-cover?auto=format%2Ccompress&q=65&cs=strip&ch=DPR&w=1920&h=1080&fit=crop",
         "nombre_del_juego": "Dino Addition Race",
-        "precio": 0.00,
-        "es_gratis": true,
+        "precio": 66.40,
+        "es_gratis": false,
         "categoria": "Matematicas"
     },
     {
@@ -680,8 +680,8 @@ let games = [
     {
         "imagen": "https://images.crazygames.com/ball-blaster/20230511103019/ball-blaster-cover?auto=format%2Ccompress&q=90&cs=strip&ch=DPR&w=1920&h=1080&fit=crop",
         "nombre_del_juego": "Ball Blaster",
-        "precio": 0.00,
-        "es_gratis": true,
+        "precio": 34.60,
+        "es_gratis": false,
         "categoria": "Bolas"
     },
     {
@@ -694,15 +694,15 @@ let games = [
     {
         "imagen": "https://images.crazygames.com/fruit-balls-juicy-fusion_16x9/20240610100414/fruit-balls-juicy-fusion_16x9-cover?auto=format%2Ccompress&q=90&cs=strip&ch=DPR&w=1920&h=1080&fit=crop",
         "nombre_del_juego": "Fruit Balls: Juicy Fusion",
-        "precio": 0.00,
-        "es_gratis": true,
+        "precio": 44.55,
+        "es_gratis": false,
         "categoria": "Bolas"
     },
     {
         "imagen": "https://images.crazygames.com/satisfying-ball-clicker_16x9/20240717094404/satisfying-ball-clicker_16x9-cover?auto=format%2Ccompress&q=90&cs=strip&ch=DPR&w=1920&h=1080&fit=crop",
         "nombre_del_juego": "Ball Clicker",
-        "precio": 0.00,
-        "es_gratis": true,
+        "precio": 67.25,
+        "es_gratis": false,
         "categoria": "Bolas"
     },
     {
@@ -715,50 +715,50 @@ let games = [
     {
         "imagen": "https://images.crazygames.com/stickman-world-war/20210524131240/stickman-world-war-cover?auto=format%2Ccompress&q=90&cs=strip&ch=DPR&w=1920&h=1080&fit=crop",
         "nombre_del_juego": "StickMan WorldWar",
-        "precio": 88,
+        "precio": 0,
         "es_gratis": true,
         "categoria": "Guerra"
     },
     {
         "imagen": "https://images.crazygames.com/rift-of-hell---demons-war_16x9/20241009060921/rift-of-hell---demons-war_16x9-cover?auto=format%2Ccompress&q=65&cs=strip&ch=DPR&w=1920&h=1080&fit=crop",
         "nombre_del_juego": "Demons War",
-        "precio": 88,
+        "precio": 0,
         "es_gratis": true,
         "categoria": "Guerra"
     },
     {
         "imagen": "https://images.crazygames.com/games/warcall-io/cover-1604914734657.png?auto=format%2Ccompress&q=90&cs=strip&ch=DPR&w=1920&h=1080&fit=crop",
         "nombre_del_juego": "War Call",
-        "precio": 88,
+        "precio": 0,
         "es_gratis": true,
         "categoria": "Guerra"
     },
     {
         "imagen": "https://images.crazygames.com/age-of-tanks-warriors-td-war_16x9/20240424032706/age-of-tanks-warriors-td-war_16x9-cover?auto=format%2Ccompress&q=90&cs=strip&ch=DPR&w=1920&h=1080&fit=crop",
         "nombre_del_juego": "Age of Tanks",
-        "precio": 88,
-        "es_gratis": true,
+        "precio": 19.99,
+        "es_gratis": false,
         "categoria": "Guerra"
     },
     {
         "imagen": "https://images.crazygames.com/games/air-wars-3/cover-1658217947339.png?auto=format%2Ccompress&q=90&cs=strip&ch=DPR&w=1920&h=1080&fit=crop",
         "nombre_del_juego": "Air Wars 3",
-        "precio": 88,
+        "precio": 0,
         "es_gratis": true,
         "categoria": "Guerra"
     },
     {
         "imagen": "https://images.crazygames.com/miniblox_16x9/20240617083401/miniblox_16x9-cover?auto=format%2Ccompress&q=65&cs=strip&ch=DPR&w=1920&h=1080&fit=crop",
         "nombre_del_juego": "Miniblox",
-        "precio": 0.00,
-        "es_gratis": true,
+        "precio": 18.70,
+        "es_gratis": false,
         "categoria": "Infantiles"
     },
     {
         "imagen": "https://images.crazygames.com/horse-family-animal-simulator-3d_16x9/20231107025956/horse-family-animal-simulator-3d_16x9-cover?auto=format%2Ccompress&q=65&cs=strip&ch=DPR&w=1920&h=1080&fit=crop",
         "nombre_del_juego": "Horse Family Animal Simulator 3D",
-        "precio": 0.00,
-        "es_gratis": true,
+        "precio": 67.25,
+        "es_gratis": false,
         "categoria": "Infantiles"
     },
     {
@@ -842,21 +842,6 @@ function createCards(games, category) {
                     </div>
                 </div>
             `
-
-            // `
-            // <div class="card" id="card-${game.nombre_del_juego}">
-            //     <img class="card-image" src="${game.imagen}" alt="${game.nombre_del_juego}">
-            //     <div class="card-description">
-            //         <h3 class="card-name">${game.nombre_del_juego}</h3>
-            //             <div class="card-bottom-container">
-            //                 <p class="card-price">${textPrice}</p>
-            //                 <button class="card-btn ${btnClass}">${textBtn}</button> 
-            //             </div>
-            //         </div>
-            //     </div>
-            // `
-
-
         }
     });
 }

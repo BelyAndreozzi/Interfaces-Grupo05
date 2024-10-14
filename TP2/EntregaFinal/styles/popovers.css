@@ -1,12 +1,12 @@
-        /* Cart */
+                /* Cart */
 
 .popoverCart {
   display: none;
   position: absolute;
   top: 90px;
-  left: 85%;
+  left: 85.5%;
   transform: translateX(-50%);
-  width: 250px;
+  width: 320px;
   background-color: #2E3366;
   border-radius: 10px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
@@ -16,12 +16,27 @@
 .popover-arrow {
   position: absolute;
   top: -10px;
-  left: 120px;
+  left: 47%;
   width: 0;
   height: 0;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
   border-bottom: 10px solid #2E3366;
+}
+
+.line-popover {
+  background-color: #F47FFE;;
+  height: 0.5px;
+  width: 90%;
+  margin: 20px 0;
+  margin-left: 5%;
+}
+
+.popover-content h3 {
+  text-align: center;
+  margin-bottom: 10%;
+  font-size: 20px;
+  font-weight: normal;
 }
 
 .popover-content {
@@ -36,15 +51,22 @@
 
 .cart-item {
   display: flex;
-  align-items: center;
-  margin-bottom: 10px;
+  align-items: top;
+  margin: 30px 0;
 }
 
-.cart-item img {
-  width: 40px;
-  height: 40px;
+.subtotal {
+  text-align: center;
+}
+
+
+
+.cart-item .cart-game-image {
+  width: 70px;
+  height: 100px;
   margin-right: 10px;
-  border-radius: 5px;
+  border-radius: 2px;
+  object-fit: cover;
 }
 
 .item-info {
@@ -53,44 +75,89 @@
   width: 100%;
 }
 
-.price {
-  color: #007bff;
-  font-weight: bold;
-}
-
 .checkout-btn {
-  width: 100%;
+  width: 40%;
   padding: 10px;
-  background-color: #28a745;
+  background-color: #FF00B2;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 60px;
   cursor: pointer;
 }
 
 .checkout-btn:hover {
-  background-color: #218838;
+  transform: scale(1.05);
+  background-color: #d30094;
 }
 
-        /* Favoritos */
+
+.cart-buttons-container {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 15px;
+}
+
+.cart-delete {  
+  width: 30px;
+  height: 30px;
+  align-self: center;
+  margin-top: 20px;
+  cursor: pointer;
+}
+.cart-delete:hover {  
+  transform: scale(1.1);
+}
+
+.item-info div {
+  width: 30%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.item-info div p {
+  align-self: center;
+}
+
+               /* Favoritos */
 
 .favorites-popover {
+  height: 600px;
   display: none;
   position: absolute;
-  top: 50px;
-  left: 50%;
+  top: 90px;
+  left: 86%;
   transform: translateX(-50%);
   width: 300px;
-  background-color: #292953;
+  background-color: #2E3366;
   border-radius: 10px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   z-index: 100;
+  overflow: scroll;
 }
 
-.popover-arrow {
+.favorites-popover::-webkit-scrollbar {
+  height: 80%;
+  padding-top: 20px;
+  width: 3px;
+}   
+
+.favorites-popover::-webkit-scrollbar-thumb {
+  background-color: #EB00FF;
+  border-radius: 10px;
+  border: 3px solid rgba(255, 255, 255, 0);
+}
+
+.favorites-popover::-webkit-scrollbar-track {
+  background-color: #2E3366;
+  border-radius: 10px;
+}
+
+.popover-arrow-favorites {
   position: absolute;
   top: -10px;
-  left: 50%;
+  left: 74%;
   transform: translateX(-50%);
   width: 0;
   height: 0;
@@ -99,9 +166,33 @@
   border-bottom: 10px solid #2E3366;
 }
 
+
 .favorites-content {
   padding: 20px;
   color: white;
+}
+
+.favorites-content h3 {
+  text-align: center;
+  margin-bottom: 10%;
+  font-size: 20px;
+  font-weight: normal;
+  
+}
+
+.favorites-content div {
+  display: flex;
+  justify-content: space-around;
+
+}
+.favorites-content div h4{
+  font-weight: normal;
+
+}
+
+.favorites-content .line-popover {
+  margin-top: 10px;
+  
 }
 
 .favorites-items {
@@ -119,7 +210,10 @@
 
 .favorite-item img {
   width: 90%;
+  height: 140px;
+  object-fit: cover;
   border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px #F47FFE;
 }
 
 .favorite-item p {

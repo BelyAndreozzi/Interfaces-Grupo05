@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/popovers.css">
     <link rel="stylesheet" href="styles/game.css">
     <link rel="stylesheet" href="styles/buttons.css">
     <link rel="stylesheet" href="styles/registrationForm.css">
@@ -36,23 +37,112 @@
                 <img src="src/header/lupa.png" alt="Buscar">
             </button>
         </div>
+
         <div class="header-container-right">
+
             <div class="header-icon-container">
-                <button class="header-icon header-icon-expand">
-                    <img src="src/header/cart.png" alt="Favoritos">
+                <button id="cart-button" class="header-icon header-icon-expand">
+                    <img src="src/header/cart.png" alt="Carrito">
                 </button>
+
+                <div id="popoverCart" class="popoverCart">
+                    <div class="popover-arrow"></div>
+                    <div class="popover-content">
+                        <h3>Mi Carrito</h3>
+                        <ul class="cart-items">
+                            <li class="cart-item">
+                                <img class="cart-game-image"  src="src/games/Minercat4.jpg" alt="Game 1">
+                                <div class="item-info">
+                                    <p>Miner Cat</p>
+                                    <div>
+                                        <p class="price">$9.99</p>
+                                        <img class="cart-delete" src="src/misc/eliminarCart.png" alt="">
+                                    </div>
+                                </div>
+                            </li>
+                            <li><div class="line-popover"></div></li>
+                            <li class="cart-item">
+                                <img class="cart-game-image" src="src/games/4_en_linea.webp" alt="Game 2">
+                                <div class="item-info">
+                                    <p>4 en línea</p>
+                                    <div>
+                                        <p class="price">$12.99</p>
+                                        <img class="cart-delete" src="src/misc/eliminarCart.png" alt="">
+                                    </div>
+                                    
+                                </div>
+                            </li>
+                            <li><div class="line-popover"></div></li>
+                            <li class="cart-item">
+                                <img class="cart-game-image" src="src/games/kitty-cats.avif" alt="Game 3">
+                                <div class="item-info">
+                                    <p>Kitty Cats</p>
+                                    <div>
+                                        <p class="price">$7.99</p>
+                                        <img class="cart-delete" src="src/misc/eliminarCart.png" alt="">
+                                    </div>
+                                    
+                                </div>
+                            </li>
+                            <li><div class="line-popover"></div></li>
+                        </ul>
+                        <p class="subtotal">Subtotal: $<span id="total-price">0.00</span></p>
+                        <div class="cart-buttons-container">
+                            <button class="checkout-btn">Comprar ahora</button>
+                            <button class="checkout-btn">Ver carrito</button>
+                        </div>
+                    </div>
+                </div>
+
             </div>
             <div class="header-icon-container">
-                <button class="header-icon header-icon-expand">
+                <button id="favorites-button" class="header-icon header-icon-expand">
                     <img src="src/header/fav.png" alt="Favoritos">
                 </button>
+
+                <div id="favorites-popover" class="favorites-popover">
+                    <div class="popover-arrow-favorites"></div>
+                    <div class="favorites-content">
+                        <h3>Mis Favoritos</h3>
+                        <div>
+                            <h4>Recientes</h4>
+                            <h4>Favoritos</h4>
+                        </div>
+                        <div class="line-popover"></div>
+                        <ul class="favorites-items">
+                            <li class="favorite-item">
+                                <img src="src/games/4_en_linea.webp" alt="Juego 1">
+                                <p>4 en línea</p>
+                            </li>
+                            <li class="favorite-item">
+                                <img src="src/games/Minercat4.jpg" alt="Juego 2">
+                                <p>Miner Cat 4</p>
+                            </li>
+                            <li class="favorite-item">
+                                <img src="src/games/find-cat-2.avif" alt="Juego 3">
+                                <p>Find Cat 2</p>
+                            </li>
+                            <li class="favorite-item">
+                                <img src="src/games/cat-life-simulator.avif" alt="Juego 3">
+                                <p>Cat Life Simulator</p>
+                            </li>
+                            <li class="favorite-item">
+                                <img src="src/games/kitty-cats.avif" alt="Juego 3">
+                                <p>Kitty Cats</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
             </div>
+
+            
             <button popovertarget="loginForm" class="text-img-btn">
                 <span class="button-text">Acceder</span>
                 <img src="src/header/gamer-profile.png" alt="Usuario">
             </button>
         </div>
-        <!-- Formulario de inicio de sesión y registro -->
+        <!-- Formulario de inicio de sesion y registro -->
         <dialog popover id="loginForm">
             <div class="container" id="formContainerJS">
                 <div class="form-container sign-up-container">
@@ -72,7 +162,14 @@
                             <input type="checkbox">
                             <span class="checkmark"></span> Recuérdame
                         </label>
-                        <button type="submit" class="formButton">Inicia sesión</button>
+                        <div>
+                            <button id="logSubmitBtn" class="submitBtn" type="submit">
+                                <p id="logBtnSubmitText">Iniciar sesion</p>
+                                <div class="check-box">
+                                    <img src="src/login-registration-form/check.png" alt="Inicio correcto">
+                                </div>
+                            </button>
+                        </div>
                         <div class="divisores">
                             <div class="divisor"></div>
                             <span>o</span>
@@ -83,7 +180,7 @@
                                     alt="Registrate con Facebook"></a>
                             <a href="#" class="social"><img src="src/redes-sociales/google.png" alt=""></a>
                         </div>
-                        <p>¿NO tienes cuenta? <a id="signIn" class="link">Registrate</a></p>
+                        <p class="pSignIn">¿NO tienes cuenta? <a id="signIn" class="link">Registrate</a></p>
                     </form>
                 </div>
                 <div class="form-container sign-in-container">
@@ -122,7 +219,12 @@
                         <div class="captcha-container">
                             <img src="src/login-registration-form/Captcha.svg" alt="">
                         </div>
-                        <button type="submit" class="formButton">Registrarse</button>
+                        <button id="regSubmitBtn" class="submitBtn formButton" type="submit">
+                            <p id="regBtnSubmitText">Registrarse</p>
+                            <div class="check-box">
+                                <img src="src/login-registration-form/check.png" alt="dislkike">
+                            </div>
+                        </button>
                         <div class="divisores">
                             <div class="divisor"></div>
                             <span>o</span>
@@ -460,6 +562,7 @@
     </footer>
     <script src="scripts/sidebar.js"></script>
     <script src="scripts/form.js"></script>
+    <script src="scripts/popovers.js"></script>
 </body>
 
 </html>

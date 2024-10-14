@@ -10,9 +10,9 @@
     <link rel="stylesheet" href="styles/registrationForm.css">
     <link rel="stylesheet" href="styles/buttons.css">
     <link rel="stylesheet" href="styles/loader.css">
+    <link rel="stylesheet" href="styles/popovers.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="styles/popovers.css">
     <link rel="shortcut icon" href="src/header/logato-cortado.jpg" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" rel="stylesheet">
     <title>MeowTrópolis</title>
@@ -61,33 +61,49 @@
                 <div id="popoverCart" class="popoverCart">
                     <div class="popover-arrow"></div>
                     <div class="popover-content">
-                        <h3>Shopping Cart</h3>
+                        <h3>Mi Carrito</h3>
                         <ul class="cart-items">
                             <li class="cart-item">
-                                <img src="game1.jpg" alt="Game 1">
+                                <img class="cart-game-image"  src="src/games/Minercat4.jpg" alt="Game 1">
                                 <div class="item-info">
                                     <p>Miner Cat</p>
-                                    <p class="price">$9.99</p>
+                                    <div>
+                                        <p class="price">$9.99</p>
+                                        <img class="cart-delete" src="src/misc/eliminarCart.png" alt="">
+                                    </div>
                                 </div>
                             </li>
+                            <li><div class="line-popover"></div></li>
                             <li class="cart-item">
-                                <img src="game2.jpg" alt="Game 2">
+                                <img class="cart-game-image" src="src/games/4_en_linea.webp" alt="Game 2">
                                 <div class="item-info">
                                     <p>4 en línea</p>
-                                    <p class="price">$12.99</p>
+                                    <div>
+                                        <p class="price">$12.99</p>
+                                        <img class="cart-delete" src="src/misc/eliminarCart.png" alt="">
+                                    </div>
+                                    
                                 </div>
                             </li>
+                            <li><div class="line-popover"></div></li>
                             <li class="cart-item">
-                                <img src="game3.jpg" alt="Game 3">
+                                <img class="cart-game-image" src="src/games/kitty-cats.avif" alt="Game 3">
                                 <div class="item-info">
                                     <p>Kitty Cats</p>
-                                    <p class="price">$7.99</p>
+                                    <div>
+                                        <p class="price">$7.99</p>
+                                        <img class="cart-delete" src="src/misc/eliminarCart.png" alt="">
+                                    </div>
+                                    
                                 </div>
                             </li>
+                            <li><div class="line-popover"></div></li>
                         </ul>
                         <p class="subtotal">Subtotal: $<span id="total-price">0.00</span></p>
-                        <button class="checkout-btn">Comprar ahora</button>
-                        <button class="checkout-btn">Ver carrito</button>
+                        <div class="cart-buttons-container">
+                            <button class="checkout-btn">Comprar ahora</button>
+                            <button class="checkout-btn">Ver carrito</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -97,21 +113,34 @@
                 </button>
                 
                 <div id="favorites-popover" class="favorites-popover">
-                    <div class="popover-arrow"></div>
+                    <div class="popover-arrow-favorites"></div>
                     <div class="favorites-content">
-                        <h3>Mis Juegos Favoritos</h3>
+                        <h3>Mis Favoritos</h3>
+                        <div>
+                            <h4>Recientes</h4>
+                            <h4>Favoritos</h4>
+                        </div>
+                        <div class="line-popover"></div>
                         <ul class="favorites-items">
                             <li class="favorite-item">
-                                <img src="fav1.jpg" alt="Juego 1">
+                                <img src="src/games/4_en_linea.webp" alt="Juego 1">
                                 <p>4 en línea</p>
                             </li>
                             <li class="favorite-item">
-                                <img src="fav2.jpg" alt="Juego 2">
+                                <img src="src/games/Minercat4.jpg" alt="Juego 2">
                                 <p>Miner Cat 4</p>
                             </li>
                             <li class="favorite-item">
-                                <img src="fav3.jpg" alt="Juego 3">
+                                <img src="src/games/find-cat-2.avif" alt="Juego 3">
                                 <p>Find Cat 2</p>
+                            </li>
+                            <li class="favorite-item">
+                                <img src="src/games/cat-life-simulator.avif" alt="Juego 3">
+                                <p>Cat Life Simulator</p>
+                            </li>
+                            <li class="favorite-item">
+                                <img src="src/games/kitty-cats.avif" alt="Juego 3">
+                                <p>Kitty Cats</p>
                             </li>
                         </ul>
                     </div>
@@ -320,7 +349,7 @@
             <div class="featured-title">
                 <img class="category-image" src="src/misc/fuego.png">
                 <h2 class="featured-name"> Juegos destacados </h2>
-            </div>
+            </div> 
 
             <div id="card-slider">
                 <div id="featured-cards-container">
