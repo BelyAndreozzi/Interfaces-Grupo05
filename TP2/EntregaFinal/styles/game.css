@@ -124,6 +124,9 @@ main{
 
 .game-galery {
     width: 345px;
+    border: 1px solid #00FFED;;
+    box-shadow: 0 0 3px 0px #00FFED;
+    margin-right: 5px;
 }
 
 /*CAJA 1-2*/
@@ -137,7 +140,7 @@ main{
     margin-left: 4%;
     padding-left: 1%;
     padding-right: 2%;
-    border: aqua solid 1px;
+    border: #00FFED solid 1px;
     border-radius: 30px;
 }
 

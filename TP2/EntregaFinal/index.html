@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="styles/loader.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="styles/popovers.css">
     <link rel="shortcut icon" href="src/header/logato-cortado.jpg" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" rel="stylesheet">
     <title>MeowTrópolis</title>
@@ -52,21 +53,75 @@
 
         <div class="header-container-right">
             <div class="header-icon-container">
-                <button class="header-icon header-icon-expand">
-                    <img src="src/header/cart.png" alt="Favoritos">
+                <button id="cart-button" class="header-icon header-icon-expand">
+                    <img src="src/header/cart.png" alt="Carrito">
                 </button>
+
+
+                <div id="popoverCart" class="popoverCart">
+                    <div class="popover-arrow"></div>
+                    <div class="popover-content">
+                        <h3>Shopping Cart</h3>
+                        <ul class="cart-items">
+                            <li class="cart-item">
+                                <img src="game1.jpg" alt="Game 1">
+                                <div class="item-info">
+                                    <p>Miner Cat</p>
+                                    <p class="price">$9.99</p>
+                                </div>
+                            </li>
+                            <li class="cart-item">
+                                <img src="game2.jpg" alt="Game 2">
+                                <div class="item-info">
+                                    <p>4 en línea</p>
+                                    <p class="price">$12.99</p>
+                                </div>
+                            </li>
+                            <li class="cart-item">
+                                <img src="game3.jpg" alt="Game 3">
+                                <div class="item-info">
+                                    <p>Kitty Cats</p>
+                                    <p class="price">$7.99</p>
+                                </div>
+                            </li>
+                        </ul>
+                        <p class="subtotal">Subtotal: $<span id="total-price">0.00</span></p>
+                        <button class="checkout-btn">Comprar ahora</button>
+                        <button class="checkout-btn">Ver carrito</button>
+                    </div>
+                </div>
             </div>
             <div class="header-icon-container">
-                <button class="header-icon header-icon-expand">
+                <button id="favorites-button" class="header-icon header-icon-expand">
                     <img src="src/header/fav.png" alt="Favoritos">
                 </button>
+                
+                <div id="favorites-popover" class="favorites-popover">
+                    <div class="popover-arrow"></div>
+                    <div class="favorites-content">
+                        <h3>Mis Juegos Favoritos</h3>
+                        <ul class="favorites-items">
+                            <li class="favorite-item">
+                                <img src="fav1.jpg" alt="Juego 1">
+                                <p>4 en línea</p>
+                            </li>
+                            <li class="favorite-item">
+                                <img src="fav2.jpg" alt="Juego 2">
+                                <p>Miner Cat 4</p>
+                            </li>
+                            <li class="favorite-item">
+                                <img src="fav3.jpg" alt="Juego 3">
+                                <p>Find Cat 2</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
             <button popovertarget="loginForm" class="text-img-btn">
                 <span class="button-text">Acceder</span>
                 <img src="src/header/gamer-profile.png" alt="Usuario">
             </button>
         </div>
-
 
         <!-- Formulario de inicio de sesión y registro -->
         <dialog popover id="loginForm">
@@ -187,6 +242,7 @@
     <nav id="nav-bar">
     </nav>
     <main>
+
         <!-- CARRUSEL -->
         <div class="carousel-container">
             <button class="arrow left">
@@ -238,55 +294,94 @@
 
         <div class="containerMiniCarusel">
             <div class="inner-container">
-                <a class="itemMC" href="game.html"> 
+                <a class="itemMC" href="game.html">
                     <img src="src/games/4_en_linea.webp" alt="juego">
                     <h4>Rayo y Luna</h4>
                 </a>
-                <a class="itemMC" href="game.html"> 
+                <a class="itemMC" href="game.html">
                     <img src="src/games/Minercat4.jpg" alt="juego">
                     <h4>Miner Cat 4</h4>
                 </a>
-                <a class="itemMC" href="game.html"> 
+                <a class="itemMC" href="game.html">
                     <img src="src/games/kitty-cats.avif" alt="juego">
                     <h4>Kitty Cats</h4>
                 </a>
-                <a class="itemMC" href="game.html"> 
-                    <img src="src/games/cat-life-simulator.avif" alt="juego">                  
+                <a class="itemMC" href="game.html">
+                    <img src="src/games/cat-life-simulator.avif" alt="juego">
                     <h4>Cat Life Simulator</h4>
                 </a>
-                <a class="itemMC" href="game.html"> 
+                <a class="itemMC" href="game.html">
                     <img src="src/games/cat-lovescapes.avif" alt="juego">
                     <h4>Cat Lovescapes</h4>
                 </a>
             </div>
         </div>
+        <div>
+            <div class="featured-title">
+                <img class="category-image" src="src/misc/fuego.png">
+                <h2 class="featured-name"> Juegos destacados </h2>
+            </div>
 
-        <div id="card-slider">
-            <div id="featured-cards-container">
-                <span onclick="slideRight()" class="slide-btn slide-btn-left"></span>
-                <div id="featured-cards"></div>
-                <span onclick="slideLeft()" class="slide-btn slide-btn-right"></span>
+            <div id="card-slider">
+                <div id="featured-cards-container">
+                    <span onclick="slideRight()" class="slide-btn slide-btn-left"></span>
+                    <div id="featured-cards"></div>
+                    <span onclick="slideLeft()" class="slide-btn slide-btn-right"></span>
+                </div>
+            </div>
+
+            <div class="card-slider-mobile-container">
+                <section id="card-slider-mobile">
+                    <input type="radio" name="slider" id="s1">
+                    <input type="radio" name="slider" id="s2">
+                    <input type="radio" name="slider" id="s3" checked>
+                    <input type="radio" name="slider" id="s4">
+                    <input type="radio" name="slider" id="s5">
+                    <label for="s1" class="slide" id="slide1">
+                        <a href="#" class="btn-slide-mobile"><img
+                                src="https://images.crazygames.com/free-the-cat-puzzle-game_16x9/20231113164504/free-the-cat-puzzle-game_16x9-cover?auto=format%2Ccompress&q=90&cs=strip&ch=DPR&w=1920&h=1080&fit=crop"
+                                alt="juego1"></a>
+                        <div class="slide-name-container">
+                            <p class="slide-name"> Free The Cat Puzzle </p>
+                        </div>
+                    </label>
+                    <label for="s2" class="slide" id="slide2">
+                        <a href="#" class="btn-slide-mobile"><img
+                                src="https://images.crazygames.com/cats-and-bees/20230106042701/cats-and-bees-cover?auto=format%2Ccompress&q=90&cs=strip&ch=DPR&w=1920&h=1080&fit=crop"
+                                alt="juego2"></a>
+                        <div class="slide-name-container">
+                            <p class="slide-name"> Cats and Bees </p>
+                        </div>
+                    </label>
+                    <label for="s3" class="slide" id="slide3">
+                        <a href="#" class="btn-slide-mobile"><img
+                                src="https://images.crazygames.com/cat-bakery_16x9/20240320084916/cat-bakery_16x9-cover?auto=format%2Ccompress&q=90&cs=strip&ch=DPR&w=1920&h=1080&fit=crop"
+                                alt="juego3"></a>
+                        <div class="slide-name-container">
+                            <p class="slide-name"> Cat Bakery </p>
+                        </div>
+                    </label>
+                    <label for="s4" class="slide" id="slide4">
+                        <a href="#" class="btn-slide-mobile"><img
+                                src="https://images.crazygames.com/push-push-cat/20230214072349/push-push-cat-cover?auto=format%2Ccompress&q=90&cs=strip&ch=DPR&w=1920&h=1080&fit=crop"
+                                alt="juego4"></a>
+                        <div class="slide-name-container">
+                            <p class="slide-name"> Push Push Cat </p>
+                        </div>
+                    </label>
+                    <label for="s5" class="slide" id="slide5">
+                        <a href="#" class="btn-slide-mobile"><img
+                                src="https://images.crazygames.com/kity-builder/20210504122712/kity-builder-cover?auto=format%2Ccompress&q=90&cs=strip&ch=DPR&w=1920&h=1080&fit=crop"
+                                alt="juego5"></a>
+                        <div class="slide-name-container">
+                            <p class="slide-name"> Kitty Builder </p>
+                        </div>
+                    </label>
+                </section>
             </div>
         </div>
-        <div class="card-slider-mobile-container">
-            <section id="card-slider-mobile">
-                <input type="radio" name="slider" id="s1">
-                <input type="radio" name="slider" id="s2">
-                <input type="radio" name="slider" id="s3" checked>
-                <input type="radio" name="slider" id="s4">
-                <input type="radio" name="slider" id="s5">
-                <label href="#" for="s1" id="slide1"><img src="https://images.crazygames.com/free-the-cat-puzzle-game_16x9/20231113164504/free-the-cat-puzzle-game_16x9-cover?auto=format%2Ccompress&q=90&cs=strip&ch=DPR&w=1920&h=1080&fit=crop" alt="juego1"></label>
-                <label href="#" for="s2" id="slide2"><img src="https://images.crazygames.com/cats-and-bees/20230106042701/cats-and-bees-cover?auto=format%2Ccompress&q=90&cs=strip&ch=DPR&w=1920&h=1080&fit=crop" alt="juego1"></label>
-                <label href="#" for="s3" id="slide3"><img src="https://images.crazygames.com/cat-bakery_16x9/20240320084916/cat-bakery_16x9-cover?auto=format%2Ccompress&q=90&cs=strip&ch=DPR&w=1920&h=1080&fit=crop" alt="juego1"></label>
-                <label href="#" for="s4" id="slide4"><img src="https://images.crazygames.com/push-push-cat/20230214072349/push-push-cat-cover?auto=format%2Ccompress&q=90&cs=strip&ch=DPR&w=1920&h=1080&fit=crop" alt="juego1"></label>
-                <label href="#" for="s5" id="slide5"><img src="https://images.crazygames.com/kity-builder/20210504122712/kity-builder-cover?auto=format%2Ccompress&q=90&cs=strip&ch=DPR&w=1920&h=1080&fit=crop" alt="juego1"></label>
-            </section>
-        </div>
-
 
         <div class="game-categories"></div>
-
-
     </main>
     <footer>
         <div class="footer-container-1">
@@ -329,6 +424,7 @@
     <script src="scripts/sidebar.js"></script>
     <script src="scripts/card-slider.js"></script>
     <script src="scripts/form.js"></script>
+    <script src="scripts/popovers.js"></script>
 </body>
 
 </html>

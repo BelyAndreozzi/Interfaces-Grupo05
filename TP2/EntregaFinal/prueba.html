@@ -8,25 +8,67 @@
 </head>
 <body>
   
-
-  <div class="card-slider-mobile-container">
-    <section id="card-slider-mobile">
-        <input type="radio" name="slider" id="s1">
-        <input type="radio" name="slider" id="s2">
-        <input type="radio" name="slider" id="s3" checked>
-        <input type="radio" name="slider" id="s4">
-        <input type="radio" name="slider" id="s5">
-
-        <a href="#" for="s1" id="slide1"><img src="src/games/4_en_linea.webp" alt="juego1"></a>
-        <a href="#" for="s2" id="slide2"><img src="src/games/4_en_linea.webp" alt="juego2"></a>
-        <a href="#" for="s3" id="slide3"><img src="src/games/4_en_linea.webp" alt="juego3"></a>
-        <a href="#" for="s4" id="slide4"><img src="src/games/4_en_linea.webp" alt="juego4"></a>
-        <a href="#" for="s5" id="slide5"><img src="src/games/4_en_linea.webp" alt="juego5"></a>
-    </section>
-</div>
-
-
-
+    <div class="container1">
+        <button id="cart-button" class="cart-btn">🛒 Cart</button>
+        
+        <div id="popoverCart" class="popoverCart">
+            <div class="popover-arrow"></div>
+            <div class="popover-content">
+                <h3>Shopping Cart</h3>
+                <ul class="cart-items">
+                    <li class="cart-item">
+                        <img src="game1.jpg" alt="Game 1">
+                        <div class="item-info">
+                            <p>Miner Cat</p>
+                            <p class="price">$9.99</p>
+                        </div>
+                    </li>
+                    <li class="cart-item">
+                        <img src="game2.jpg" alt="Game 2">
+                        <div class="item-info">
+                            <p>4 en línea</p>
+                            <p class="price">$12.99</p>
+                        </div>
+                    </li>
+                    <li class="cart-item">
+                        <img src="game3.jpg" alt="Game 3">
+                        <div class="item-info">
+                            <p>Kitty Cats</p>
+                            <p class="price">$7.99</p>
+                        </div>
+                    </li>
+                </ul>
+                <p class="subtotal">Subtotal: $<span id="total-price">0.00</span></p>
+                <button class="checkout-btn">Comprar ahora</button>
+                <button class="checkout-btn">Ver carrito</button>
+            </div>
+        </div>
+        
+    </div>
+    <div class="container2">
+        <button id="favorites-button" class="favorites-btn">⭐ Favoritos</button>
+        
+        <div id="favorites-popover" class="favorites-popover">
+            <div class="popover-arrow"></div>
+            <div class="favorites-content">
+                <h3>Mis Juegos Favoritos</h3>
+                <ul class="favorites-items">
+                    <li class="favorite-item">
+                        <img src="fav1.jpg" alt="Juego 1">
+                        <p>4 en línea</p>
+                    </li>
+                    <li class="favorite-item">
+                        <img src="fav2.jpg" alt="Juego 2">
+                        <p>Miner Cat 4</p>
+                    </li>
+                    <li class="favorite-item">
+                        <img src="fav3.jpg" alt="Juego 3">
+                        <p>Find Cat 2</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
   <script src="scripts/prueba.js"></script>
 </body>
 </html>
