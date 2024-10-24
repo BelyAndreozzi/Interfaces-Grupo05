@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/carousel.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/card-slider.css">
+    <link rel="stylesheet" href="styles/registrationForm.css">
+    <link rel="stylesheet" href="styles/buttons.css">
+    <link rel="stylesheet" href="styles/loader.css">
+    <link rel="stylesheet" href="styles/popovers.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="shortcut icon" href="src/header/logato-cortado.jpg" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" rel="stylesheet">
+    <title>MeowTrópolis</title>
+</head>
+
+<body>
+    <div id="loader">
+        <div class="cat-loader">
+            <div class="paw"><img class="icon" src="src/misc/pata.png" alt="Pata de gato"></div>
+            <div class="paw"><img class="icon" src="src/misc/pata.png" alt="Pata de gato"></div>
+            <div class="paw"><img class="icon" src="src/misc/pata.png" alt="Pata de gato"></div>
+            <div class="paw"><img class="icon" src="src/misc/pata.png" alt="Pata de gato"></div>
+            <div class="paw"><img class="icon" src="src/misc/pata.png" alt="Pata de gato"></div>
+            <div class="paw"><img class="icon" src="src/misc/pata.png" alt="Pata de gato"></div>
+            <div class="paw"><img class="icon" src="src/misc/pata.png" alt="Pata de gato"></div>
+            <div class="paw"><img class="icon" src="src/misc/pata.png" alt="Pata de gato"></div>
+        </div>
+
+        <div class="percentage" id="percentage">0%</div>
+    </div>
+
+    <header>
+        <div class="header-container-left">
+            <button id="burguer">
+                <img src="src/header/menu-hamburguesa.png" alt="" height="36px">
+            </button>
+            <button class="homeButton">
+                <img src="src/header/logato-cortado.jpg" alt="Logo de la página" height="60px">
+                <h1 class="title">MeowTrópolis</h1>
+            </button>
+        </div>
+        <div class="search-container">
+            <input type="text" placeholder="¿Qué quieres jugar?">
+            <button>
+                <img src="src/header/lupa.png" alt="Buscar">
+            </button>
+        </div>
+
+        <div class="header-container-right">
+            <div class="header-icon-container">
+                <button id="cart-button" class="header-icon header-icon-expand">
+                    <img src="src/header/cart.png" alt="Carrito">
+                </button>
+
+
+                <div id="popoverCart" class="popoverCart">
+                    <div class="popover-arrow"></div>
+                    <div class="popover-content">
+                        <h3>Mi Carrito</h3>
+                        <ul class="cart-items">
+                            <li class="cart-item">
+                                <img class="cart-game-image"  src="src/games/Minercat4.jpg" alt="Game 1">
+                                <div class="item-info">
+                                    <p>Miner Cat</p>
+                                    <div>
+                                        <p class="price">$9.99</p>
+                                        <img class="cart-delete" src="src/misc/eliminarCart.png" alt="">
+                                    </div>
+                                </div>
+                            </li>
+                            <li><div class="line-popover"></div></li>
+                            <li class="cart-item">
+                                <img class="cart-game-image" src="src/games/4_en_linea.webp" alt="Game 2">
+                                <div class="item-info">
+                                    <p>4 en línea</p>
+                                    <div>
+                                        <p class="price">$12.99</p>
+                                        <img class="cart-delete" src="src/misc/eliminarCart.png" alt="">
+                                    </div>
+                                    
+                                </div>
+                            </li>
+                            <li><div class="line-popover"></div></li>
+                            <li class="cart-item">
+                                <img class="cart-game-image" src="src/games/kitty-cats.avif" alt="Game 3">
+                                <div class="item-info">
+                                    <p>Kitty Cats</p>
+                                    <div>
+                                        <p class="price">$7.99</p>
+                                        <img class="cart-delete" src="src/misc/eliminarCart.png" alt="">
+                                    </div>
+                                    
+                                </div>
+                            </li>
+                            <li><div class="line-popover"></div></li>
+                        </ul>
+                        <p class="subtotal">Subtotal: $<span id="total-price">0.00</span></p>
+                        <div class="cart-buttons-container">
+                            <button class="checkout-btn">Comprar ahora</button>
+                            <button class="checkout-btn">Ver carrito</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="header-icon-container">
+                <button id="favorites-button" class="header-icon header-icon-expand">
+                    <img src="src/header/fav.png" alt="Favoritos">
+                </button>
+                
+                <div id="favorites-popover" class="favorites-popover">
+                    <div class="popover-arrow-favorites"></div>
+                    <div class="favorites-content">
+                        <h3>Mis Favoritos</h3>
+                        <div>
+                            <h4>Recientes</h4>
+                            <h4>Favoritos</h4>
+                        </div>
+                        <div class="line-popover"></div>
+                        <ul class="favorites-items">
+                            <li class="favorite-item">
+                                <img src="src/games/4_en_linea.webp" alt="Juego 1">
+                                <p>4 en línea</p>
+                            </li>
+                            <li class="favorite-item">
+                                <img src="src/games/Minercat4.jpg" alt="Juego 2">
+                                <p>Miner Cat 4</p>
+                            </li>
+                            <li class="favorite-item">
+                                <img src="src/games/find-cat-2.avif" alt="Juego 3">
+                                <p>Find Cat 2</p>
+                            </li>
+                            <li class="favorite-item">
+                                <img src="src/games/cat-life-simulator.avif" alt="Juego 3">
+                                <p>Cat Life Simulator</p>
+                            </li>
+                            <li class="favorite-item">
+                                <img src="src/games/kitty-cats.avif" alt="Juego 3">
+                                <p>Kitty Cats</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <button popovertarget="loginForm" class="text-img-btn">
+                <span class="button-text">Acceder</span>
+                <img src="src/header/gamer-profile.png" alt="Usuario">
+            </button>
+        </div>
+
+        <!-- Formulario de inicio de sesión y registro -->
+        <dialog popover id="loginForm">
+            <div class="container" id="formContainerJS">
+                <div class="form-container sign-up-container">
+                    <form action="#" class="registrationForm" id="logForm">
+                        <h1>Inicia sesión</h1>
+                        <label for="emailLogin">Email</label>
+                        <div class="input-box">
+                            <input class="formInput" type="email" id="emailLogin" required />
+                            <img src="src/login-registration-form/correo-electronico.png" alt="Correo electronico">
+                        </div>
+                        <label for="password">Contraseña</label>
+                        <div class="input-box">
+                            <input class="formInput" type="password" id="password" required />
+                            <img src="src/login-registration-form/contrasenia.png" alt="Contraseña">
+                        </div>
+                        <label class="custom-checkbox">
+                            <input type="checkbox">
+                            <span class="checkmark"></span> Recuérdame
+                        </label>
+                        <div>
+                            <button id="logSubmitBtn" class="submitBtn" type="submit">
+                                <p id="logBtnSubmitText">Iniciar sesion</p>
+                                <div class="check-box">
+                                    <img src="src/login-registration-form/check.png" alt="Inicio correcto">
+                                </div>
+                            </button>
+                        </div>
+                        <div class="divisores">
+                            <div class="divisor"></div>
+                            <span>o</span>
+                            <div class="divisor"></div>
+                        </div>
+                        <div class="social-container">
+                            <a href="#" class="social"><img src="src/redes-sociales/facebook.png"
+                                    alt="Registrate con Facebook"></a>
+                            <a href="#" class="social"><img src="src/redes-sociales/google.png" alt=""></a>
+                        </div>
+                        <p class="pSignIn">¿NO tienes cuenta? <a id="signIn" class="link">Registrate</a></p>
+                    </form>
+                </div>
+                <div class="form-container sign-in-container">
+                    <form action="#" class="registrationForm" id="regForm">
+                        <h1>Registrate</h1>
+                        <label for="apellidonombre">Apellido y nombre</label>
+                        <div class="input-box">
+                            <input class="formInput" type="text" id="apellidonombre" required />
+                            <img src="src/login-registration-form/persona.png" alt="Apellido y nombre">
+                        </div>
+                        <label for="nickname">Nickname <span> (opcional)</span></label>
+                        <div class="input-box">
+                            <input class="formInput" type="text" id="nickname" />
+                            <img src="src/header/gamer-profile.png" alt="Nickname">
+                        </div>
+                        <label for="age">Edad</label>
+                        <div class="input-box">
+                            <input class="formInput" type="number" id="age" min="0" required />
+                            <img src="src/login-registration-form/calendario.png" alt="Edad">
+                        </div>
+                        <label for="emailReg">Email</label>
+                        <div class="input-box">
+                            <input class="formInput" type="email" id="emailReg" required />
+                            <img src="src/login-registration-form/correo-electronico.png" alt="Correo electronico">
+                        </div>
+                        <label for="RegPassword">Contraseña</label>
+                        <div class="input-box">
+                            <input class="formInput" type="password" id="RegPassword" required />
+                            <img src="src/login-registration-form/contrasenia.png" alt="Contraseña">
+                        </div>
+                        <label for="RegREpassword">Confirmar contraseña</label>
+                        <div class="input-box">
+                            <input class="formInput" type="password" id="RegREpassword" required />
+                            <img src="src/login-registration-form/contrasenia.png" alt="Contraseña">
+                        </div>
+                        <div class="captcha-container">
+                            <img src="src/login-registration-form/Captcha.svg" alt="">
+                        </div>
+                        <button id="regSubmitBtn" class="submitBtn formButton" type="submit">
+                            <p id="regBtnSubmitText">Registrarse</p>
+                            <div class="check-box">
+                                <img src="src/login-registration-form/check.png" alt="dislkike">
+                            </div>
+                        </button>
+                        <div class="divisores">
+                            <div class="divisor"></div>
+                            <span>o</span>
+                            <div class="divisor"></div>
+                        </div>
+                        <div class="social-container">
+                            <a href="#" class="social"><img src="src/redes-sociales/facebook.png"
+                                    alt="Registrate con Facebook"></a>
+                            <a href="#" class="social"><img src="src/redes-sociales/google.png" alt=""></a>
+                        </div>
+                        <p>Ya tienes cuenta? <a id="signUp" class="link">Inicia sesion</a></p>
+                    </form>
+                </div>
+                <div class="overlay-container">
+                    <div class="overlay">
+                        <div class="overlay-panel overlay-left">
+                            <h1>¿Listo para seguir ganando?</h1>
+                            <img src="src/login-registration-form/michiJuzgador.png"
+                                alt="Gatito que te juzga mientras te logueas">
+                        </div>
+                        <div class="overlay-panel overlay-right">
+                            <img src="src/login-registration-form/michiJuzgadorDer.png"
+                                alt="Gatito que te juzga mientras te logueas">
+                            <h1>¿Listo para comenzar la aventura?</h1>
+                        </div>
+                    </div>
+                </div>
+                <button class="closeButton" popovertarget="loginForm">
+                    <img src="src/misc/x.png" alt="Cerrar formulario">
+                </button>
+            </div>
+        </dialog>
+    </header>
+    <nav id="nav-bar">
+    </nav>
+    <main>
+
+        <!-- CARRUSEL -->
+        <div class="carousel-container">
+            <button class="arrow left">
+                <img src="src/carousel/flecha-izquierda.png" alt="Flecha izquierda">
+            </button>
+            <div class="carousel-wrapper">
+                <div class="carousel">
+                    <div class="carousel-item">
+                        <img src="src/games/Minercat4.jpg" alt="Miner Cat 4" class="game-img">
+                        <h4 class="game-title">Miner Cat 4</h4>
+                        <a class="start-btn" href="game.html">
+                            <img src="src/carousel/boton-start.png" alt="Boton para jugar">
+                        </a>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="src/games/4_en_linea.webp" alt="4 en línea" class="game-img">
+                        <h4 class="game-title">Luna vs Rayo</h4>
+                        <a class="start-btn" href="game.html">
+                            <img src="src/carousel/boton-start.png" alt="Boton para jugar">
+                        </a>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="src/games/kitty-cats.avif" alt="Cat House" class="game-img">
+                        <h4 class="game-title">Kitty Cats</h4>
+                        <a class="start-btn" href="game.html">
+                            <img src="src/carousel/boton-start.png" alt="Boton para jugar">
+                        </a>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="src/games/cat-life-simulator.avif" alt="Cat Life Simulator" class="game-img">
+                        <h4 class="game-title">Cat Life Simulator</h4>
+                        <a class="start-btn" href="game.html">
+                            <img src="src/carousel/boton-start.png" alt="Boton para jugar">
+                        </a>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="src/games/cat-lovescapes.avif" alt="Cat Lovescape" class="game-img">
+                        <h4 class="game-title">Cat Lovescape</h4>
+                        <a class="start-btn" href="game.html">
+                            <img src="src/carousel/boton-start.png" alt="Boton para jugar">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <button class="arrow right">
+                <img src="src/carousel/flecha-derecha.png" alt="Flecha derecha">
+            </button>
+        </div>
+
+        <div class="containerMiniCarusel">
+            <div class="inner-container">
+                <a class="itemMC" href="game.html">
+                    <img src="src/games/4_en_linea.webp" alt="juego">
+                    <h4>Rayo y Luna</h4>
+                </a>
+                <a class="itemMC" href="game.html">
+                    <img src="src/games/Minercat4.jpg" alt="juego">
+                    <h4>Miner Cat 4</h4>
+                </a>
+                <a class="itemMC" href="game.html">
+                    <img src="src/games/kitty-cats.avif" alt="juego">
+                    <h4>Kitty Cats</h4>
+                </a>
+                <a class="itemMC" href="game.html">
+                    <img src="src/games/cat-life-simulator.avif" alt="juego">
+                    <h4>Cat Life Simulator</h4>
+                </a>
+                <a class="itemMC" href="game.html">
+                    <img src="src/games/cat-lovescapes.avif" alt="juego">
+                    <h4>Cat Lovescapes</h4>
+                </a>
+            </div>
+        </div>
+        <div>
+            <div class="featured-title">
+                <img class="category-image" src="src/misc/fuego.png">
+                <h2 class="featured-name"> Juegos destacados </h2>
+            </div> 
+
+            <div id="card-slider">
+                <div id="featured-cards-container">
+                    <span onclick="slideRight()" class="slide-btn slide-btn-left"></span>
+                    <div id="featured-cards"></div>
+                    <span onclick="slideLeft()" class="slide-btn slide-btn-right"></span>
+                </div>
+            </div>
+
+            <div class="card-slider-mobile-container">
+                <section id="card-slider-mobile">
+                    <input type="radio" name="slider" id="s1">
+                    <input type="radio" name="slider" id="s2">
+                    <input type="radio" name="slider" id="s3" checked>
+                    <input type="radio" name="slider" id="s4">
+                    <input type="radio" name="slider" id="s5">
+                    <label for="s1" class="slide" id="slide1">
+                        <a href="#" class="btn-slide-mobile"><img
+                                src="https://images.crazygames.com/free-the-cat-puzzle-game_16x9/20231113164504/free-the-cat-puzzle-game_16x9-cover?auto=format%2Ccompress&q=90&cs=strip&ch=DPR&w=1920&h=1080&fit=crop"
+                                alt="juego1"></a>
+                        <div class="slide-name-container">
+                            <p class="slide-name"> Free The Cat Puzzle </p>
+                        </div>
+                    </label>
+                    <label for="s2" class="slide" id="slide2">
+                        <a href="#" class="btn-slide-mobile"><img
+                                src="https://images.crazygames.com/cats-and-bees/20230106042701/cats-and-bees-cover?auto=format%2Ccompress&q=90&cs=strip&ch=DPR&w=1920&h=1080&fit=crop"
+                                alt="juego2"></a>
+                        <div class="slide-name-container">
+                            <p class="slide-name"> Cats and Bees </p>
+                        </div>
+                    </label>
+                    <label for="s3" class="slide" id="slide3">
+                        <a href="#" class="btn-slide-mobile"><img
+                                src="https://images.crazygames.com/cat-bakery_16x9/20240320084916/cat-bakery_16x9-cover?auto=format%2Ccompress&q=90&cs=strip&ch=DPR&w=1920&h=1080&fit=crop"
+                                alt="juego3"></a>
+                        <div class="slide-name-container">
+                            <p class="slide-name"> Cat Bakery </p>
+                        </div>
+                    </label>
+                    <label for="s4" class="slide" id="slide4">
+                        <a href="#" class="btn-slide-mobile"><img
+                                src="https://images.crazygames.com/push-push-cat/20230214072349/push-push-cat-cover?auto=format%2Ccompress&q=90&cs=strip&ch=DPR&w=1920&h=1080&fit=crop"
+                                alt="juego4"></a>
+                        <div class="slide-name-container">
+                            <p class="slide-name"> Push Push Cat </p>
+                        </div>
+                    </label>
+                    <label for="s5" class="slide" id="slide5">
+                        <a href="#" class="btn-slide-mobile"><img
+                                src="https://images.crazygames.com/kity-builder/20210504122712/kity-builder-cover?auto=format%2Ccompress&q=90&cs=strip&ch=DPR&w=1920&h=1080&fit=crop"
+                                alt="juego5"></a>
+                        <div class="slide-name-container">
+                            <p class="slide-name"> Kitty Builder </p>
+                        </div>
+                    </label>
+                </section>
+            </div>
+        </div>
+
+        <div class="game-categories"></div>
+    </main>
+    <footer>
+        <div class="footer-container-1">
+            <div>
+                <h2 class="footer-title">Acerca de MeowTrópolis</h2>
+                <p>Quiénes somos</p>
+                <p>Nuestro equipo</p>
+                <p>Trabaja con Nosotros</p>
+                <p>Tarjeta de regalo</p>
+            </div>
+            <div>
+                <h2 class="footer-title">Contactos</h2>
+                <p>MeowTropolis@outlook.com</p>
+                <p>Contactanos!</p>
+            </div>
+            <div>
+                <h2 class="footer-title">Soporte</h2>
+                <p>Centro de ayuda</p>
+                <p>Preguntas Frecuentes (FAQ)</p>
+                <p>Reportar un problema</p>
+                <p>Foro de la comunidad</p>
+            </div>
+        </div>
+        <div class="footer-line"></div>
+        <div class="footer-container-2">
+            <h2 class="footer-title">Seguinos en nuestras redes</h2>
+            <div class="footer-container-img">
+                <img src="src/redes-sociales/twitter.png" alt="twitter">
+                <img src="src/redes-sociales/instagram.png" alt="instagram">
+                <img src="src/redes-sociales/facebook.png" alt="facebook">
+            </div>
+            <p>&copy;2024 Gatos y compañía. Todos los derechos reservados. | Política de Privacidad | Términos y
+                Condiciones
+            </p>
+        </div>
+    </footer>
+    <script src="scripts/loader.js"></script>
+    <script src="scripts/carousel.js"></script>
+    <script src="scripts/cards.js"></script>
+    <script src="scripts/sidebar.js"></script>
+    <script src="scripts/card-slider.js"></script>
+    <script src="scripts/form.js"></script>
+    <script src="scripts/popovers.js"></script>
+</body>
+
+</html>

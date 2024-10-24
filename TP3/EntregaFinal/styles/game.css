@@ -1,0 +1,351 @@
+main {
+    display: block;
+    padding-top: 93px;
+    height: auto;
+    padding-bottom:40px;
+}
+
+
+.game-actions-fav {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    font-size: 20px;
+    width: max-content;
+    height: 55px;
+    border-radius: 30px;
+    background-color: #1C1F3E;
+    border: #01D3C5 solid 2px;
+    justify-content: center;
+    padding: 10px;
+    transition: all 0.5s;
+}
+
+.game-actions-fav:hover {
+    transition: ease-in-out 0.4s;
+    box-shadow: inset 0px 0px 5px 2px #01D3C5, 0px 0px 5px 1px #01D3C5;
+    transition: all 0.5s;
+}
+
+.game-actions-fav:active{
+    background-color: #01D3C5 ;
+    color: #000;
+}
+
+.btn-image {
+    width: 24px;
+    margin-left: 10px;
+}
+
+.game-actions {
+    display: flex;
+    align-items: center;
+}
+
+.fav-btn {
+    width: 100px;
+}
+
+.thumbnail-container{
+    background: no-repeat center url(../src/misc/Luces.svg);
+    background-color: rgba(0, 0, 0, 0.432);
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    margin: 0px;
+}
+
+.breadcrumbs {
+    margin: 5px;
+    display: flex;
+    padding-left: 3%;
+}
+
+.breadcrumbs a {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    text-decoration: none;
+    padding-left: 10px;
+    margin: 5px;
+}
+
+.breadcrumbs a img {
+    height: 16px;
+}
+
+.game-container {
+    height: 100%;   
+}
+
+#in-game-game {
+    width: 1205px;
+    height: 775px;
+    object-fit: cover;
+}
+
+/*CAJA 1*/
+.game-information-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.game-bottom-bar {
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+    margin-left: 100px;
+    align-items: center;
+}
+
+#game-title {
+    font-size: 72px;
+}
+
+/*CAJA 1-1*/
+
+.game-description {
+    width: 60%;
+    margin-left: 5%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #2E3366;
+    padding: 3% 5%;
+    border-radius: 10px;
+}
+
+.text-description {
+    width: 100%;
+    line-height: 150%;
+}
+
+.game-galery {
+    width: 345px;
+    border: 1px solid #00FFED;;
+    box-shadow: 0 0 3px 0px #00FFED;
+    margin-right: 5px;
+}
+
+/*CAJA 1-2*/
+
+.game-controls-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 16%;
+    height: 500px;
+    margin-left: 4%;
+    padding-left: 1%;
+    padding-right: 2%;
+    border: #00FFED solid 1px;
+    border-radius: 30px;
+}
+
+.game-controls-container div {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+} 
+
+.game-controls-container div div {
+    display: flex;
+    flex-direction: row;
+    margin-top: 5%;
+    width: 100%;
+    align-self: center;
+}
+
+.game-controls-container div div p {
+    align-self: center;
+    padding: 3%;
+    width: 300%;
+    color: #FFF;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 27px;
+}
+
+.game-controls-container div div img {
+    width: 56px;
+    height: 56px;
+    margin-left: 0;
+}
+
+.title-controls {
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    align-self: center;
+}
+
+.h2-1, .h2-2 {
+    margin-top: 30px;
+}
+
+.h2-1 {
+    font-size: 45px;
+    margin-bottom: 5px;
+}
+
+.h2-2 {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.hasbro-link {
+    color: #00FFED;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 27px;
+    text-decoration-line: underline;
+}
+
+/*CAJA 2*/
+
+.recomended-games {
+    width: 70%;
+    margin-top: 5%;
+    margin-left: 5%;
+}
+
+.recomended-games h2 {
+    margin: 1% 1% 1% 1%;
+    font-size: 35px;
+}
+
+.recomended-cards {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.card {
+    width: 50%;
+}
+
+
+/*COMENTARIOS*/
+
+.comments-container {
+    width: 70%;
+    margin-top: 5%;
+    margin-left: 5%;
+}
+
+.comment-title {
+   font-size: 40px; 
+   margin-left: 5px;
+}
+
+.comments-container .category-title-container .category-title img {
+    width: 56px;
+    height: 56px;
+}
+.comment-input {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding-left: 10px;
+
+}
+
+.comment-input input {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 100%;
+    height: 35px;
+    background-color: #2E3366;
+}
+.comment-input ::placeholder {
+    color: white;
+    opacity: 0.8;
+    padding-left: 1%;
+  }
+
+.comment-buttons {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.comment-input-bottom-line {
+    height: 1px;
+    background-color: white;
+}
+
+
+
+.comments-section h2 {
+    margin-left: 10px;
+    margin-bottom: 30px;
+}
+.comment {
+    margin-bottom: 40px;
+}
+
+.comment-content-container {
+    width: 100%;
+}
+
+.comment-upper-container {
+    display: flex;
+    justify-content: space-between;
+}
+.comment-profile-info-container, .comment-likes-container {
+    display: flex;
+    align-items: top;
+
+}
+
+.comment-profile-name {
+    font-size: 20px;
+}
+
+
+.comment-profile-img {
+    width: 36px;
+    height: 36px;
+    margin-right: 15px;
+}
+
+.comment-date {
+    padding-top: 7px;
+    font-size: 10px;
+    margin-left: 20px;
+}
+
+.comment-likes-container {
+    align-items: center;
+}
+
+.comment-likes-container img {
+    width: 24px;
+    cursor: pointer;
+}
+
+.comment-likes-container img:hover {
+    transition: ease-in-out 0.5s;
+    transform: scale(1.2);
+}
+
+.comment-likes-container div {
+    display: flex;
+    align-items: center;
+
+}
+.comment-likes-container p {
+    padding-left: 10px;
+        
+}
+
+.comment-content {
+    margin-left: 61px;
+}
+
+.comment-upper-container div {
+    padding: 0px 10px;
+}
