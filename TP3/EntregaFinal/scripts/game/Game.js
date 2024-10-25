@@ -6,7 +6,7 @@ const canvasHeight = canvas.height;
 let fichas = [];
 let fichasPlayer1 = [];
 let fichasPlayer2 = [];
-let tablero;
+let tablero = [];
 let modoDeJuego;
 
 let lastFigureClicked = null;
@@ -70,10 +70,36 @@ function findClickedFigure(x, y){
     }
 }
 
+
+/* const filasPRUEBA = 6;  
+const columnasPRUEBA = 7;   
+const tamanoCeldaPRUEBAPRUEBA = 2;
+
+let tableroPRUEBA = Array.from({ length: filasPRUEBA }, () => Array(columnasPRUEBA).fill(null));
+
+function dibujarTablero() {
+    ctx.fillStyle = '#3b5b99';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    for (let fila = 0; fila < filasPRUEBA; fila++) {
+        for (let columna = 0; columna < columnasPRUEBA; columna++) {
+            const x = columna * tamanoCeldaPRUEBA + tamanoCeldaPRUEBA / 2;
+            const y = fila * tamanoCeldaPRUEBA + tamanoCeldaPRUEBA / 2;
+
+            ctx.beginPath();
+            ctx.arc(x, y, tamanoCeldaPRUEBA / 2 - 5, 0, Math.PI * 2);
+            ctx.fillStyle = '#ffffff';
+            ctx.fill();
+            ctx.closePath();
+        }
+    }
+}  */
+
+
 function deployGame(jugador1Img, jugador2Img) {
-    console.log(jugador1Img, jugador2Img);
     addFiguras(100, jugador1Img);
-    addFiguras(500, jugador2Img);
+    addFiguras(600, jugador2Img);
+    dibujarTablero();
     drawFiguras();
 }
 
@@ -82,15 +108,18 @@ function deployGame(jugador1Img, jugador2Img) {
 //deployMain();
 
 let imgJug1 = new Image(50,50);
-imgJug1.src = "src/games/4_en_linea.webp";
+imgJug1.src = "src/misc/luna2.jpg";
 let imgJug2 = new Image();
-imgJug2.src = "src/games/4_en_linea_2.webp";
+imgJug2.src = "src/misc/rayo2.jpg";
+
 
 imgJug1.onload = () => {
     imgJug2.onload = () => {
         deployGame(imgJug1, imgJug2);
     };
 };
+
+
 
 
 

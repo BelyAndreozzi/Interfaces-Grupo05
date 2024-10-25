@@ -8,51 +8,26 @@ class Ficha {
         this.resaltado = false;
     }
 
-    /* draw() {
-        console.log("draw cl " + this.fill);
-        this.ctx.beginPath();        
-        var img = ctx.createPattern(this.fill,"no-repeat");
-        this.ctx.fillStyle = img;
-        this.ctx.arc(this.posX, this.posY, this.radius, 0, 2 * Math.PI);
-        
-        this.ctx.fill();
-        this.ctx.closePath();
-        this.ctx.lineWidth = 3;
-        this.ctx.strokeStyle = "green";
-        this.ctx.stroke();
-        // let imgg = new Image(20,20);
-        // imgg.src= `${this.img}`;
-        // this.ctx.fillImage(imgg);
-
-        if(this.resaltado===true){
-            this.ctx.strokeStyle = "red";
-            this.ctx.lineWidth = 5;
-            this.ctx.stroke();
-        }
-    } */
-
     draw() {
-        console.log("draw cl " + this.fill);
+        this.ctx.save();
 
         // Dibuja el círculo como fondo
         this.ctx.beginPath();
         this.ctx.arc(this.posX, this.posY, this.radius, 0, 2 * Math.PI);
-        this.ctx.fillStyle = "white"; // Puedes cambiar el color de fondo si lo deseas
-        this.ctx.fill();
+        this.ctx.fillStyle = "transparent"; // Puedes cambiar el color de fondo si lo deseas
+        /* this.ctx.fill(); */
         this.ctx.closePath();
 
+        this.ctx.clip();
         // Dibuja la imagen dentro del círculo
         this.ctx.drawImage(this.fill, this.posX - this.radius, this.posY - this.radius, this.radius * 2, this.radius * 2);
 
-        // Dibuja el borde del círculo
-        this.ctx.lineWidth = 3;
-        this.ctx.strokeStyle = "green";
-        this.ctx.stroke();
+        this.ctx.restore();
 
         // Resaltado
         if (this.resaltado === true) {
             this.ctx.strokeStyle = "red";
-            this.ctx.lineWidth = 5;
+            this.ctx.lineWidth = 2;
             this.ctx.stroke();
         }
     }
@@ -96,6 +71,5 @@ class Ficha {
     setResaltado(bool) {
         this.resaltado = bool;
     }
-
 
 }
