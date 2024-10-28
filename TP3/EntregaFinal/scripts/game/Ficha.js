@@ -1,11 +1,14 @@
 class Ficha {
     constructor(posX, posY, ctx, radius, imgJugador) {
+        this.posIniX = posX;
+        this.posIniY = posY;
         this.posX = posX;
         this.posY = posY;
         this.ctx = ctx;
         this.radius = radius;
         this.fill = imgJugador;
         this.resaltado = false;
+        this.colocado = false;
     }
 
     draw() {
@@ -59,6 +62,10 @@ class Ficha {
         return this.resaltado;
     }
 
+    isColocado(){
+        return this.colocado;
+    }
+
     setFill(fill) {
         this.fill = fill;
     }
@@ -70,6 +77,14 @@ class Ficha {
 
     setResaltado(bool) {
         this.resaltado = bool;
+    }
+
+    setPosicionInicial() {
+        this.setPosition(this.posIniX,this.posIniY);
+    } 
+
+    setColocado(){
+        this.colocado = true;
     }
 
 }

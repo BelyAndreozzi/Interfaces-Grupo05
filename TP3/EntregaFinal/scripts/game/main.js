@@ -5,6 +5,7 @@ const ctx = canvas.getContext("2d");
 
 let imgJugador1 = new Image();
 imgJugador1.src = "src/misc/luna2.jpg";
+
 let imgJugador2 = new Image();
 imgJugador2.src = "src/misc/rayo2.jpg";
 

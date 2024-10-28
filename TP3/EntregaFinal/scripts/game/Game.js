@@ -14,12 +14,12 @@ let isMouseDown = false;
 
 function addFiguras(wt, imgJugador) {
     console.log("addFiguras", imgJugador);
-     for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 10; i++) {
         let posX = wt;
         let posY = 100 + (i * 30);
         let ficha = new Ficha(posX, posY, ctx, 20, imgJugador);
         fichas.push(ficha);
-     }
+    }
 }
 
 function drawFiguras() {
