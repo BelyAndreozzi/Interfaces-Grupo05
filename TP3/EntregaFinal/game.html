@@ -51,7 +51,7 @@
                         <h3>Mi Carrito</h3>
                         <ul class="cart-items">
                             <li class="cart-item">
-                                <img class="cart-game-image"  src="src/games/Minercat4.jpg" alt="Game 1">
+                                <img class="cart-game-image" src="src/games/Minercat4.jpg" alt="Game 1">
                                 <div class="item-info">
                                     <p>Miner Cat</p>
                                     <div>
@@ -60,7 +60,9 @@
                                     </div>
                                 </div>
                             </li>
-                            <li><div class="line-popover"></div></li>
+                            <li>
+                                <div class="line-popover"></div>
+                            </li>
                             <li class="cart-item">
                                 <img class="cart-game-image" src="src/games/4_en_linea.webp" alt="Game 2">
                                 <div class="item-info">
@@ -69,10 +71,12 @@
                                         <p class="price">$12.99</p>
                                         <img class="cart-delete" src="src/misc/eliminarCart.png" alt="">
                                     </div>
-                                    
+
                                 </div>
                             </li>
-                            <li><div class="line-popover"></div></li>
+                            <li>
+                                <div class="line-popover"></div>
+                            </li>
                             <li class="cart-item">
                                 <img class="cart-game-image" src="src/games/kitty-cats.avif" alt="Game 3">
                                 <div class="item-info">
@@ -81,10 +85,12 @@
                                         <p class="price">$7.99</p>
                                         <img class="cart-delete" src="src/misc/eliminarCart.png" alt="">
                                     </div>
-                                    
+
                                 </div>
                             </li>
-                            <li><div class="line-popover"></div></li>
+                            <li>
+                                <div class="line-popover"></div>
+                            </li>
                         </ul>
                         <p class="subtotal">Subtotal: $<span id="total-price">0.00</span></p>
                         <div class="cart-buttons-container">
@@ -136,7 +142,7 @@
 
             </div>
 
-            
+
             <button popovertarget="loginForm" class="text-img-btn">
                 <span class="button-text">Acceder</span>
                 <img src="src/header/gamer-profile.png" alt="Usuario">
@@ -278,8 +284,84 @@
         <div class="game-container">
             <!-- ACA IRIA EL CANVAS -->
             <div class="thumbnail-container">
-                <canvas id="myCanvas" width="1205" height="750" ></canvas>
-            </div>
+                <canvas id="myCanvas" width="1205" height="750"></canvas>
+                <div class="menu-form-container">
+                    <img class="luna-fondo" src="src/game/luna1recortado.png" alt="">
+                    <h2>Configuración del Juego</h2>
+                    <form id="menu-form">        
+                        <div class="config-menu">
+                            <!-- Tamaño del tablero -->
+                            <label class="elem-config" for="board-size">Cantidad fichas en linea</label>
+                            <select class="elem-config" id="board-size" name="board-size">
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                            </select>
+        
+                            <!-- Duración de la partida -->
+                            <label class="elem-config" for="game-duration">Duración de la partida</label>
+                            <select class="elem-config" id="game-duration" name="game-duration">
+                                <option value="120">2 minutos</option>
+                                <option value="180">3 minutos</option>
+                                <option value="240">4 minutos</option>
+                            </select>
+                        </div>
+        
+                        <div class="players-selector-container">
+        
+                            <!-- Configuración Jugador 1 -->
+                            <div class="player-selector-1">
+                                <h3>Jugador 1</h3>
+                                <label for="player1-name">Nombre:</label>
+                                <input type="text" id="player1-name" name="player1-name" placeholder="Nombre del Jugador 1">
+                                
+                                <label for="player1-token">Ficha (imagen):</label>
+                                <ul>
+                                    <li>
+                                        <input type="checkbox" id="lunaOpcion1" name="lunaopcion1" />
+                                        <label class="lista-label" for="cb1">
+                                            <img src="src/game/fichaluna1.jpg"/>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="lunaOpcion2" name="lunaopcion2"/>
+                                        <label class="lista-label" for="cb2">
+                                            <img src="src/game/fichaluna2.jpg"/>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </div>
+        
+                            <!-- Configuración Jugador 2 -->
+                            <div class="player-selector-2">
+                                <h3>Jugador 2</h3>
+                                <label for="player2-name">Nombre:</label>
+                                <input type="text" id="player2-name" name="player2-name" placeholder="Nombre del Jugador 2">
+        
+                                <label for="player2-token">Ficha (imagen):</label>
+                                <ul>
+                                    <li>
+                                        <input type="checkbox" id="cb1" name="rayoopcion1"/>
+                                        <label class="lista-label" for="cb1">
+                                            <img src="src/game/ficharayo1.jpg"/>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" id="cb2" name="rayoopcion2"/>
+                                        <label class="lista-label" for="cb2">
+                                            <img src="src/game/ficharayo2.jpg"/>
+                                        </label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="game-menu-btn">Jugar</button>
+                        <!-- Botón de Jugar -->
+                    </form>
+                    <img class="rayo-fondo" src="src/game/rayo1recortado.png" alt="">
+                </div>
+
         </div>
         <!-- LINEA DE TITULO Y BOTONES -->
         <div class="game-bottom-bar">
@@ -325,7 +407,7 @@
                     <img class="game-galery" src="src/games/4_en_linea_3.webp" alt="peter2">
                     <img class="game-galery" src="src/games/Video.svg" alt="peter3">
                 </div>
-                
+
             </div>
             <div class="game-controls-container">
                 <div>
@@ -442,24 +524,24 @@
 
                 <h2>Últimos comentarios</h2>
                 <div class="comment">
-                        <div class="comment-upper-container">
-                            <div class="comment-profile-info-container">
-                                <img class="comment-profile-img" src="src/header/gamer-profile.png" alt="profile">
-                                <p class="comment-profile-name"> @Martha123 </p>
-                                <p class="comment-date"> 1 de Enero de 2024 </p>
+                    <div class="comment-upper-container">
+                        <div class="comment-profile-info-container">
+                            <img class="comment-profile-img" src="src/header/gamer-profile.png" alt="profile">
+                            <p class="comment-profile-name"> @Martha123 </p>
+                            <p class="comment-date"> 1 de Enero de 2024 </p>
+                        </div>
+                        <div class="comment-likes-container">
+                            <div id="thumbs-up">
+                                <img src="src/misc/like.png" alt="thumbs-up">
+                                <p>25</p>
                             </div>
-                            <div class="comment-likes-container">
-                                <div id="thumbs-up">
-                                    <img src="src/misc/like.png" alt="thumbs-up">
-                                    <p>25</p>
-                                </div>
-                                <div id="thumbs-down">
-                                    <img src="src/misc/dislike.png" alt="thumbs-down">
-                                    <p>2</p>
-                                </div>
+                            <div id="thumbs-down">
+                                <img src="src/misc/dislike.png" alt="thumbs-down">
+                                <p>2</p>
                             </div>
                         </div>
-                        <p class="comment-content"> Este juego me da sueño. </p>
+                    </div>
+                    <p class="comment-content"> Este juego me da sueño. </p>
                 </div>
                 <div class="comment">
                     <div class="comment-upper-container">
@@ -561,11 +643,12 @@
                 Condiciones</p>
         </div>
     </footer>
-<!--<script src="scripts/game/TimerPrueba.js"></script> -->
+    <!--<script src="scripts/game/TimerPrueba.js"></script> -->
     <script src="scripts/sidebar.js"></script>
     <script src="scripts/form.js"></script>
     <script src="scripts/popovers.js"></script>
-    <script src="scripts/game/prueba.js"></script>
+
+    <!-- <script src="scripts/game/prueba.js"></script> -->
 
     <script src="scripts/game/Ficha.js"></script>
     <script src="scripts/game/Tablero.js"></script>

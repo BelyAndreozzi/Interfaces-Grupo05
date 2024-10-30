@@ -9,6 +9,10 @@ class Ficha {
         this.fill = imgJugador;
         this.resaltado = false;
         this.colocado = false;
+
+         // Propiedades para la caída animada
+         this.velY = 0; // Velocidad inicial de caída
+         this.enCaida = false; // Para saber si está en caída animada
     }
 
     draw() {
@@ -18,7 +22,6 @@ class Ficha {
         this.ctx.beginPath();
         this.ctx.arc(this.posX, this.posY, this.radius, 0, 2 * Math.PI);
         this.ctx.fillStyle = "transparent"; // Puedes cambiar el color de fondo si lo deseas
-        /* this.ctx.fill(); */
         this.ctx.closePath();
 
         this.ctx.clip();

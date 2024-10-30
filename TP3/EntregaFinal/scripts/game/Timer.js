@@ -1,8 +1,8 @@
+/* comentado actualmente linea 10 y 43 de juego.js para sacar momentaneamente el timer */
+
 class Timer {
-    constructor(time /*, posX, posY */, ctx, game) {
+    constructor(time, ctx, game) {
         this.initialTime = time;
-        // this.posX = posX;
-        // this.posY = posY;
         this.ctx = ctx;
         this.game = game;
         this.pausa = false;

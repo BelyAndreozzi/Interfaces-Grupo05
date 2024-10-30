@@ -1,13 +1,13 @@
 class Game {
-    constructor(ctx, canvas, imgJugador1, imgJugador2, tiempo) {
+    constructor(ctx, canvas, imgJugador1, imgJugador2, tiempo, xEnLinea) {
         this.ctx = ctx;
         this.canvas = canvas;
-        this.tablero = new Tablero(ctx, 6, 7, 70);
+        this.tablero = new Tablero(ctx, xEnLinea, 70);
         this.imgJugador1 = imgJugador1;
         this.imgJugador2 = imgJugador2;
         this.fichasJugador1 = [];
         this.fichasJugador2 = [];
-        this.timer = new Timer(5, ctx, this);
+        this.timer = new Timer(tiempo, ctx, this);
         this.jugadorActual = 1;
         this.fichaSeleccionada = null;
         this.isMouseDown = false;
@@ -52,18 +52,18 @@ class Game {
     
     clearCanvas() {
         
-        let backgroundImage = new Image ();
-        backgroundImage.src = "src/games/4_en_linea.webp"
+        // let backgroundImage = new Image ();
+        // backgroundImage.src = "src/games/4_en_linea.webp"
 
-        let pattern = this.ctx.createPattern(backgroundImage, "no-repeat");
-        ctx.fillStyle = pattern;
+        // let pattern = this.ctx.createPattern(backgroundImage, "no-repeat");
+        /* ctx.fillStyle = pattern; */
 
+        this.ctx.fillStyle = "#1C1F3E";
         this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
     }
     
     drawZonaCaida() {
         // Calcula las coordenadas de la zona de caída según el tablero
-        console.log("drawZonaCaida")
         const zonaDeCaidaTop = this.tablero.getStartY() -80;
         const zonaDeCaidaBottom = this.tablero.getStartY();
         const zonaDeCaidaLeft = this.tablero.getStartX();
@@ -71,13 +71,12 @@ class Game {
         
         const zonaDeCaidaWidth = zonaDeCaidaRight - zonaDeCaidaLeft;
         const zonaDeCaidaHeight = zonaDeCaidaBottom - zonaDeCaidaTop;
-        console.log(zonaDeCaidaLeft, zonaDeCaidaTop, zonaDeCaidaWidth, zonaDeCaidaHeight)
         
         // Dibuja el área de la zona de caída
-        ctx.save();
-        ctx.fillStyle = "rgba(255, 0, 0, 0.3)"; // Color semitransparente para visibilidad
-        ctx.fillRect(zonaDeCaidaLeft, zonaDeCaidaTop, zonaDeCaidaWidth, zonaDeCaidaHeight);
-        ctx.restore();
+        this.ctx.save();
+        this.ctx.fillStyle = "rgba(1, 1, 1, 0.3)"; //
+        this.ctx.fillRect(zonaDeCaidaLeft, zonaDeCaidaTop, zonaDeCaidaWidth, zonaDeCaidaHeight);
+        this.ctx.restore();
     }
     
     seleccionarFicha(x, y) {
@@ -93,65 +92,108 @@ class Game {
     
     moverFicha(x, y) {
         if (this.fichaSeleccionada && !this.fichaSeleccionada.isColocado()) {
-            console.log(this.fichaSeleccionada.isColocado());
             this.fichaSeleccionada.setPosition(x, y);
             this.draw();
         }
     }
     
     soltarFicha(x, y) {
-        let ultimoJugador;
+        let ultimoJugador = this.jugadorActual;
+    
         if (this.fichaSeleccionada) {
+            // Define las coordenadas de la zona de caída según el tablero
             const zonaDeCaidaTop = this.tablero.getStartY() - 80;
             const zonaDeCaidaBottom = this.tablero.getStartY();
             const zonaDeCaidaLeft = this.tablero.getStartX();
             const zonaDeCaidaRight = this.tablero.getStartX() + this.tablero.columnas * this.tablero.tamanoCelda;
-            
-            
+    
+            // Verifica si la ficha fue soltada dentro de la zona de caída
             if (y >= zonaDeCaidaTop && y <= zonaDeCaidaBottom && x >= zonaDeCaidaLeft && x <= zonaDeCaidaRight) {
-                let columna = Math.floor((x - zonaDeCaidaLeft) / this.tablero.tamanoCelda);
-                
+                // Calcula la columna según la posición en x
+                const columna = Math.floor((x - zonaDeCaidaLeft) / this.tablero.tamanoCelda);
+    
+                // Verifica si la columna está dentro del rango válido
                 if (columna >= 0 && columna < this.tablero.columnas) {
-                    let fila = this.tablero.verificarColumna(columna);
-                    if (fila !== -1) {
-                        // Coloca la ficha en la celda más baja de la columna
-                        this.tablero.colocarFicha(fila, columna, this.jugadorActual);
-                        
-                        // Calcula la posición en el canvas donde debe caer la ficha
-                        const posX = zonaDeCaidaLeft + columna * this.tablero.tamanoCelda + this.tablero.tamanoCelda / 2;
-                        const posY = this.tablero.startY + fila * this.tablero.tamanoCelda + this.tablero.tamanoCelda / 2;
-                        
-                        // Actualiza la posición de la ficha para que se dibuje en la celda correspondiente
-                        this.fichaSeleccionada.setPosition(posX, posY);
-                        this.fichaSeleccionada.setColocado();
-                        
-                        
-                        ultimoJugador = this.jugadorActual;
-                        // Cambia de turno
-                        this.cambiarTurno();
+                    // Obtiene la fila disponible en esa columna
+                    const fila = this.tablero.verificarColumna(columna);
+    
+                    if (fila !== -1) { // Si hay espacio en la columna
+                        // Calcula la posición objetivo en el canvas donde debe caer la ficha
+                        const targetX = zonaDeCaidaLeft + columna * this.tablero.tamanoCelda + this.tablero.tamanoCelda / 2;
+                        const targetY = this.tablero.startY + fila * this.tablero.tamanoCelda + this.tablero.tamanoCelda / 2;
+    
+                        // Llama a la animación de caída con gravedad
+                        this.startFallingAnimation(targetX, targetY, () => {
+                            // Esta función callback se ejecuta al finalizar la animación de caída
+                            // Coloca la ficha en la matriz lógica del tablero
+                            this.tablero.colocarFicha(fila, columna, this.jugadorActual);
+    
+                            // Marca la ficha como colocada
+                            this.fichaSeleccionada.setColocado();
+    
+                            // Cambia el turno después de colocar la ficha
+                            this.cambiarTurno();
+    
+                            // Verifica si hay un ganador después de la colocación
+                            if (this.hayGanador(ultimoJugador)) {
+                                this.drawGanador(ultimoJugador);
+                                this.finalizarJuego();
+                            }
+    
+                            // Redibuja el tablero para actualizar el estado
+                            this.draw();
+                        });
+    
+                        // Libera la ficha seleccionada
+                        this.fichaSeleccionada.setResaltado(false);
+                        this.fichaSeleccionada = null;
+                        return;
                     }
                 }
-            } else {
-                // Si no está en la zona de caida, devuelve la ficha a su posición original
-                const fichas = this.jugadorActual === 1 ? this.fichasJugador1 : this.fichasJugador2;
-                /* const index =  */fichas.indexOf(this.fichaSeleccionada);
-                this.fichaSeleccionada.setPosicionInicial();
             }
-            
+    
+            // Si no está en la zona de caída, devuelve la ficha a su posición inicial
+            this.fichaSeleccionada.setPosicionInicial();
             this.fichaSeleccionada.setResaltado(false);
             this.fichaSeleccionada = null;
             this.draw();
-            
-            
-            
-            if (this.hayGanador(ultimoJugador)) {
-                this.drawGanador(ultimoJugador);
-                this.draw();
-                this.finalizarJuego();
-            }
-            
         }
     }
+    
+    
+
+    startFallingAnimation(targetX, targetY, onComplete) {
+        const ficha = this.fichaSeleccionada;
+        
+        if (ficha) {
+            ficha.enCaida = true;
+            ficha.targetY = targetY; // Coordenada Y del objetivo
+            ficha.posX = targetX; // Coordenada X fija de la columna correspondiente
+            ficha.velY = 0; // Velocidad inicial en Y
+            
+            const animate = () => {
+                // Aplicación de gravedad en la velocidad
+                ficha.velY += 0.5; // Aumenta el valor para más aceleración en Y
+                ficha.posY += ficha.velY; // Actualiza la posición Y según la velocidad
+                
+                // Verificación para detener la animación al alcanzar `targetY`
+                if (ficha.posY >= ficha.targetY) {
+                    ficha.posY = ficha.targetY; // Asegura que llegue a la posición final exacta
+                    ficha.enCaida = false;
+                    ficha.setColocado(); // Marca la ficha como colocada
+                    this.draw(); // Dibuja el estado final del tablero
+                } else {
+                    this.draw(); // Dibuja el estado actual del tablero
+                    requestAnimationFrame(animate); // Sigue la animación
+                }
+            };
+    
+            requestAnimationFrame(animate);
+            onComplete();
+        }
+    }
+   
+    
     
     //TODO Cambiarlo a algo mas eficiente 
     hayGanador(ultimoJugador) {
@@ -161,7 +203,6 @@ class Game {
         // Comprobar horizontal
         for (let fila = 0; fila < ff; fila++) {
             for (let col = 0; col < cc - 3; col++) { // Solo necesitamos comprobar hasta la columna 3
-                console.log(mtxTablero[fila][col]);
                 if (
                     mtxTablero[fila][col] === ultimoJugador &&
                     mtxTablero[fila][col + 1] === ultimoJugador &&
@@ -240,7 +281,7 @@ class Game {
         
         
         const posX = (this.canvas.width + (this.tablero.filas)) / 2;
-        const posY = canvas.height - 50;   // Justo debajo del tablero
+        const posY = this.canvas.height - 50;   // Justo debajo del tablero
         
         // Dibuja el texto segun posicion
         this.ctx.fillText(turnoTexto, posX, posY);
@@ -257,7 +298,7 @@ class Game {
         
         
         const posX = (this.canvas.width + (this.tablero.filas)) / 2;
-        const posY = canvas.height - 75;  // Justo debajo del tablero
+        const posY = this.canvas.height - 75;  // Justo debajo del tablero
         
         // Dibuja el texto segun posicion
         this.ctx.fillText(turnoTexto, posX, posY);

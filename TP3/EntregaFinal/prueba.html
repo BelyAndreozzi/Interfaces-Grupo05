@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/prueba.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="thumbnail-container">
+        <canvas id="myCanvas" width="1205" height="750"></canvas>
+        <div class="menu-form-container">
+            <img style="position: absolute; width: 200px; left:0;" src="src/game/luna1recortado.png" alt="">
+            <form class="menu-form">
+                <h2>Configuración del Juego</h2>
+
+                <div class="config-menu">
+                    <!-- Tamaño del tablero -->
+                    <label class="elem-config" for="board-size">Cantidad fichas en linea</label>
+                    <select class="elem-config" id="board-size" name="board-size">
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                    </select>
+
+                    <!-- Duración de la partida -->
+                    <label class="elem-config" for="game-duration">Duración de la partida</label>
+                    <select class="elem-config" id="game-duration" name="game-duration">
+                        <option value="120">2 minutos</option>
+                        <option value="180">3 minutos</option>
+                        <option value="240">4 minutos</option>
+                    </select>
+                </div>
+
+                <div class="players-selector-container">
+
+
+                    <!-- Configuración Jugador 1 -->
+                    <div class="player-selector-1">
+                        <h3>Jugador 1</h3>
+                        <label for="player1-name">Nombre:</label>
+                        <input type="text" id="player1-name" name="player1-name" placeholder="Nombre del Jugador 1">
+
+                        <ul>
+                            <li><input type="checkbox" id="cb1" name="lunaopcion" />
+                                <label for="cb1"><img src="src/game/fichaluna1.jpg" /></label>
+                            </li>
+                            <li><input type="checkbox" id="cb2" name="lunaopcion"/>
+                                <label for="cb2"><img src="src/game/fichaluna2.jpg" /></label>
+                            </li>
+                        </ul>
+
+    
+                        
+                    </div>
+                    <!-- Configuración Jugador 2 -->
+                    <div class="player-selector-2">
+                        <h3>Jugador 2</h3>
+                        <label for="player2-name">Nombre:</label>
+                        <input type="text" id="player2-name" name="player2-name" placeholder="Nombre del Jugador 2">
+
+                        <label for="player2-token">Ficha (imagen):</label>
+                        <input type="file" id="player2-token" name="player2-token" accept="image/*">
+                    </div>
+
+                </div>
+                
+                <button type="submit" class="game-menu-btn">Jugar</button>
+                <!-- Botón de Jugar -->
+            </form>
+            <img style="position: absolute; width: 200px; right: 0;" src="src/game/rayo1recortado.png" alt="">
+        </div>
+</body>
+
+</html>

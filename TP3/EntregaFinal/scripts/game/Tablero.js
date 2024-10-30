@@ -1,18 +1,24 @@
 class Tablero {
-    constructor(ctx, filas, columnas, tamanoCelda) {
+    constructor(ctx, xEnLinea, tamanoCelda) {
         this.ctx = ctx;
-        this.filas = filas;
-        this.columnas = columnas;
+        this.xEnLinea = xEnLinea;
+        this.filas = 6;
+        this.columnas = 7;
         this.tamanoCelda = tamanoCelda;
         this.imgTablero;
         this.startX = 0;
         this.startY = 0;
         this.tablero = this.crearTablero();
-
-/*         this.contadorprueba = 0; */
     }
 
     crearTablero() {
+        if (this.xEnLinea==5) {
+            this.columnas = 8;
+            this.filas = 7;
+        } else if (this.xEnLinea==6) {
+            this.columnas = 9;
+            this.filas = 8;
+        }
         return Array.from({ length: this.filas }, () => Array(this.columnas).fill(0));
     }
 
@@ -20,19 +26,7 @@ class Tablero {
         this.imgTablero = img;
     }
 
-/*     firstDraw() {
-        if(this.contadorprueba == 0) {
-            let img = new Image();
-            img.src = 'src/game/galaxia3.avif';
-            img.onload = ()=> {
-                let pattern = this.ctx.createPattern(img, "no-repeat");
-                ctx.fillStyle = pattern;
-                this.ctx.fillRect(this.startX - 10, this.startY - 10, (this.columnas * this.tamanoCelda) + 20, (this.filas * this.tamanoCelda) + 20);                 
-                this.contadorprueba++;
-                return true;
-            }           
-        }
-    } */
+
 
     draw() {
         // Dimensiones del canvas
@@ -45,7 +39,7 @@ class Tablero {
     
         
         let pattern = this.ctx.createPattern(this.imgTablero, "no-repeat");
-        ctx.fillStyle = pattern;
+        this.ctx.fillStyle = pattern;
         this.ctx.fillRect(this.startX - 10, this.startY - 10, (this.columnas * this.tamanoCelda) + 20, (this.filas * this.tamanoCelda) + 20); 
         
         // Dibuja las celdas del tablero
@@ -70,26 +64,7 @@ class Tablero {
         
     
         
-    
 
-
-    // draw() {
-    //     this.ctx.fillStyle = '#3b5b99';
-    //     this.ctx.fillRect(150, 50, this.columnas * this.tamanoCelda, this.filas * this.tamanoCelda);
-
-    //     for (let fila = 0; fila < this.filas; fila++) {
-    //         for (let columna = 0; columna < this.columnas; columna++) {
-    //             let x = 150 + columna * this.tamanoCelda + this.tamanoCelda / 2;
-    //             let y = 50 + fila * this.tamanoCelda + this.tamanoCelda / 2;
-
-    //             this.ctx.beginPath();
-    //             this.ctx.arc(x, y, this.tamanoCelda / 2.2, 0, Math.PI * 2);
-    //             this.ctx.fillStyle = '#ffffff';
-    //             this.ctx.fill();
-    //             this.ctx.closePath();
-    //         }
-    //     }
-    // }
 
     // Función para colocar una ficha en la columna correcta
     colocarFicha(fila, columna, jugador) {
