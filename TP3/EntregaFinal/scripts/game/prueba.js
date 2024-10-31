@@ -189,3 +189,119 @@ class Menu {
         }
     }
 }
+
+
+
+
+
+
+
+
+
+//MAIN
+document.addEventListener("DOMContentLoaded", function () {
+    const canvas = document.getElementById("myCanvas");
+    const ctx = canvas.getContext("2d");
+
+    const menuForm = document.getElementById('menu-form');
+    const menuFormContainer = document.querySelector('.menu-form-container');
+    
+
+    let tiempo = 0;
+    let nombreJ1 = null;
+    let fichaJ1 = null;
+    
+    let nombreJ2 = null;
+    let fichaJ2 = null;
+
+
+    //CHECKBOX
+ /* 
+    const lunaBox1 = document.querySelector('#lunaBox1');
+    const lunaBox2 = document.querySelector('#lunaBox2');    
+    const rayoBox1 = document.querySelector('#rayoBox1');
+    const rayoBox2 = document.querySelector('#rayoBox2');
+
+
+    let checkboxLuna1 = true;
+    let checkboxLuna2 = false;
+    let checkboxRayo1 = true;
+    let checkboxRayo2 = false;
+
+
+    lunaBox1.addEventListener('click', (e) => {
+        checkboxLuna1 = true;
+        checkboxLuna2 = false;
+    });
+
+    lunaBox2.addEventListener('click', (e) => {
+        checkboxLayo1 = true;
+        checkboxLuna2 = false;
+    });
+
+    rayoBox1.addEventListener('click', (e) => {
+        checkboxRayo1 = true;
+        checkboxRayo2 = false;
+    });
+
+    rayoBox2.addEventListener('click', (e) => {
+        checkboxRayo1 = true;
+        checkboxRayo2 = false;
+    });
+
+    */
+
+    const imgJugador1 = new Image();
+    imgJugador1.src = "src/misc/luna2.jpg";
+
+    const imgJugador2 = new Image();
+    imgJugador2.src = "src/misc/rayo2.jpg";
+
+    const imgTablero = new Image();
+    imgTablero.src = "src/game/galaxia3.avif";
+    
+
+    let imagesLoaded = 0;
+
+    const checkImagesLoaded = () => {
+        imagesLoaded++;
+        if (imagesLoaded === 3) {
+            console.log("Todas las imágenes se han cargado");
+            iniciarJuego(4, "juan", "peter", 200);
+        }
+    }; 
+
+    function iniciarJuego(xEnLinea, player1Name, player2Name, gameDuration) {
+        const game = new Game(ctx, canvas, imgJugador1, imgJugador2, gameDuration, xEnLinea);
+        game.getTablero().setImgTablero(imgTablero);
+
+        game.draw();
+
+        canvas.addEventListener('mousedown', (e) => {
+            game.seleccionarFicha(e.offsetX, e.offsetY);
+        });
+
+        canvas.addEventListener('mousemove', (e) => {
+            game.moverFicha(e.offsetX, e.offsetY);
+        });
+
+        canvas.addEventListener('mouseup', (e) => {
+            game.soltarFicha(e.offsetX, e.offsetY);
+        });
+    }
+
+    imgJugador1.onload = checkImagesLoaded;
+    imgJugador2.onload = checkImagesLoaded;
+    imgTablero.onload = checkImagesLoaded; 
+});
+
+
+
+
+
+
+
+
+
+
+

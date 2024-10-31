@@ -35,29 +35,29 @@ class Timer {
     draw(timeRemaining) {
         // Limpia la zona del temporizador antes de dibujar el nuevo tiempo
         // Limpiar el área del temporizador
-        this.ctx.clearRect(0, 0, 1205, 60);  // Borra el área específica del temporizador
+        this.ctx.clearRect(1205/2 - 50, 0, 100, 30);  // Borra el área específica del temporizador
         
         // Color de fondo temporal para verificar que el área se está limpiando
         this.ctx.fillStyle = "#1C1F3E";
-        this.ctx.fillRect(0, 0, 1205, 60);  // Redibuja un fondo limpio para la zona del temporizador
-    
+        this.ctx.fillRect(1205/2 - 50, 0, 100, 30);  // Redibuja un fondo limpio para la zona del temporizador
+        
         // Calcula la posición centrada
         const centerX = 1205 / 2;
-    
+        
         // Convierte el tiempo restante en minutos y segundos
         const minutes = Math.floor(timeRemaining / 60);
         const seconds = timeRemaining % 60;
-    
+        
         // Da formato al tiempo (ejemplo: "02:05")
         const timeText = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
-    
+        
         // Estilo del texto del temporizador
-        this.ctx.font = '36px Arial';
-        this.ctx.fillStyle = '#000';
+        this.ctx.font = '24px Play';
+        this.ctx.fillStyle = '#fff';
         this.ctx.textAlign = 'center';
     
         // Dibuja el temporizador centrado
-        this.ctx.fillText(timeText, centerX, 30);
+        this.ctx.fillText(timeText, centerX, 0);
     }
 
     getRemainingTime(){

@@ -109,4 +109,8 @@ class Tablero {
         return this.startY;
     }
 
+    clearTablero() {
+        this.tablero = this.crearTablero();
+    }
+
 }
