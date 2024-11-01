@@ -1,5 +1,6 @@
 class Game {
-    constructor(ctx, canvas, imgJugador1, imgJugador2, tiempo, xEnLinea) {
+    constructor(ctx, canvas, imgJugador1, imgJugador2, tiempo, xEnLinea, habilitado) {
+        this.nombre = "juego";
         this.ctx = ctx;
         this.canvas = canvas;
         this.tiempo = tiempo;
@@ -14,9 +15,15 @@ class Game {
         this.fichaSeleccionada = null;
         this.isMouseDown = false;
         this.backgroundImage;
-
+        this.habilitado = habilitado;
+        this.flechaBack = null;
+        this.flechaRestart = null;
+        this.crearImagenesBotones();
         // Crea fichas para ambos jugadores
         this.inicializarFichas();
+
+
+        
 
     }
 
@@ -42,22 +49,40 @@ class Game {
 
     // Dibuja el tablero y las fichas
     draw() {
-        this.crearFondo();
         this.clearCanvas();
+        this.crearFondo();
         this.timer.drawTimer();
         this.tablero.draw();
+        this.tablero.drawZonaCaida();
 
-        [...this.fichasJugador1, ...this.fichasJugador2].forEach(ficha => ficha.draw());
+        /* [...this.fichasJugador1, ...this.fichasJugador2].forEach(ficha => ficha.draw(this.jugadorActual)); */
+        this.fichasJugador1.forEach(ficha => ficha.draw(this.jugadorActual, 1));
+        this.fichasJugador2.forEach(ficha => ficha.draw(this.jugadorActual, 2));
 
-        this.drawTurn();
-        this.drawZonaCaida();
-        this.drawBotones(1160, 90, 20);
+
+/*         const flechaBack = new Image();
+        flechaBack.src = "src/game/backmenu.png";
+    
+        const flechaRestart = new Image();
+        flechaRestart.src = "src/game/reset.png"; */
+
+        this.drawBoton(1130, 30, 20, this.flechaBack, "white");    
+        this.drawBoton(1180, 30, 20, this.flechaRestart, "black");   
 
     }
 
+    crearImagenesBotones() {
+        let flechaBack = new Image();
+        flechaBack.src = "src/game/backmenu.png";
+    
+        let flechaRestart = new Image();
+        flechaRestart.src = "src/game/reset.png";
+
+        this.flechaBack = flechaBack;
+        this.flechaRestart = flechaRestart
+    }
+
     crearFondo(){
-        // let backgroundImage = new Image ();
-        // backgroundImage.src = "src/game/backgroundNight.jpg";
         let pattern = this.ctx.createPattern(this.backgroundImage, "no-repeat");
         this.ctx.fillStyle = pattern; 
         this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
@@ -67,29 +92,12 @@ class Game {
         this.backgroundImage = img;
     }
     
-
     clearCanvas() {
-
         this.crearFondo();
         // this.ctx.fillStyle = "rgba(0, 0, 0, 0.5)";
     }
 
-    drawZonaCaida() {
-        // Calcula las coordenadas de la zona de caída según el tablero
-        const zonaDeCaidaTop = this.tablero.getStartY() - 80;
-        const zonaDeCaidaBottom = this.tablero.getStartY();
-        const zonaDeCaidaLeft = this.tablero.getStartX();
-        const zonaDeCaidaRight = this.tablero.getStartX() + this.tablero.columnas * this.tablero.tamanoCelda;
-
-        const zonaDeCaidaWidth = zonaDeCaidaRight - zonaDeCaidaLeft;
-        const zonaDeCaidaHeight = zonaDeCaidaBottom - zonaDeCaidaTop;
-
-        // Dibuja el área de la zona de caída
-        this.ctx.save();
-        this.ctx.fillStyle = "rgba(1, 1, 1, 0.3)"; //
-        this.ctx.fillRect(zonaDeCaidaLeft, zonaDeCaidaTop, zonaDeCaidaWidth, zonaDeCaidaHeight);
-        this.ctx.restore();
-    }
+    
 
     seleccionarFicha(x, y) {
         let fichas = this.jugadorActual === 1 ? this.fichasJugador1 : this.fichasJugador2;
@@ -110,24 +118,26 @@ class Game {
     }
 
     soltarFicha(x, y) {
+        let columna;
+        let fila;
         let ultimoJugador;
 
         if (this.fichaSeleccionada) {
             // Define las coordenadas de la zona de caída según el tablero
-            const zonaDeCaidaTop = this.tablero.getStartY() - 80;
-            const zonaDeCaidaBottom = this.tablero.getStartY();
-            const zonaDeCaidaLeft = this.tablero.getStartX();
-            const zonaDeCaidaRight = this.tablero.getStartX() + this.tablero.columnas * this.tablero.tamanoCelda;
+            const zonaDeCaidaTop = this.tablero.getTopZC();
+            const zonaDeCaidaBottom = this.tablero.getBottomZC();
+            const zonaDeCaidaLeft = this.tablero.getLeftZC();
+            const zonaDeCaidaRight = this.tablero.getRightZC();
 
             // Verifica si la ficha fue soltada dentro de la zona de caída
             if (y >= zonaDeCaidaTop && y <= zonaDeCaidaBottom && x >= zonaDeCaidaLeft && x <= zonaDeCaidaRight) {
                 // Calcula la columna según la posición en x
-                const columna = Math.floor((x - zonaDeCaidaLeft) / this.tablero.tamanoCelda);
+                columna = Math.floor((x - zonaDeCaidaLeft) / this.tablero.tamanoCelda);
 
                 // Verifica si la columna está dentro del rango válido
                 if (columna >= 0 && columna < this.tablero.columnas) {
                     // Obtiene la fila disponible en esa columna
-                    const fila = this.tablero.verificarColumna(columna);
+                    fila = this.tablero.verificarColumna(columna);
 
                     if (fila !== -1) { // Si hay espacio en la columna
                         // Calcula la posición objetivo en el canvas donde debe caer la ficha
@@ -148,22 +158,16 @@ class Game {
                             ultimoJugador = this.jugadorActual;
                             this.cambiarTurno();
 
-                            // Redibuja el tablero para actualizar el estado
-                            // this.draw();
+                            
                         });
 
-                        // Libera la ficha seleccionada
-                        this.fichaSeleccionada.setResaltado(false);
-                        this.fichaSeleccionada = null;
-
-                        /*   */
                     }
                 }
                 console.log("no soltada");
             } else {
                 // Si no está en la zona de caida, devuelve la ficha a su posición original
                 const fichas = this.jugadorActual === 1 ? this.fichasJugador1 : this.fichasJugador2;
-                /* const index =  */fichas.indexOf(this.fichaSeleccionada);
+                fichas.indexOf(this.fichaSeleccionada);
                 this.fichaSeleccionada.setPosicionInicial();
             }
             
@@ -173,7 +177,7 @@ class Game {
              
             this.draw();
             // Verifica si hay un ganador después de la colocación
-            if (this.hayGanador(ultimoJugador)) {
+            if (this.hayGanador(ultimoJugador, columna, fila)) {
                 console.log("hay ganador");
                 this.finalizarJuego();
                 this.drawGanador(ultimoJugador);
@@ -216,128 +220,80 @@ class Game {
 
 
 
-    //TODO Cambiarlo a algo mas eficiente 
-    hayGanador(ultimoJugador) {
-        let ff = this.tablero.getFilas();
-        let cc = this.tablero.getColumnas();
-        let mtxTablero = this.tablero.getTablero();
-        // Comprobar horizontal
-        for (let fila = 0; fila < ff; fila++) {
-            for (let col = 0; col < cc - 3; col++) { // Solo necesitamos comprobar hasta la columna 3
-                if (
-                    mtxTablero[fila][col] === ultimoJugador &&
-                    mtxTablero[fila][col + 1] === ultimoJugador &&
-                    mtxTablero[fila][col + 2] === ultimoJugador &&
-                    mtxTablero[fila][col + 3] === ultimoJugador
-                ) {
-                    return true;
-                }
-            }
+    hayGanador(jugador, columna, fila) {
+        return (
+            this.verificarHorizontal(jugador, fila, columna) ||
+            this.verificarVertical(jugador, fila, columna) ||
+            this.verificarDiagonalPrincipal(jugador, fila, columna) ||
+            this.verificarDiagonalSecundaria(jugador, fila, columna)
+        );
+    }
+
+    verificarHorizontal(jugador, fila, columna) {
+        let conteo = 1;
+
+        // Izquierda
+        for (let c = columna - 1; c >= 0 && this.tablero.tablero[fila][c] === jugador; c--) {
+            conteo++;
+            if (conteo >= this.xEnLinea) return true;
+        }
+        
+        // Derecha
+        for (let c = columna + 1; c < this.tablero.columnas && this.tablero.tablero[fila][c] === jugador; c++) {
+            conteo++;
+            if (conteo >= this.xEnLinea) return true;
         }
 
-        // Comprobar vertical
-        for (let col = 0; col < cc; col++) {
-            for (let fila = 0; fila < ff - 3; fila++) { // Solo necesitamos comprobar hasta la fila 2
-                if (
-                    mtxTablero[fila][col] === ultimoJugador &&
-                    mtxTablero[fila + 1][col] === ultimoJugador &&
-                    mtxTablero[fila + 2][col] === ultimoJugador &&
-                    mtxTablero[fila + 3][col] === ultimoJugador
-                ) {
-                    return true;
-                }
-            }
-        }
-
-        // Comprobar diagonal (de abajo-izquierda a arriba-derecha)
-        for (let fila = 3; fila < ff; fila++) { // Comenzar desde la fila 3
-            for (let col = 0; col < cc - 3; col++) { // Solo hasta la columna 3
-                if (
-                    mtxTablero[fila][col] === ultimoJugador &&
-                    mtxTablero[fila - 1][col + 1] === ultimoJugador &&
-                    mtxTablero[fila - 2][col + 2] === ultimoJugador &&
-                    mtxTablero[fila - 3][col + 3] === ultimoJugador
-                ) {
-                    return true;
-                }
-            }
-        }
-
-        // Comprobar diagonal (de arriba-izquierda a abajo-derecha)
-        for (let fila = 0; fila < ff - 3; fila++) { // Solo hasta la fila 2
-            for (let col = 0; col < cc - 3; col++) { // Solo hasta la columna 3
-                if (
-                    mtxTablero[fila][col] === ultimoJugador &&
-                    mtxTablero[fila + 1][col + 1] === ultimoJugador &&
-                    mtxTablero[fila + 2][col + 2] === ultimoJugador &&
-                    mtxTablero[fila + 3][col + 3] === ultimoJugador
-                ) {
-                    return true;
-                }
-            }
-        }
-
-
-        // Si no hay victoria
         return false;
     }
 
-    // hayGanador(ultimoJugador) {
-    //     let filas = this.tablero.getFilas();
-    //     let columnas = this.tablero.getColumnas();
-    //     let mtxTablero = this.tablero.getTablero();
-    
-    //     // Comprobar horizontal
-    //     for (let fila = 0; fila < filas; fila++) {
-    //         for (let col = 0; col <= columnas - this.xEnLinea; col++) { 
-    //             let cuenta = 0;
-    //             for (let k = 0; k < this.xEnLinea; k++) {
-    //                 if (mtxTablero[fila][col + k] === ultimoJugador) cuenta++;
-    //                 else break;
-    //             }
-    //             if (cuenta === this.xEnLinea) return true;
-    //         }
-    //     }
-    
-    //     // Comprobar vertical
-    //     for (let col = 0; col < columnas; col++) {
-    //         for (let fila = 0; fila <= filas - this.xEnLinea; fila++) {
-    //             let cuenta = 0;
-    //             for (let k = 0; k < this.xEnLinea; k++) {
-    //                 if (mtxTablero[fila + k][col] === ultimoJugador) cuenta++;
-    //                 else break;
-    //             }
-    //             if (cuenta === this.xEnLinea) return true;
-    //         }
-    //     }
-    
-    //     // Comprobar diagonal (de abajo-izquierda a arriba-derecha)
-    //     for (let fila = this.xEnLinea - 1; fila < filas; fila++) {
-    //         for (let col = 0; col <= columnas - this.xEnLinea; col++) {
-    //             let cuenta = 0;
-    //             for (let k = 0; k < this.xEnLinea; k++) {
-    //                 if (mtxTablero[fila - k][col + k] === ultimoJugador) cuenta++;
-    //                 else break;
-    //             }
-    //             if (cuenta === this.xEnLinea) return true;
-    //         }
-    //     }
-    
-    //     // Comprobar diagonal (de arriba-izquierda a abajo-derecha)
-    //     for (let fila = 0; fila <= filas - this.xEnLinea; fila++) {
-    //         for (let col = 0; col <= columnas - this.xEnLinea; col++) {
-    //             let cuenta = 0;
-    //             for (let k = 0; k < this.xEnLinea; k++) {
-    //                 if (mtxTablero[fila + k][col + k] === ultimoJugador) cuenta++;
-    //                 else break;
-    //             }
-    //             if (cuenta === this.xEnLinea) return true;
-    //         }
-    //     }
-    
-    //     // Si no hay victoria
-    //     return false;
-    // }
+    verificarVertical(jugador, fila, columna) {
+        let conteo = 1;
+
+        // Abajo
+        for (let f = fila + 1; f < this.tablero.filas && this.tablero.tablero[f][columna] === jugador; f++) {
+            conteo++;
+            if (conteo >= this.xEnLinea) return true;
+        }
+
+        return false;
+    }
+
+    verificarDiagonalPrincipal(jugador, fila, columna) {
+        let conteo = 1;
+
+        // Arriba-Izquierda
+        for (let f = fila - 1, c = columna - 1; f >= 0 && c >= 0 && this.tablero.tablero[f][c] === jugador; f--, c--) {
+            conteo++;
+            if (conteo >= this.xEnLinea) return true;
+        }
+        
+        // Abajo-Derecha
+        for (let f = fila + 1, c = columna + 1; f < this.tablero.filas && c < this.tablero.columnas && this.tablero.tablero[f][c] === jugador; f++, c++) {
+            conteo++;
+            if (conteo >= this.xEnLinea) return true;
+        }
+
+        return false;
+    }
+
+    verificarDiagonalSecundaria(jugador, fila, columna) {
+        let conteo = 1;
+
+        // Arriba-Derecha
+        for (let f = fila - 1, c = columna + 1; f >= 0 && c < this.tablero.columnas && this.tablero.tablero[f][c] === jugador; f--, c++) {
+            conteo++;
+            if (conteo >= this.xEnLinea) return true;
+        }
+        
+        // Abajo-Izquierda
+        for (let f = fila + 1, c = columna - 1; f < this.tablero.filas && c >= 0 && this.tablero.tablero[f][c] === jugador; f++, c--) {
+            conteo++;
+            if (conteo >= this.xEnLinea) return true;
+        }
+
+        return false;
+    }
 
 
     finalizarJuego() {
@@ -351,10 +307,9 @@ class Game {
         console.log(turnoTexto)
         
         // Estilo del texto
-        this.ctx.font = "24px Play";       // Aumenta el tamaño de la fuente
-        this.ctx.fillStyle = "#ffffff";      // Color del texto en blanco
-        this.ctx.textAlign = "center";       // Centrado horizontal
-        this.ctx.textBaseline = "top";       // Posicionado en la parte superior
+        this.ctx.font = "24px Play";       
+        this.ctx.fillStyle = "#ffffff";      
+        this.ctx.textAlign = "center";       
         
         
         const posX = (this.canvas.width + (this.tablero.filas)) / 2;
@@ -364,25 +319,8 @@ class Game {
         console.log("drawGanador")
     }
 
-    drawTurn() {
-        const turnoTexto = `Turno del Jugador ${this.jugadorActual}`;
-        
-        // Estilo del texto
-        this.ctx.font = "24px Play";       // Aumenta el tamaño de la fuente
-        this.ctx.fillStyle = "#ffffff";      // Color del texto en blanco
-        this.ctx.textAlign = "center";       // Centrado horizontal
-        this.ctx.textBaseline = "top";       // Posicionado en la parte superior
-        
-        
-        const posX = (this.canvas.width + (this.tablero.filas)) / 2;
-        const posY = this.canvas.height - 75;  // Justo debajo del tablero
-        // Dibuja el texto segun posicion
-        this.ctx.fillText(turnoTexto, posX, posY);
-    }
-
     cambiarTurno() {
         this.jugadorActual = this.jugadorActual === 1 ? 2 : 1;
-        this.drawTurn();
     }
 
     getTablero() {
@@ -393,74 +331,11 @@ class Game {
         [...this.fichasJugador1, ...this.fichasJugador2].forEach(ficha => ficha.setColocado());
     }
 
-    /* drawGanador(ganador) {
-        console.log("drawGanador", ganador);
-        const centerX = this.canvas.width / 2;
-        const centerY = this.canvas.height / 2;
-
-        console.log(centerX, centerY);
-
-        // Fondo semitransparente
-        this.ctx.save();
-        this.ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
-        this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
-        this.ctx.restore();
-
-        // Fondo del cartel
-        const boxWidth = 300;
-        const boxHeight = 200;
-        this.ctx.save();
-        this.ctx.fillStyle = '#FFFFFF';
-        this.ctx.fillRect(centerX - boxWidth / 2, centerY - boxHeight / 2, boxWidth, boxHeight);
-        this.ctx.restore(); 
-
-
-        // Texto de ganador
-        this.ctx.save();
-        this.ctx.fillStyle = '#000000';
-        this.ctx.font = '24px Arial';
-        this.ctx.textAlign = 'center';
-        this.ctx.fillText(`${ganador} ha ganado!`, centerX, centerY - 40);
-        this.ctx.restore();
-
-        // Botón de reiniciar
-        this.ctx.save();
-        this.ctx.fillStyle = '#4CAF50';
-        this.ctx.fillRect(centerX - 100, centerY + 10, 80, 40);
-        this.ctx.fillStyle = '#FFFFFF';
-        this.ctx.fillText('Reiniciar', centerX - 60, centerY + 35);
-        this.ctx.restore();
-
-        // Botón de volver al menú
-        this.ctx.save();
-        this.ctx.fillStyle = '#f44336';
-        this.ctx.fillRect(centerX + 20, centerY + 10, 80, 40);
-        this.ctx.fillStyle = '#FFFFFF';
-        this.ctx.fillText('Menú', centerX + 60, centerY + 35);
-        this.ctx.restore();
-
-        // Guarda las coordenadas de los botones para detectar clics
-        this.restartButton = { x: centerX - 100, y: centerY + 10, width: 80, height: 40 };
-        this.menuButton = { x: centerX + 20, y: centerY + 10, width: 80, height: 40 };
-    }
-
-    handleVictoryClick(x, y) {
-        if (this.isInsideButton(x, y, this.restartButton)) {
-            this.reiniciarJuego();
-        } else if (this.isInsideButton(x, y, this.menuButton)) {
-            this.volverAlMenu();
-        }
-    }
-
-    isInsideButton(x, y, button) {
-        return x >= button.x && x <= button.x + button.width &&
-               y >= button.y && y <= button.y + button.height;
-    } */
-
     reiniciarJuego(x, y) {
+        console.log("reiniciar juego"); 
         // Reiniciar lógica del juego aquí
         if(this.isPointerOnResetButton(x, y)){
-            console.log("reiniciar juego"); 
+            console.log("reinicia???"); 
             this.clearCanvas();
             this.tablero.clearTablero();
             this.fichasJugador1 = [];
@@ -477,49 +352,56 @@ class Game {
 
     }
 
-    volverAlMenu() {
-        // Lógica para volver al menú de configuración aquí
+    volverAlMenu(x,y) {
+        if(this.isPointerOnMenuButton(x, y)){
+            this.timer.borrarIntervalo();
+            this.isHabilitado = false;
+            loadMain();
+        }
     }
 
-    drawBotones(x, y, radius) {
-        const buttonColor = "#ff5733";
-
-        // Dibuja el boton de reinciar y el boton de menú
+    // Dibuja el boton de reinciar y el boton de menú
+    drawBoton(x, y, radius, img, color) {
 
         this.ctx.beginPath();
         this.ctx.arc(x, y, radius, 0, Math.PI * 2);
-        this.ctx.fillStyle = "black";
+        this.ctx.fillStyle = color;
         this.ctx.fill();
         this.ctx.closePath();
 
-
         this.ctx.beginPath();
-        this.ctx.arc(x - 50, y, radius, 0, Math.PI * 2);
-        this.ctx.fillStyle = buttonColor;
-        this.ctx.fill();
+        this.ctx.drawImage(img, x - 14, y - 15, 28, 28);
         this.ctx.closePath();
 
     }
 
     isPointerOnResetButton(x, y) {
-        let posX = 1160;
-        let posY = 90;
+        let posX = 1180;
+        let posY = 30;
         let radius = 20;
         let _x = posX - x;
         let _y = posY - y;
         let resultado = Math.sqrt(_x * _x + _y * _y) < radius;
         return resultado;
     }
-
+    
     isPointerOnMenuButton(x, y) {
-        let posX = 1110;
-        let posY = 90;
+        let posX = 1130;
+        let posY = 30;
         let radius = 20;
         let _x = posX - x;
         let _y = posY - y;
         let resultado = Math.sqrt(_x * _x + _y * _y) < radius;
         return resultado;
 
+    }
+
+    
+    isHabilitado(){
+        return this.habilitado;
+    }
+    setHabilitado(habilitado){
+        this.habilitado = habilitado;
     }
 
 }

@@ -11,12 +11,18 @@ class Ficha {
         this.colocado = false;
 
          // Propiedades para la caída animada
-         this.velY = 0; // Velocidad inicial de caída
-         this.enCaida = false; // Para saber si está en caída animada
+        this.velY = 0; // Velocidad inicial de caída
+        this.enCaida = false; // Para saber si está en caída animada
     }
 
-    draw() {
+    draw(turnoActual, jugadorFicha) {
         this.ctx.save();
+        
+        if (turnoActual !== jugadorFicha && this.colocado === false) {
+            this.ctx.globalAlpha = 0.3; // Opacidad cuando no es el turno
+        } else {
+            this.ctx.globalAlpha = 1;   // Opacidad completa si es el turno
+        }
 
         // Dibuja el círculo como fondo
         this.ctx.beginPath();
@@ -24,7 +30,6 @@ class Ficha {
         this.ctx.fillStyle = "transparent"; // Puedes cambiar el color de fondo si lo deseas
         this.ctx.closePath();
 
-        this.ctx.clip();
         // Dibuja la imagen dentro del círculo
         this.ctx.drawImage(this.fill, this.posX - this.radius, this.posY - this.radius, this.radius * 2, this.radius * 2);
 

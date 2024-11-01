@@ -1,5 +1,5 @@
 class Tablero {
-    constructor(ctx, xEnLinea, tamanoCelda) {
+    constructor(ctx, xEnLinea, tamanoCelda, normal, resaltada) {
         this.ctx = ctx;
         this.xEnLinea = xEnLinea;
         this.filas = 6;
@@ -9,6 +9,8 @@ class Tablero {
         this.startX = 0;
         this.startY = 0;
         this.tablero = this.crearTablero();
+        this.flechaNormal;
+        this.flechaResaltada;
     }
 
     crearTablero() {
@@ -18,6 +20,9 @@ class Tablero {
         } else if (this.xEnLinea==6) {
             this.columnas = 9;
             this.filas = 8;
+        } else if (this.xEnLinea==7) {
+            this.columnas = 10;
+            this.filas = 9;
         }
         return Array.from({ length: this.filas }, () => Array(this.columnas).fill(0));
     }
@@ -61,7 +66,53 @@ class Tablero {
             }
         }
     }
+    
+    drawZonaCaida(mousePosX, mousePosY) {
+        const zonaDeCaidaTop = this.getTopZC();
+        const zonaDeCaidaBottom = this.getBottomZC();
+        const zonaDeCaidaLeft = this.getLeftZC();
+        const zonaDeCaidaRight = this.getRightZC();
+
+        for (let col = 0; col < this.columnas; col++) {
+            const x = zonaDeCaidaLeft + col * this.tamanoCelda;
+            const y = zonaDeCaidaTop;
+
+            // Cambia la flecha según si el cursor está sobre la celda
+            if (this.isHoveredOverCell(mousePosX, mousePosY, col)) {
+                this.ctx.drawImage(this.flechaResaltada, x + this.tamanoCelda/4, y + this.tamanoCelda/4, this.tamanoCelda/2, this.tamanoCelda/2);
+            } else {
+                this.ctx.drawImage(this.flechaNormal, x + this.tamanoCelda/4, y + this.tamanoCelda/4, this.tamanoCelda/2, this.tamanoCelda/2);
+            }
+        }
+    }
+
+    isHoveredOverCell(mouseX, mouseY, columna) {
+        const zonaDeCaidaTop = this.getStartY() - 80;
+        const zonaDeCaidaLeft = this.getStartX();
         
+        const x = zonaDeCaidaLeft + columna * this.tamanoCelda;
+        const y = zonaDeCaidaTop;
+
+        return mouseX >= x && mouseX <= x + this.tamanoCelda &&
+               mouseY >= y && mouseY <= y + this.tamanoCelda;
+    }
+
+    // Funciones para obtener las dimensiones de la zona de caida
+    getTopZC(){
+        return this.getStartY() - this.tamanoCelda;
+    }
+
+    getBottomZC(){
+        return this.getStartY();
+    }
+
+    getLeftZC(){
+        return this.getStartX();
+    }
+
+    getRightZC(){
+        return this.getStartX() + this.columnas * this.tamanoCelda;
+    }
     
         
 
@@ -111,6 +162,14 @@ class Tablero {
 
     clearTablero() {
         this.tablero = this.crearTablero();
+    }
+
+    setImgNormal(imagen){
+        this.flechaNormal = imagen;
+    }
+
+    setImgResaltada(imagen){
+        this.flechaResaltada = imagen;
     }
 
 }

@@ -1,4 +1,4 @@
-/* comentado actualmente linea 10 y 43 de juego.js para sacar momentaneamente el timer */
+
 
 class Timer {
     constructor(time, ctx, game) {
@@ -9,14 +9,17 @@ class Timer {
         this.remainingtime = time;
         this.empate = false;
         this.contar = setInterval(() => {
-            if (this.remainingtime >= 0  && !this.pausa && !this.empate ) {
-                this.draw(this.remainingtime);
-                this.remainingtime--;
-            } else if (this.remainingtime < 0) {
-                alert("Empate! No hay mas tiempo");
-                this.borrarIntervalo();
-                this.empate = true; //empate
-                this.game.finalizarJuego();
+            if(this.game.isHabilitado()){
+                if (this.remainingtime >= 0  && !this.pausa && !this.empate ) {
+                    this.draw(this.remainingtime);
+                    this.remainingtime--;
+
+                } else if (this.remainingtime < 0) {
+                    alert("Empate! No hay mas tiempo");
+                    this.borrarIntervalo();
+                    this.empate = true; //empate
+                    this.game.finalizarJuego();
+                }
             }
         }, 1000);
     }
@@ -27,6 +30,7 @@ class Timer {
 
     borrarIntervalo() {
         clearInterval(this.contar);
+
     }
     
     drawTimer(){
@@ -35,11 +39,11 @@ class Timer {
     draw(timeRemaining) {
         // Limpia la zona del temporizador antes de dibujar el nuevo tiempo
         // Limpiar el área del temporizador
-        this.ctx.clearRect(1205/2 - 50, 0, 100, 30);  // Borra el área específica del temporizador
+        this.ctx.clearRect(40 - 50, 0, 100, 50);  // Borra el área específica del temporizador
         
         // Color de fondo temporal para verificar que el área se está limpiando
         this.ctx.fillStyle = "#1C1F3E";
-        this.ctx.fillRect(1205/2 - 50, 0, 100, 30);  // Redibuja un fondo limpio para la zona del temporizador
+        this.ctx.fillRect(40 - 50, 0, 100, 50);  // Redibuja un fondo limpio para la zona del temporizador
         
         // Calcula la posición centrada
         const centerX = 1205 / 2;
@@ -57,7 +61,7 @@ class Timer {
         this.ctx.textAlign = 'center';
     
         // Dibuja el temporizador centrado
-        this.ctx.fillText(timeText, centerX, 0);
+        this.ctx.fillText(timeText, 40, 40);
     }
 
     getRemainingTime(){
