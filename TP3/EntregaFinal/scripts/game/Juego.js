@@ -16,38 +16,53 @@ class Game {
         this.isMouseDown = false;
         this.backgroundImage;
         this.habilitado = habilitado;
-        this.flechaBack = null;
-        this.flechaRestart = null;
-        this.crearImagenesBotones();
+        this.homeMenu;
+        this.flechaRestart;
         // Crea fichas para ambos jugadores
         this.inicializarFichas();
-
-
-        
-
+        this.fichasTotales = this.fichasJugador1.length + this.fichasJugador2.length;
+        this.fichasSoltadas = 0;
     }
 
 
 
     inicializarFichas() {
-        let fichasXJugador = (this.tablero.getColumnas() * this.tablero.getFilas() / 2);
-        // Ajustes de posición para centrar las columnas de fichas en cada lado del tablero
+        const fichasXJugador = (this.tablero.getColumnas() * this.tablero.getFilas()) / 2;
         const canvasWidth = this.canvas.width;
         const tableroWidth = this.tablero.getColumnas() * this.tablero.getTamanoCelda();
         const startX = (canvasWidth - tableroWidth) / 2;
-        // Posiciones de las fichas a la izquierda y derecha del tablero
-        const posicionXJugador1 = startX - 90; // Ajusta para la distancia deseada desde el tablero
-        const posicionXJugador2 = startX + tableroWidth + 90;
 
-        // Distribuye las fichas de ambos jugadores verticalmente
+        // Distancia desde el tablero y entre columnas de fichas
+        const distFromBoard = 70;
+        const columnSpacing = 60;
+        const posicionXJugador1Base = startX - distFromBoard;
+        const posicionXJugador2Base = startX + tableroWidth + distFromBoard;
+
+        // Determina el número de columnas laterales y ajusta el espacio vertical según el número de fichas
+        let numColumns = 1;
+        let espacioVertical = 30;
+        let posicionYInicial = 100; // Posición Y inicial ajustada para más espacio
+
+        if (fichasXJugador > 21) {
+            numColumns = 2;
+            posicionYInicial = 150; // Posición Y inicial para más de 21 fichas
+        }
+        if (fichasXJugador > 36) {
+            numColumns = 3;
+        }
+
+        // Distribución de fichas en las columnas
         for (let i = 0; i < fichasXJugador; i++) {
-            const posicionY = 150 + (i * 20);
+            const columnaActual = i % numColumns;
+            const posicionXJugador1 = posicionXJugador1Base - (columnaActual * columnSpacing);
+            const posicionXJugador2 = posicionXJugador2Base + (columnaActual * columnSpacing);
+            const posicionY = posicionYInicial + (Math.floor(i / numColumns) * espacioVertical);
+
             this.fichasJugador1.push(new Ficha(posicionXJugador1, posicionY, this.ctx, 30, this.imgJugador1));
             this.fichasJugador2.push(new Ficha(posicionXJugador2, posicionY, this.ctx, 30, this.imgJugador2));
         }
     }
-
-    // Dibuja el tablero y las fichas
+    // Dibuja el tablero, fichas, timer, zona de caida y botones.
     draw() {
         this.clearCanvas();
         this.crearFondo();
@@ -55,49 +70,39 @@ class Game {
         this.tablero.draw();
         this.tablero.drawZonaCaida();
 
-        /* [...this.fichasJugador1, ...this.fichasJugador2].forEach(ficha => ficha.draw(this.jugadorActual)); */
+
         this.fichasJugador1.forEach(ficha => ficha.draw(this.jugadorActual, 1));
         this.fichasJugador2.forEach(ficha => ficha.draw(this.jugadorActual, 2));
 
-
-/*         const flechaBack = new Image();
-        flechaBack.src = "src/game/backmenu.png";
-    
-        const flechaRestart = new Image();
-        flechaRestart.src = "src/game/reset.png"; */
-
-        this.drawBoton(1130, 30, 20, this.flechaBack, "white");    
-        this.drawBoton(1180, 30, 20, this.flechaRestart, "black");   
+        this.drawBoton(1130, 30, 22, this.homeMenu);
+        this.drawBoton(1180, 30, 22, this.flechaRestart);
 
     }
 
-    crearImagenesBotones() {
-        let flechaBack = new Image();
-        flechaBack.src = "src/game/backmenu.png";
-    
-        let flechaRestart = new Image();
-        flechaRestart.src = "src/game/reset.png";
-
-        this.flechaBack = flechaBack;
-        this.flechaRestart = flechaRestart
-    }
-
-    crearFondo(){
+    crearFondo() {
         let pattern = this.ctx.createPattern(this.backgroundImage, "no-repeat");
-        this.ctx.fillStyle = pattern; 
+        this.ctx.fillStyle = pattern;
         this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
     }
 
-    setBackgroundImage(img){
+    setBackgroundImage(img) {
         this.backgroundImage = img;
     }
-    
+
+    setFlechaRestart(img) {
+        this.flechaRestart = img;
+    }
+
+    setHomeMenu(img) {
+        this.homeMenu = img;
+    }
+
     clearCanvas() {
         this.crearFondo();
         // this.ctx.fillStyle = "rgba(0, 0, 0, 0.5)";
     }
 
-    
+
 
     seleccionarFicha(x, y) {
         let fichas = this.jugadorActual === 1 ? this.fichasJugador1 : this.fichasJugador2;
@@ -106,6 +111,15 @@ class Game {
                 ficha.setResaltado(true);
                 this.fichaSeleccionada = ficha;
                 return;
+            }
+        }
+    }
+
+    isFichasSeleccionadas(x, y) {
+        let fichas = this.jugadorActual === 1 ? this.fichasJugador1 : this.fichasJugador2;
+        for (let ficha of fichas) {
+            if (ficha.isPointInside(x, y) && !ficha.isColocado()) {
+                return true;
             }
         }
     }
@@ -121,6 +135,7 @@ class Game {
         let columna;
         let fila;
         let ultimoJugador;
+
 
         if (this.fichaSeleccionada) {
             // Define las coordenadas de la zona de caída según el tablero
@@ -157,32 +172,39 @@ class Game {
                             // Cambia el turno después de colocar la ficha
                             ultimoJugador = this.jugadorActual;
                             this.cambiarTurno();
-
-                            
+                            this.fichasSoltadas++;
                         });
 
+                        // Verifica si hay un ganador después de la colocación
+                        if (this.hayGanador(ultimoJugador, columna, fila)) {
+                            this.finalizarJuego();
+                            setTimeout(() => {
+                                this.drawGanador(ultimoJugador);
+                            }, 1000);
+                        }
+
+
+                        if (this.fichasSoltadas === this.fichasTotales) {
+                            this.finalizarJuego(),
+                                setTimeout(() =>
+                                    this.drawEmpate()
+                                    , 1000);
+                        }
                     }
                 }
-                console.log("no soltada");
             } else {
                 // Si no está en la zona de caida, devuelve la ficha a su posición original
                 const fichas = this.jugadorActual === 1 ? this.fichasJugador1 : this.fichasJugador2;
                 fichas.indexOf(this.fichaSeleccionada);
                 this.fichaSeleccionada.setPosicionInicial();
             }
-            
+
             this.fichaSeleccionada.setResaltado(false);
             this.fichaSeleccionada = null;
-            
-             
+
             this.draw();
-            // Verifica si hay un ganador después de la colocación
-            if (this.hayGanador(ultimoJugador, columna, fila)) {
-                console.log("hay ganador");
-                this.finalizarJuego();
-                this.drawGanador(ultimoJugador);
-            }
         }
+
     }
 
 
@@ -237,7 +259,7 @@ class Game {
             conteo++;
             if (conteo >= this.xEnLinea) return true;
         }
-        
+
         // Derecha
         for (let c = columna + 1; c < this.tablero.columnas && this.tablero.tablero[fila][c] === jugador; c++) {
             conteo++;
@@ -267,7 +289,7 @@ class Game {
             conteo++;
             if (conteo >= this.xEnLinea) return true;
         }
-        
+
         // Abajo-Derecha
         for (let f = fila + 1, c = columna + 1; f < this.tablero.filas && c < this.tablero.columnas && this.tablero.tablero[f][c] === jugador; f++, c++) {
             conteo++;
@@ -285,7 +307,7 @@ class Game {
             conteo++;
             if (conteo >= this.xEnLinea) return true;
         }
-        
+
         // Abajo-Izquierda
         for (let f = fila + 1, c = columna - 1; f < this.tablero.filas && c >= 0 && this.tablero.tablero[f][c] === jugador; f++, c--) {
             conteo++;
@@ -297,26 +319,70 @@ class Game {
 
 
     finalizarJuego() {
-        console.log("finalizar juego")
         this.timer.setPausa(true);
         this.inhabilitarFichas();
     }
 
-    drawGanador(ultimoJugador) {
-        const turnoTexto = `Ganador jugador ${ultimoJugador}`;
-        console.log(turnoTexto)
-        
-        // Estilo del texto
-        this.ctx.font = "24px Play";       
-        this.ctx.fillStyle = "#ffffff";      
-        this.ctx.textAlign = "center";       
-        
-        
-        const posX = (this.canvas.width + (this.tablero.filas)) / 2;
-        const posY = this.canvas.height - 100;  // Justo debajo del tablero
-        // Dibuja el texto segun posicion
-        this.ctx.fillText(turnoTexto, posX, posY);
-        console.log("drawGanador")
+    drawEmpate() {
+        // Aplica opacidad al contexto
+        this.ctx.save();
+        this.ctx.globalAlpha = 0.7;
+        this.ctx.fillStyle = "#000000";  // Fondo negro con opacidad
+        this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+        this.ctx.restore();  // Restaura alpha para los siguientes elementos
+
+        // Texto de victoria
+        this.ctx.font = "36px Play";
+        this.ctx.fillStyle = "#FFFFFF";
+        this.ctx.textAlign = "center";
+        this.ctx.fillText(`¡Empate!`, this.canvas.width / 2, this.canvas.height / 2);
+
+
+        // Botones 
+        this.drawBoton(1130, 30, 22, this.homeMenu);
+        this.drawBoton(1180, 30, 22, this.flechaRestart);
+    };
+
+
+    drawGanador(jugador) {
+        // Aplica opacidad al contexto
+        this.ctx.save();
+        this.ctx.globalAlpha = 0.7;
+        this.ctx.fillStyle = "#000000";  // Fondo negro con opacidad
+        this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+        this.ctx.restore();  // Restaura alpha para los siguientes elementos
+
+        // Configuración de la imagen central de victoria
+        const imagenGanador = new Image();
+        if (jugador === 1) {
+            imagenGanador.src = "src/game/luna2recortado.png";  // Reemplaza con la ruta de tu imagen
+        } else {
+            imagenGanador.src = "src/game/rayo2recortado.png";  // Reemplaza con la ruta de tu imagen
+        }
+        imagenGanador.onload = () => {
+            const imgWidth = imagenGanador.naturalWidth / 2;
+            const imgHeight = imagenGanador.naturalHeight / 2;
+
+            const imgX = (this.canvas.width - imgWidth) / 2;
+            const imgY = (this.canvas.height - imgHeight) / 2 - 50;
+
+
+            this.ctx.drawImage(imagenGanador, imgX, imgY, imgWidth, imgHeight);
+
+            // Texto de victoria
+            this.ctx.font = "36px Play";
+            this.ctx.fillStyle = "#FFFFFF";
+            this.ctx.textAlign = "center";
+            if (jugador === 1) {
+                this.ctx.fillText(`¡Ganó Luna!`, this.canvas.width / 2, imgY + imgHeight + 50);
+            } else {
+                this.ctx.fillText(`¡Ganó Rayo!`, this.canvas.width / 2, imgY + imgHeight + 50);
+            }
+
+            // Botones 
+            this.drawBoton(1130, 30, 22, this.homeMenu);
+            this.drawBoton(1180, 30, 22, this.flechaRestart);
+        };
     }
 
     cambiarTurno() {
@@ -332,19 +398,20 @@ class Game {
     }
 
     reiniciarJuego(x, y) {
-        console.log("reiniciar juego"); 
         // Reiniciar lógica del juego aquí
-        if(this.isPointerOnResetButton(x, y)){
-            console.log("reinicia???"); 
+        if (this.isPointerOnResetButton(x, y)) {
             this.clearCanvas();
             this.tablero.clearTablero();
             this.fichasJugador1 = [];
             this.fichasJugador2 = [];
             this.timer.resetTimer();
+            this.timer.pausa = false;
+            this.timer.empate = false;
             this.jugadorActual = 1;
             this.fichaSeleccionada = null;
-            this.isMouseDown = false; 
-    
+            this.isMouseDown = false;
+            this.fichasSoltadas = 0;
+
             // Crea fichas para ambos jugadores
             this.inicializarFichas();
             this.draw();
@@ -352,17 +419,18 @@ class Game {
 
     }
 
-    volverAlMenu(x,y) {
-        if(this.isPointerOnMenuButton(x, y)){
+    volverAlMenu(x, y) {
+        if (this.isPointerOnMenuButton(x, y)) {
             this.timer.borrarIntervalo();
             this.isHabilitado = false;
+            this.fichasSoltadas = 0;
             loadMain();
         }
     }
 
     // Dibuja el boton de reinciar y el boton de menú
-    drawBoton(x, y, radius, img, color) {
-
+    drawBoton(x, y, radius, img) {
+        let color = "rgb(250, 252, 117)"
         this.ctx.beginPath();
         this.ctx.arc(x, y, radius, 0, Math.PI * 2);
         this.ctx.fillStyle = color;
@@ -370,7 +438,7 @@ class Game {
         this.ctx.closePath();
 
         this.ctx.beginPath();
-        this.ctx.drawImage(img, x - 14, y - 15, 28, 28);
+        this.ctx.drawImage(img, x - 17, y - 18, 35, 35);
         this.ctx.closePath();
 
     }
@@ -384,7 +452,7 @@ class Game {
         let resultado = Math.sqrt(_x * _x + _y * _y) < radius;
         return resultado;
     }
-    
+
     isPointerOnMenuButton(x, y) {
         let posX = 1130;
         let posY = 30;
@@ -396,11 +464,11 @@ class Game {
 
     }
 
-    
-    isHabilitado(){
+
+    isHabilitado() {
         return this.habilitado;
     }
-    setHabilitado(habilitado){
+    setHabilitado(habilitado) {
         this.habilitado = habilitado;
     }
 

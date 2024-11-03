@@ -9,7 +9,7 @@ function loadMain() {
 
     //Contador de imagenes cargadas
     let imagesLoaded = 0;
-    
+
 
     //Valores predeterminados del formulario
     let tiempo = 60;
@@ -46,11 +46,11 @@ function loadMain() {
     const rayo = new Image();
     rayo.src = "src/game/rayo1recortado.png";
 
-    const flechaBack = new Image();
-    flechaBack.src = "src/game/backmenu.png"
+    const homeMenu = new Image();
+    homeMenu.src = "src/game/hogar.png"
 
     const flechaRestart = new Image();
-    flechaRestart.src = "src/game/reset.png"
+    flechaRestart.src = "src/game/reiniciar.png"
 
     const checkImagesLoaded = () => {
         imagesLoaded++;
@@ -60,11 +60,12 @@ function loadMain() {
     };
 
 
+
     function iniciarMenu() {
         //Dibujar Fondo
-        ctx.shadowColor = "rgba(1, 1, 1, 0.9)"; 
-        ctx.shadowBlur = 10;                    
-        ctx.shadowOffsetX = 10;                 
+        ctx.shadowColor = "rgba(1, 1, 1, 0.9)";
+        ctx.shadowBlur = 10;
+        ctx.shadowOffsetX = 10;
         ctx.shadowOffsetY = 10;
         ctx.drawImage(imgFondo, 0, 0, 1205, 750);
 
@@ -76,9 +77,9 @@ function loadMain() {
     }
 
     function drawForm() {
-        ctx.shadowColor = "rgba(1, 1, 1, 0.5)"; 
-        ctx.shadowBlur = 10;                     
-        ctx.shadowOffsetX = 10;                  
+        ctx.shadowColor = "rgba(1, 1, 1, 0.5)";
+        ctx.shadowBlur = 10;
+        ctx.shadowOffsetX = 10;
         ctx.shadowOffsetY = 10;
         ctx.fillStyle = "rgba(183, 234, 223, 0.5)";
         ctx.fillRect(368, 85, 468, 580);
@@ -91,7 +92,7 @@ function loadMain() {
         drawTituloFicha(posy += 45, 500, "Luna");
         drawTituloFicha(posy, 705, "Rayo");
 
-       
+
         timeButtons.forEach(button => drawTimeButton(button));
         xEnLineaButtons.forEach(button => drawXEnLineaButtons(button));
         fichasButtons.forEach(button => drawFichaButtons(button));
@@ -112,7 +113,7 @@ function loadMain() {
 
         // Estilo del texto
         ctx.font = "32px Play";
-        
+
         ctx.textAlign = "center";
         ctx.lineWidth = 2;
         ctx.strokeStyle = "black";
@@ -168,10 +169,10 @@ function loadMain() {
 
     //Botones de cantidad en linea 
     const xEnLineaButtons = [
-        { x: 387.5, y: 270, width: 100, height: 50, color:  "rgba(176, 113, 245, 0.5)", cant: 4, text: "4 en linea" },
-        { x: 497.5, y: 270, width: 100, height: 50, color:  "rgba(176, 113, 245, 0.5)", cant: 5, text: "5 en linea" },
-        { x: 607.5, y: 270, width: 100, height: 50, color:  "rgba(176, 113, 245,0.5)", cant: 6, text: "6 en linea" },
-        { x: 717.5, y: 270, width: 100, height: 50, color:  "rgba(176, 113, 245, 0.5)", cant: 7, text: "7 en linea" }
+        { x: 387.5, y: 270, width: 100, height: 50, color: "rgba(176, 113, 245, 0.5)", cant: 4, text: "4 en linea" },
+        { x: 497.5, y: 270, width: 100, height: 50, color: "rgba(176, 113, 245, 0.5)", cant: 5, text: "5 en linea" },
+        { x: 607.5, y: 270, width: 100, height: 50, color: "rgba(176, 113, 245,0.5)", cant: 6, text: "6 en linea" },
+        { x: 717.5, y: 270, width: 100, height: 50, color: "rgba(176, 113, 245, 0.5)", cant: 7, text: "7 en linea" }
     ]
 
     //Botones de fichas
@@ -181,6 +182,10 @@ function loadMain() {
         { name: 2, x: 705, y: 460, radius: 30, img: imgJugador2Opcion1, isSelected: true },
         { name: 3, x: 705, y: 530, radius: 30, img: imgJugador2Opcion2, isSelected: false }
     ]
+
+    let allButtonsMenu = [];
+    allButtonsMenu.push(buttonJugar);
+    [...timeButtons, ...xEnLineaButtons].forEach(boton => allButtonsMenu.push(boton));
 
     //Dibuja boton jugar
     function drawButtonJugar() {
@@ -226,24 +231,52 @@ function loadMain() {
 
     // Dibuja botones de seleccion de fichas
     function drawFichaButtons(button) {
-             ctx.beginPath();
-             ctx.arc(button.x, button.y, button.radius, 0, 2 * Math.PI);
-             
-             if (!button.isSelected) {
-                 ctx.globalAlpha = 0.5; //opacidad global
-             } else {
-                 ctx.globalAlpha = 1;
-             }
-             
-             ctx.drawImage(button.img, button.x - button.radius, button.y - button.radius, button.radius * 2, button.radius * 2);
-             ctx.closePath();
-             
-             // Restablece la opacidad para no afectar otros elementos
-             ctx.globalAlpha = 1;
+        ctx.beginPath();
+        ctx.arc(button.x, button.y, button.radius, 0, 2 * Math.PI);
+
+        if (!button.isSelected) {
+            ctx.globalAlpha = 0.5; //opacidad global
+        } else {
+            ctx.globalAlpha = 1;
+        }
+
+        ctx.drawImage(button.img, button.x - button.radius, button.y - button.radius, button.radius * 2, button.radius * 2);
+        ctx.closePath();
+
+        // Restablece la opacidad para no afectar otros elementos
+        ctx.globalAlpha = 1;
     }
 
     //LLAMAR BOTONES
+    canvas.addEventListener("mousemove", (event) => {
+        const rect = canvas.getBoundingClientRect();
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
+        let cursorSet = false;
 
+        for (let i = 0; i < allButtonsMenu.length; i++) {
+            if (isPointerIn(allButtonsMenu[i], x, y)) {
+                canvas.style.cursor = 'pointer';
+                cursorSet = true;
+                break;  // no nos mates F4bri, gracias 
+            }
+        }
+
+        for (let i = 0; i < fichasButtons.length; i++) {
+            if (isPointInside(fichasButtons[i], x, y)) {
+                canvas.style.cursor = 'pointer';
+                cursorSet = true;
+                break;  // no nos mates F4bri, gracias 
+            }
+        }
+
+        if (!cursorSet) {
+            canvas.style.cursor = 'default';
+        }
+
+    }
+    )
+    
     canvas.addEventListener("click", (event) => {
         const rect = canvas.getBoundingClientRect();
         const x = event.clientX - rect.left;
@@ -351,6 +384,8 @@ function loadMain() {
 
         const game = new Game(ctx, canvas, imgFichaJ1, imgFichaJ2, tiempo, enLinea, true);
         game.setBackgroundImage(imgFondo);
+        game.setHomeMenu(homeMenu);
+        game.setFlechaRestart(flechaRestart);
 
         game.getTablero().setImgTablero(imgTablero);
         game.getTablero().setImgNormal(imgTableroNormal);
@@ -364,22 +399,26 @@ function loadMain() {
                 if (game.fichaSeleccionada == null) {
                     game.reiniciarJuego(e.offsetX, e.offsetY);
                     game.volverAlMenu(e.offsetX, e.offsetY);
-                    console.log(game.nombre);
-                    
                 }
-
             });
 
             canvas.addEventListener('mousemove', (e) => {
                 game.moverFicha(e.offsetX, e.offsetY);
-                if(game.fichaSeleccionada!=null){
+                if (game.fichaSeleccionada != null) {
                     const rect = canvas.getBoundingClientRect();
                     const mousePosX = e.clientX - rect.left;
                     const mousePosY = e.clientY - rect.top;
                     // Llama al método de Tablero para dibujar la zona de caída
                     game.tablero.drawZonaCaida(mousePosX, mousePosY);
                 }
-
+                if (
+                    game.isFichasSeleccionadas(e.offsetX, e.offsetY) ||
+                    game.isPointerOnMenuButton(e.offsetX, e.offsetY) ||
+                    game.isPointerOnResetButton(e.offsetX, e.offsetY)) {
+                    canvas.style.cursor = 'pointer';
+                } else {
+                    canvas.style.cursor = 'default';
+                }
             });
 
             canvas.addEventListener('mouseup', (e) => {
@@ -387,11 +426,12 @@ function loadMain() {
             });
 
         }
-
-
-
-
     }
+
+
+
+
+
 
     imgJugador1Opcion1.onload = checkImagesLoaded;
     imgJugador1Opcion2.onload = checkImagesLoaded;
@@ -401,10 +441,11 @@ function loadMain() {
     imgFondo.onload = checkImagesLoaded;
     luna.onload = checkImagesLoaded;
     rayo.onload = checkImagesLoaded;
-    flechaBack.onload = checkImagesLoaded;
+    homeMenu.onload = checkImagesLoaded;
     flechaRestart.onload = checkImagesLoaded;
     imgTableroNormal.onload = checkImagesLoaded;
     imgTableroResaltada.onload = checkImagesLoaded;
+
 
 
 

@@ -1,5 +1,5 @@
 class Tablero {
-    constructor(ctx, xEnLinea, tamanoCelda, normal, resaltada) {
+    constructor(ctx, xEnLinea, tamanoCelda) {
         this.ctx = ctx;
         this.xEnLinea = xEnLinea;
         this.filas = 6;
@@ -30,8 +30,6 @@ class Tablero {
     setImgTablero(img){
         this.imgTablero = img;
     }
-
-
 
     draw() {
         // Dimensiones del canvas
@@ -69,9 +67,7 @@ class Tablero {
     
     drawZonaCaida(mousePosX, mousePosY) {
         const zonaDeCaidaTop = this.getTopZC();
-        const zonaDeCaidaBottom = this.getBottomZC();
         const zonaDeCaidaLeft = this.getLeftZC();
-        const zonaDeCaidaRight = this.getRightZC();
 
         for (let col = 0; col < this.columnas; col++) {
             const x = zonaDeCaidaLeft + col * this.tamanoCelda;

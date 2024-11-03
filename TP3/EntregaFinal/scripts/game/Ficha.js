@@ -47,6 +47,7 @@ class Ficha {
         let _x = this.posX - x;
         let _y = this.posY - y;
         let resultado = Math.sqrt(_x * _x + _y * _y) < this.radius;
+        
         return resultado;
     }
 
