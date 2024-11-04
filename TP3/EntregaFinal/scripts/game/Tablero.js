@@ -13,6 +13,7 @@ class Tablero {
         this.flechaResaltada;
     }
 
+    //Crea la matriz del tablero al ser llamada desde el contructor. Tiene en cuenta la cantidad de enLinea para elegir las dimensiones del tablero.
     crearTablero() {
         if (this.xEnLinea==5) {
             this.columnas = 8;
@@ -27,32 +28,30 @@ class Tablero {
         return Array.from({ length: this.filas }, () => Array(this.columnas).fill(0));
     }
 
+    //Cambia la imagen para el tablero
     setImgTablero(img){
         this.imgTablero = img;
     }
 
+    //Dibuja el tablero. 
+    // 1. Calcula la posición para centrar el tablero.
+    // 2. Dibuja las celdas del tablero con un doble for
     draw() {
-        // Dimensiones del canvas
         const canvasWidth = 1205;
         const canvasHeight = 750;
-    
-        // Calcula la posición para centrar el tablero
+
         this.startX = (canvasWidth - (this.columnas * this.tamanoCelda)) / 2;
         this.startY = (canvasHeight - (this.filas * this.tamanoCelda)) / 2; 
-    
-        
+
         let pattern = this.ctx.createPattern(this.imgTablero, "no-repeat");
         this.ctx.fillStyle = pattern;
         this.ctx.fillRect(this.startX - 10, this.startY - 10, (this.columnas * this.tamanoCelda) + 20, (this.filas * this.tamanoCelda) + 20); 
-        
-        // Dibuja las celdas del tablero
+
         for (let fila = 0; fila < this.filas; fila++) {
             for (let columna = 0; columna < this.columnas; columna++) {
-                // Calcula la posición de cada celda
                 let x = this.startX + columna * this.tamanoCelda + this.tamanoCelda / 2;
                 let y = this.startY + fila * this.tamanoCelda + this.tamanoCelda / 2;
-    
-                // Dibuja los círculos de cada celda
+
                 this.ctx.beginPath();
                 this.ctx.arc(x, y, this.tamanoCelda / 2.2, 0, Math.PI * 2);
                 this.ctx.fillStyle = "rgba(0, 0, 0, 0.8)";
@@ -65,6 +64,9 @@ class Tablero {
         }
     }
     
+    //Se dibuja la zona de caida sobre el tablero y se coloca una imagen para
+    //indicar las columnas donde caería la ficha. Si el jugador tiene una
+    //ficha agarrada y pasa sobre la zona de caida,la imagen se resalta.
     drawZonaCaida(mousePosX, mousePosY) {
         const zonaDeCaidaTop = this.getTopZC();
         const zonaDeCaidaLeft = this.getLeftZC();
@@ -73,7 +75,6 @@ class Tablero {
             const x = zonaDeCaidaLeft + col * this.tamanoCelda;
             const y = zonaDeCaidaTop;
 
-            // Cambia la flecha según si el cursor está sobre la celda
             if (this.isHoveredOverCell(mousePosX, mousePosY, col)) {
                 this.ctx.drawImage(this.flechaResaltada, x + this.tamanoCelda/4, y + this.tamanoCelda/4, this.tamanoCelda/2, this.tamanoCelda/2);
             } else {
@@ -82,6 +83,8 @@ class Tablero {
         }
     }
 
+    //Utilizada para saber si el mouse está pasando sobre la zona correspodiente a la caída. 
+    //Devuelve un booleano.
     isHoveredOverCell(mouseX, mouseY, columna) {
         const zonaDeCaidaTop = this.getStartY() - 80;
         const zonaDeCaidaLeft = this.getStartX();
@@ -90,28 +93,22 @@ class Tablero {
         const y = zonaDeCaidaTop;
 
         return mouseX >= x && mouseX <= x + this.tamanoCelda &&
-               mouseY >= y && mouseY <= y + this.tamanoCelda;
+                mouseY >= y && mouseY <= y + this.tamanoCelda;
     }
 
     // Funciones para obtener las dimensiones de la zona de caida
     getTopZC(){
         return this.getStartY() - this.tamanoCelda;
     }
-
     getBottomZC(){
         return this.getStartY();
     }
-
     getLeftZC(){
         return this.getStartX();
     }
-
     getRightZC(){
         return this.getStartX() + this.columnas * this.tamanoCelda;
     }
-    
-        
-
 
     // Función para colocar una ficha en la columna correcta
     colocarFicha(fila, columna, jugador) {
@@ -128,20 +125,19 @@ class Tablero {
         return -1;
     }
 
+    //Devuelve las filas
     getFilas() {
         return this.filas;
     }
 
+    //Devuelve las columnas
     getColumnas() {
         return this.columnas;
     }
 
+    //Devuelve el tamaño de la celda
     getTamanoCelda(){
         return this.tamanoCelda;
-    }
-
-    getValueX(x, y) {
-        return this.tablero[x][y];
     }
 
     getTablero(){
@@ -160,10 +156,12 @@ class Tablero {
         this.tablero = this.crearTablero();
     }
 
+    //Coloca la imagen para la flecha normal
     setImgNormal(imagen){
         this.flechaNormal = imagen;
     }
 
+    //Coloca la imagen para la flecha resaltada
     setImgResaltada(imagen){
         this.flechaResaltada = imagen;
     }

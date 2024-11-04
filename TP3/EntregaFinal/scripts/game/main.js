@@ -1,21 +1,15 @@
-
-
+//Se carga la pantalla del menú con valores predeterminados. Se crean todas las imagenes, se checkea que estas estén cargadas para habilitar la carga del menú.
 function loadMain() {
     const canvas = document.getElementById("myCanvas");
     const ctx = canvas.getContext("2d");
 
-    //Habilitar el Menu
     let habilitado = true;
 
-    //Contador de imagenes cargadas
     let imagesLoaded = 0;
 
-
-    //Valores predeterminados del formulario
     let tiempo = 60;
     let enLinea = 4;
 
-    //Cargar imagenes
     const imgFondo = new Image();
     imgFondo.src = "src/game/backgroundNight.jpg";
 
@@ -59,8 +53,7 @@ function loadMain() {
         }
     };
 
-
-
+    //Se cargan las imagenes de fondo, el titulo y el formulario.
     function iniciarMenu() {
         //Dibujar Fondo
         ctx.shadowColor = "rgba(1, 1, 1, 0.9)";
@@ -76,6 +69,7 @@ function loadMain() {
         drawForm();
     }
 
+    //Se dibujan los subtitulos, los botones y se les coloca una sobra a los items del menú. Al final se borran dichas sombras para no afectar al juego.
     function drawForm() {
         ctx.shadowColor = "rgba(1, 1, 1, 0.5)";
         ctx.shadowBlur = 10;
@@ -84,7 +78,6 @@ function loadMain() {
         ctx.fillStyle = "rgba(183, 234, 223, 0.5)";
         ctx.fillRect(368, 85, 468, 580);
 
-        //Crear botones
         let posy = 130;
         drawSubtitulo(posy, "Tiempo de partida");
         drawSubtitulo(posy += 120, "Cantidad de fichas en linea");
@@ -92,66 +85,57 @@ function loadMain() {
         drawTituloFicha(posy += 45, 500, "Luna");
         drawTituloFicha(posy, 705, "Rayo");
 
-
         timeButtons.forEach(button => drawTimeButton(button));
         xEnLineaButtons.forEach(button => drawXEnLineaButtons(button));
         fichasButtons.forEach(button => drawFichaButtons(button));
         drawButtonJugar();
 
-        //Saca las sombras en el game.
         ctx.shadowColor = "transparent";
         ctx.shadowBlur = 0;
         ctx.shadowOffsetX = 0;
         ctx.shadowOffsetY = 0;
     }
 
-
     //Titulos
     function drawTitulo(posy) {
         const posX = 600
         const posY = posy
 
-        // Estilo del texto
         ctx.font = "32px Play";
-
         ctx.textAlign = "center";
         ctx.lineWidth = 2;
         ctx.strokeStyle = "black";
         ctx.strokeText("¿Cómo te gustaría jugar?", posX, posY);
-
         ctx.fillStyle = "#fff";
-        ;
-        // Dibuja el texto segun posicion
+
         ctx.fillText("¿Cómo te gustaría jugar?", posX, posY);
     }
 
+    //Subtitulos
     function drawSubtitulo(posy, texto) {
         const posX = 600
         const posY = posy;
-        // Estilo del texto
-        ctx.font = "28px Play";
 
+        ctx.font = "28px Play";
         ctx.lineWidth = 2;
         ctx.strokeStyle = "black";
         ctx.strokeText(texto, posX, posY);
-
         ctx.fillStyle = "#fff";
-        // Dibuja el texto segun posicion
+
         ctx.fillText(texto, posX, posY);
     }
 
+    //Titulos con los nombres de los personajes
     function drawTituloFicha(posy, posx, texto) {
         const posX = posx;
         const posY = posy;
-        // Estilo del texto
-        ctx.font = "24px Play";
 
+        ctx.font = "24px Play";
         ctx.lineWidth = 2;
         ctx.strokeStyle = "black";
         ctx.strokeText(texto, posX, posY);
-
         ctx.fillStyle = "#fff";
-        // Dibuja el texto segun posicion
+
         ctx.fillText(texto, posX, posY);
     }
 
@@ -183,6 +167,7 @@ function loadMain() {
         { name: 3, x: 705, y: 530, radius: 30, img: imgJugador2Opcion2, isSelected: false }
     ]
 
+    //Se juntan todos los botones en un solo array para poder manejar el mouse pointer.
     let allButtonsMenu = [];
     allButtonsMenu.push(buttonJugar);
     [...timeButtons, ...xEnLineaButtons].forEach(boton => allButtonsMenu.push(boton));
@@ -196,9 +181,8 @@ function loadMain() {
         ctx.fillText("Jugar", buttonJugar.x + 50, buttonJugar.y + 30);
     }
 
-    //Dibuja botones de tiempo
+    //Dibuja botones de tiempo. Si se presiona el boton, se cambia de color.
     function drawTimeButton(button) {
-        // Dibujar el botón
         if (tiempo === button.tiempo) {
             ctx.fillStyle = "rgba(11, 183, 236, 1)";
         } else {
@@ -206,48 +190,44 @@ function loadMain() {
 
         }
         ctx.fillRect(button.x, button.y, button.width, button.height);
-
-        // Dibujar el texto del botón
         ctx.fillStyle = "black";
         ctx.font = "20px Play";
 
         ctx.fillText(button.text, button.x + 63, button.y + 30);
     }
 
-    //Dibuja botones de cantidad en linea 
+    //Dibuja botones de cantidad en linea. Si se presiona el boton, se cambia de color.
     function drawXEnLineaButtons(button) {
         if (enLinea == button.cant) {
             ctx.fillStyle = "rgba(176, 113, 245, 1)";
         } else {
             ctx.fillStyle = button.color;
         }
-
         ctx.fillRect(button.x, button.y, button.width, button.height);
         ctx.fillStyle = "black";
         ctx.font = "20px Play";
+
         ctx.fillText(button.text, button.x + 50, button.y + 30);
 
     }
 
-    // Dibuja botones de seleccion de fichas
+    // Dibuja botones de seleccion de fichas. Si se elige una ficha, se opaca la no elegida. Se restablece la opacidad para no afectar a ningún otro elemento.
     function drawFichaButtons(button) {
         ctx.beginPath();
         ctx.arc(button.x, button.y, button.radius, 0, 2 * Math.PI);
 
         if (!button.isSelected) {
-            ctx.globalAlpha = 0.5; //opacidad global
+            ctx.globalAlpha = 0.5;
         } else {
             ctx.globalAlpha = 1;
         }
 
         ctx.drawImage(button.img, button.x - button.radius, button.y - button.radius, button.radius * 2, button.radius * 2);
         ctx.closePath();
-
-        // Restablece la opacidad para no afectar otros elementos
         ctx.globalAlpha = 1;
     }
 
-    //LLAMAR BOTONES
+    //Se encarga de manejar el mouse pointer en los distintos botones del menú. Si el botón no se encuentra en ninguna posición posible (verificado con isPointerIn e isPoinInside), se establece el cursor por defecto.
     canvas.addEventListener("mousemove", (event) => {
         const rect = canvas.getBoundingClientRect();
         const x = event.clientX - rect.left;
@@ -273,10 +253,9 @@ function loadMain() {
         if (!cursorSet) {
             canvas.style.cursor = 'default';
         }
+    })
 
-    }
-    )
-    
+    //Al clickear en las coordenadas posibles (según el botón utilizando isPointerIn o isPointInside), se ejecuta la accion correspondiente.
     canvas.addEventListener("click", (event) => {
         const rect = canvas.getBoundingClientRect();
         const x = event.clientX - rect.left;
@@ -350,10 +329,12 @@ function loadMain() {
         }
     });
 
+    //Se verifica la posición del mouse dentro de las coordenadas dadas para los botones rectangulares.
     function isPointerIn(button, x, y) {
         return x > button.x && x < button.x + button.width && y > button.y && y < button.y + button.height;
     }
 
+    //Se verifica la posición del mouse dentro de las coordenadas dadas para los botones redondos.
     function isPointInside(button, x, y) {
         let _x = button.x - x;
         let _y = button.y - y;
@@ -362,10 +343,14 @@ function loadMain() {
     }
 
 
-
-
+    // Se inicia el juego
+    // 1. Verifica qué ficha seleccionó cada jugador, y se la asigna a una variable.
+    // 2. Instancia el juego con las variables que el usuario eligió en el formulario del menú y lo dibuja.
+    // 3. Al clickear se verifica si se seleccionó una ficha. Si no se seleccionó, se intenta volver al menú o reiniciar el juego.
+    // 4. Al mover el mouse se manejan los mouse pointers. Si este pasa por un arriba de un boton, se activa el pointer.
+    // 5. Se intenta soltar una ficha al levantar el mouse. 
+    // 6. Al cargar las imagenes, se cuentan a sí mismas en el checkImagesLoaded. 
     function iniciarJuego() {
-
         let imgFichaJ1;
         let imgFichaJ2;
         habilitado = false;
@@ -408,7 +393,6 @@ function loadMain() {
                     const rect = canvas.getBoundingClientRect();
                     const mousePosX = e.clientX - rect.left;
                     const mousePosY = e.clientY - rect.top;
-                    // Llama al método de Tablero para dibujar la zona de caída
                     game.tablero.drawZonaCaida(mousePosX, mousePosY);
                 }
                 if (
@@ -428,11 +412,6 @@ function loadMain() {
         }
     }
 
-
-
-
-
-
     imgJugador1Opcion1.onload = checkImagesLoaded;
     imgJugador1Opcion2.onload = checkImagesLoaded;
     imgJugador2Opcion1.onload = checkImagesLoaded;
@@ -445,10 +424,7 @@ function loadMain() {
     flechaRestart.onload = checkImagesLoaded;
     imgTableroNormal.onload = checkImagesLoaded;
     imgTableroResaltada.onload = checkImagesLoaded;
-
-
-
-
 }
 
+//Al cargar la página, se carga el menú.
 document.addEventListener("DOMContentLoaded", loadMain()); 

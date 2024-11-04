@@ -248,6 +248,7 @@ main {
     width: 56px;
     height: 56px;
 }
+
 .comment-input {
     margin-top: 30px;
     margin-bottom: 30px;
@@ -262,11 +263,12 @@ main {
     height: 35px;
     background-color: #2E3366;
 }
+
 .comment-input ::placeholder {
     color: white;
     opacity: 0.8;
     padding-left: 1%;
-  }
+}
 
 .comment-buttons {
     display: flex;
@@ -277,8 +279,6 @@ main {
     height: 1px;
     background-color: white;
 }
-
-
 
 .comments-section h2 {
     margin-left: 10px;
@@ -296,10 +296,10 @@ main {
     display: flex;
     justify-content: space-between;
 }
+
 .comment-profile-info-container, .comment-likes-container {
     display: flex;
     align-items: top;
-
 }
 
 .comment-profile-name {
@@ -340,7 +340,6 @@ main {
 }
 .comment-likes-container p {
     padding-left: 10px;
-        
 }
 
 .comment-content {
@@ -350,196 +349,3 @@ main {
 .comment-upper-container div {
     padding: 0px 10px;
 }
-
-
-/* FORM GAME */
-.menu-form-container {
-    position: absolute;
-    width: 1205px;
-    height: 750px;
-    background-color: #F3F4F6;
-    border-radius: 10px;
-    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.2);
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    overflow: hidden;
-    background-color: #202d47;
-}
-
-.menu-form-container h2 {
-    font-size: 50px;
-    margin-bottom: 1rem;
-    text-align: center;
-}
-
-#menu-form {
-    width: 50%;
-    background-color: #384e79;
-    border-radius: 20px;
-}
-
-.config-menu {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-}
-
-/* Form Elements */
-#menu-form label {
-    color: #333;
-    font-weight: bold;
-    margin-top: 1rem;
-    display: block;
-}
-
-/* .menu-form input[type="text"],
-.menu-form input[type="number"],
-.menu-form input[type="file"],
-.menu-form select {
-    width: 100%;
-    /* padding: 0.5rem; */
-    /* margin-top: 0.5rem;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-    font-size: 1rem;
-    background-color: #FFF;
-} */ 
-
-
-.elem-config {
-    margin-left:25%;
-    width:50%;    
-    color: black;
-}
-
-.elem-config option {
-    color: black;
-    margin-left:25%;
-    width:50%;    
-}
-
-.player-selector-1, .player-selector-2 {
-    width: 40%;
-    padding: 0;
-    background-color: #E9EBF2;
-    border-radius: 10px;
-}
-
-.player-selector-1{
-    margin-right: 40px;
-}
-
-
-
-.player-selector-1 h3, .player-selector-2 h3 {
-    color: #3B5B99;
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-}
-
-/* Submit Button */
-.game-menu-btn {
-    margin: 5% 0 5% 30% ;
-    background-color: #3B5B99;
-    color: #FFF;
-    font-size: 1rem;
-    font-weight: bold;
-    border: none;
-    border-radius: 5px;
-    padding: 0.75rem;
-    margin-top: 1.5rem;
-    cursor: pointer;
-    width: 40%;
-    transition: 0.2s;
-}
-
-.game-menu-btn:hover {
-    transition: ease-in-out 0.5s;
-    scale: 1.04;
-    background-color: #2b52a0;
-}
-
-.players-selector-container {
-    display: flex;
-    justify-content: space-around;
-}
-
-.luna-fondo {
-    position: absolute;
-    width: 300px;
-    top:130px;
-    left:0;
-    filter: drop-shadow(0px 10px 4px black);
-}
-
-.rayo-fondo {
-    position: absolute;
-    width: 300px;
-    top: 150px;
-    right: 0;
-    filter: drop-shadow(0px 10px 4px black);
-}
-
-
-ul {
-    list-style-type: none;
-}
-
-li {
-    display: inline-block;
-}
-
-input[type="checkbox"][id^="cb"] {
-    display: none;
-}
-
-.lista-label {
-    display: block;
-    position: relative;
-    cursor: pointer;
-    width: 100%;
-    height: 100%;
-}    
-  
-.lista-label:before {
-    background-color: red;
-    color: white;
-    display: block;
-    border: 1px solid red;
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    text-align: center;
-    line-height: 20px;
-    transition-duration: 0.4s;
-    -webkit-transition-duration: 0.4s;
-    -moz-transition-duration: 0.4s;
-    -ms-transition-duration: 0.4s;
-}
-
-.lista-label img {
-    height: 10%;
-    width: 10%;
-    border: 1px solid transparent;
-}
-
-:checked + .lista-label {
-    border-color: red;
-}
-
-:checked + .lista-label:before {
-    content: "✓";
-    background-color: red;
-    border: 1px solid red;
-    z-index: 99;
-}
-
-:checked + .lista-label img {
-    z-index: -1;
-    border: 1px solid red;
-}
-
- 
