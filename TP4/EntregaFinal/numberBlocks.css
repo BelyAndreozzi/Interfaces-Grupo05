@@ -1,0 +1,320 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+}
+
+body {
+    width: 1280px;
+    font-family: 'Lato', sans-serif; /* Fabri. Importada de Google Fonts. Es mas gordita? */
+}
+
+/* //////////// Header ////////// */
+header {
+    width: 1280px;
+    height: 103px;
+    background: linear-gradient(180deg, #00D1D5 0%, rgba(0, 209, 213, 0.12) 87.91%, rgba(1, 208, 213, 0.00) 100%);
+    position: fixed;
+    z-index: 3;
+}
+
+#header-box {
+    width: 1080px;
+    margin-left: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#burger {
+    margin-right: 154px;
+}
+
+#logo {
+    width: 150px;
+    height: 86px;
+}
+
+#comprar {
+    width: 200px;
+    height: 50px;
+    border-radius: 111px;
+    right: -8px;
+    position: relative;
+    border: 8px solid #FFF;
+    background: #83C252;
+    box-shadow: 4px 5px 0px 0px #02187E;
+    color: #FFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Lato;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 18.9px;
+    letter-spacing: 2.2px;
+}
+
+/* ///////////////////////////// */
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#section4 {
+    width: 1280px;
+    height: 959px;
+    background-image: url(assets/ff.svg);
+}
+
+/*                            SECTION 5 */
+
+.section5 {
+    position: relative;
+    width: 1280px;
+    height: 1300px;
+}
+
+#section5 {
+    width: 1080px;
+    position: relative;
+    z-index: 2;
+    margin: 0 0 0 100px;
+}
+
+.svg5 {
+    position: absolute;
+    z-index: 1;
+}
+
+.title5 {
+    padding-top: 60px;
+    color: #1B428F;
+    font-size: 47px;
+    line-height: 94.5%;
+    font-weight: 600;
+    width: 508px;
+}
+
+.text5 {
+    margin-top: 22px;
+    width: 701px;
+    /* Fabri. NO ES PIXEL PERFECT. Figma es 704px, pero no baja correctamente los renglones. */
+    height: 154px;
+    color: #1B428F;
+    font-size: 20px;
+}
+
+.carrusel5 {
+    width: 518.38px;
+    /*Fabri. Cuenta hecha para restar bordes */
+    height: 266.351px;
+    border-radius: 77px;
+    border: 29px solid #1B5F99;
+    background: url(assets/carrusel6-1.png) lightgray 50% / cover no-repeat;
+    margin: -30px 0 0 136px;
+}
+
+.s5personaje4 {
+    position: absolute;
+    top: 580px;
+    left: -65px
+}
+
+.s5personaje5 {
+    position: absolute;
+    left: 686px;
+    top: -87px
+}
+
+#section7 {
+    width: 1080px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom:140px;
+}
+
+.card {
+    width: 333px;
+}
+
+.card img {
+    width: 315px;
+    height: 284px;
+    border-radius: 41px;
+    border: 9px solid #2982FF;
+    box-shadow: 4px 5px 0px 0px #02187E;
+}
+
+.card p {
+    margin: 20px 0 0 0;
+    width: 333px;
+    height: 190px;
+    flex-shrink: 0;
+    font-size: 20px;
+}
+
+/*                          SECTION 8 */
+
+.section8 {
+    position: relative;
+    width: 1280px;
+    height: 1157px;
+}
+
+.section8 img {
+    position: relative;
+    top: 390px;
+    z-index: 2;
+} 
+
+.section8 svg {
+    position: absolute;
+}
+
+#section8 {
+    width: 1080px;
+    position: relative;
+    z-index: 2;
+    margin: 0 0 0 100px;
+    /* display: flex;
+    justify-content: center; */
+}
+
+#section8 h1 {
+    position: absolute;
+    width: 950px;
+    height: 153px;
+    top: 170px;
+    color: #FFF;
+    text-align: center;
+    font-size: 61.14px;
+    font-weight: 600;
+    line-height: 110%; /* 67.254px */
+    margin-left: 65px;
+}
+
+#section8 h1 #span-section8 {
+    color: #FFF;
+    font-size: 61.14px;
+    font-style: italic;
+    font-weight: 700;
+    line-height: 110%;
+}
+
+#section8 div {
+    position: absolute;
+    top: 380px;
+    width: 540px;
+    height: 66px;
+    border-radius: 111px;
+    border: 8px solid #FFF;
+    background: #83C252;
+    /* Drop Shadow */
+    box-shadow: 4px 5px 0px 0px #02187E;
+    margin-left: 265px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#section8 div p {
+    color: #FFF;
+    -webkit-text-stroke-width: 1;
+    -webkit-text-stroke-color: #FFF;
+    font-size: 31.14px;
+    font-weight: 400;
+    line-height: 110%; /* 34.254px */
+}
+
+
+/*                      SECTION 9 */
+
+#section9 {
+    width: 1080px;
+    margin: 174px 100px 0 100px;
+}
+
+#section9 h1 {
+    width: 802px;
+    font-size: 60px;
+    font-weight: 600;
+    line-height: 94.5%;
+    margin: 0 0 68px 0
+}
+
+.s9-content-container {
+    display: flex;
+}
+
+.s9-img-container {
+    margin: 0 0 0 143px;
+}
+
+.s9-ind-text{
+    width: 464px; /* Fabri. Og 467. Segundo texto baja mal */
+    margin: 0 0 267px 179px;
+}
+
+.s9-ind-text:nth-child(1){
+    margin-top: 91px;
+}
+
+.s9-ind-text h2 {
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 94.5%;
+}
+
+.s9-ind-text p {
+    margin-top: 15px;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 94.5%;
+}
+
+/*                       SECTION 10 */
+
+#section10 {
+    width: 1280px;
+    height: 1444px;
+}
+
+.svg10 {
+    position: absolute;
+    z-index: 1;
+}
+
+.s10-content-container {
+    position: relative;
+    z-index: 2;
+    margin: 308.8px 0 0 100px;
+    height: 1000px;
+}
+
+.s10-content-container h1{
+    color: #FFF;
+    font-size: 60px;
+    font-weight: 600; /* Fabri. Letras muy bold? */
+    line-height: 94.5%;
+    width: 802px;
+    margin-bottom: 46px;
+}
+
+.s10reproductor {
+    width: 746px;
+    height: 394px;
+    border-radius: 45px;
+    border: 29px solid #FFF;
+    background: url(assets/video.svg) lightgray 50% / cover no-repeat;
+}
+
+.s10-content-container img {
+    position: relative;
+    left: 624px;
+    top: -620px
+}
