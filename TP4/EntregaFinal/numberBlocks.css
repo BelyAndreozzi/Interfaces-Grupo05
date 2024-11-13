@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     padding: 0;
     border: 0;
@@ -7,7 +7,9 @@
 
 body {
     width: 1280px;
-    font-family: 'Lato', sans-serif; /* Fabri. Importada de Google Fonts. Es mas gordita? */
+    min-height: 100vh;
+    font-family: 'Lato', sans-serif;
+    /* Fabri. Importada de Google Fonts. Es mas gordita? */
 }
 
 /* //////////// Header ////////// */
@@ -16,7 +18,7 @@ header {
     height: 103px;
     background: linear-gradient(180deg, #00D1D5 0%, rgba(0, 209, 213, 0.12) 87.91%, rgba(1, 208, 213, 0.00) 100%);
     position: fixed;
-    z-index: 3;
+    z-index: 10;
 }
 
 #header-box {
@@ -65,11 +67,132 @@ main {
     align-items: center;
 }
 
+/*                            SECTION 4 HERO */
+
 #section4 {
     width: 1280px;
     height: 959px;
     background-image: url(assets/ff.svg);
+    overflow: hidden;
+    position: relative;
 }
+
+#arbol-1 {
+    position: absolute;
+    left: -153px;
+    top: -1px;
+    z-index: 1;
+}
+
+#arbol-2 {
+    position: absolute;
+    left: 881.03px;
+    top: 106.71px;
+    z-index: 6;
+}
+
+#arbol-3 {
+    position: absolute;
+    left: 1080.97px;
+    top: 278.38px;
+    z-index: 1;
+}
+
+#hero-1 {
+    position: absolute;
+    left: 411.18px;
+    top: 500.33px;
+    z-index: 3;
+}
+
+#hero-2 {
+    position: absolute;
+    left: 536px;
+    top: 403px;
+    z-index: 2;
+}
+
+#hero-3 {
+    position: absolute;
+    left: 694px;
+    top: 338px;
+    z-index: 1;
+}
+
+#sombra1 {
+    position: absolute;
+    left: 494.18px;
+    top: 762.33px;
+    z-index: 2;
+}
+
+#sombra2 {
+    position: absolute;
+    left: 608px;
+    top: 727px;
+    z-index: 6;
+}
+
+#sombra3 {
+    position: absolute;
+    left: 724px;
+    top: 697px;
+    z-index: 2;
+}
+
+.vectorAbs {
+    position: absolute;
+}
+
+#v1 {
+    right: 59.24px;
+    top: 630.79px;
+    z-index: 0;
+}
+
+#v2 {
+    left: 161.57px;
+    top: 718.97px;
+    z-index: 0;
+}
+
+#v3 {
+    left: 129.25px;
+    top: 793.7px;
+    z-index: 2;
+}
+
+#v4 {
+    left: 197.25px;
+    top: 821.97px;
+    z-index: 3;
+}
+
+#v5 {
+    left: 1081.15px;
+    top: 662.43px;
+    z-index: 3;
+}
+
+#v6 {
+    left: 1035.38px;
+    top: 737.82px;
+    z-index:7;
+}
+
+#v7 {
+    left: 1072.22px;
+    top: 737.82px;
+    z-index:7;
+}
+
+#v8 {
+    left: 1042.78px;
+    top: 786.97px;
+    z-index:7;
+}
+
+/*                            SECTION 4 HERO END */
 
 /*                            SECTION 5 */
 
@@ -135,7 +258,7 @@ main {
     width: 1080px;
     display: flex;
     justify-content: space-between;
-    margin-bottom:140px;
+    margin-bottom: 140px;
 }
 
 .card {
@@ -170,7 +293,7 @@ main {
     position: relative;
     top: 390px;
     z-index: 2;
-} 
+}
 
 .section8 svg {
     position: absolute;
@@ -194,7 +317,8 @@ main {
     text-align: center;
     font-size: 61.14px;
     font-weight: 600;
-    line-height: 110%; /* 67.254px */
+    line-height: 110%;
+    /* 67.254px */
     margin-left: 65px;
 }
 
@@ -228,7 +352,8 @@ main {
     -webkit-text-stroke-color: #FFF;
     font-size: 31.14px;
     font-weight: 400;
-    line-height: 110%; /* 34.254px */
+    line-height: 110%;
+    /* 34.254px */
 }
 
 
@@ -255,12 +380,13 @@ main {
     margin: 0 0 0 143px;
 }
 
-.s9-ind-text{
-    width: 464px; /* Fabri. Og 467. Segundo texto baja mal */
+.s9-ind-text {
+    width: 464px;
+    /* Fabri. Og 467. Segundo texto baja mal */
     margin: 0 0 267px 179px;
 }
 
-.s9-ind-text:nth-child(1){
+.s9-ind-text:nth-child(1) {
     margin-top: 91px;
 }
 
@@ -296,10 +422,11 @@ main {
     height: 1000px;
 }
 
-.s10-content-container h1{
+.s10-content-container h1 {
     color: #FFF;
     font-size: 60px;
-    font-weight: 600; /* Fabri. Letras muy bold? */
+    font-weight: 600;
+    /* Fabri. Letras muy bold? */
     line-height: 94.5%;
     width: 802px;
     margin-bottom: 46px;
@@ -317,4 +444,324 @@ main {
     position: relative;
     left: 624px;
     top: -620px
+}
+
+#section11 {
+    width: 1080px;
+    height: 1034px;
+
+}
+
+#section11 h1 {
+    /* position: relative;
+    top: 220px;
+    left: 102px; */
+    width: 746px;
+    height: 285px;
+    margin-top: 220px;
+    color: #9D2121;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 94.5%;
+}
+
+#section11 p {
+    margin-top: 43px;
+    width: 464px;
+    /* Fabri. No se consiguio alinear las palabras tal cual el figma. */
+    color: #000;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 94.5%;
+    /* 18.9px */
+}
+
+#section11 img {
+    position: relative;
+    top: -730px;
+    left: 500px;
+}
+
+/*                       SECTION 12 */
+
+#section12 {
+    width: 1280px;
+    margin-bottom: 25px;
+}
+
+.bg-12 {
+    position: absolute;
+    z-index: 1;
+}
+
+.s12p1 {
+    position: relative;
+    z-index: 2;
+    left: 10px;
+    top: 3px;
+    filter: drop-shadow(0px 0 20px white);
+}
+
+.s12p2 {
+    position: relative;
+    z-index: 2;
+    left: 48px;
+    top: 3px;
+    filter: drop-shadow(0px 0 20px white);
+}
+
+.s12p3 {
+    position: relative;
+    z-index: 2;
+    left: 80px;
+    top: 2px;
+}
+
+.s12p4 {
+    position: relative;
+    z-index: 2;
+    left: 110px;
+    top: 3px;
+}
+
+.s12p5 {
+    position: relative;
+    z-index: 2;
+    left: 140px;
+    top: 3px;
+}
+
+.s12p6 {
+    position: relative;
+    z-index: 2;
+    left: 3px;
+    top: 30px;
+}
+
+.s12p7 {
+    position: relative;
+    z-index: 2;
+    left: 30px;
+    top: 30px;
+}
+
+.s12p8 {
+    position: relative;
+    z-index: 2;
+    left: 56px;
+    top: 30px;
+}
+
+.s12p9 {
+    position: relative;
+    z-index: 2;
+    left: 83px;
+    top: 30px;
+}
+
+.s12p10 {
+    position: relative;
+    z-index: 2;
+    left: 112px;
+    top: 29px;
+}
+
+#section13 {
+    width: 1280px;
+    height: 1570px;
+}
+
+#section13 #img-cielo-s13 {
+    z-index: 1;
+    position: absolute;
+    margin-top: 274px;
+}
+
+#section13 #img-pasto-s13 {
+    position: relative;
+    top: 1180px;
+    width: 1280px;
+    height: 389px;
+    z-index: 2;
+
+}
+
+#section13 #img-nube-grande-s13 {
+    position: relative;
+    z-index: 2;
+    top: 180px;
+    left: -300px;
+}
+
+#section13 #img-nube-grande2-s13 {
+    position: relative;
+    left: 80px;
+    top: -85px;
+    z-index: 2;
+}
+
+#section13 #img-nube-chica-s13 {
+    position: relative;
+    top: -180px;
+    left: 180px;
+    z-index: 2;
+}
+
+#section13 #img-esrb-s13 {
+    position: relative;
+    width: 231px;
+    height: 145px;
+    flex-shrink: 0;
+    z-index: 2;
+    top: -33px;
+    left: 100px;
+}
+
+.section13 {
+    width: 1080px;
+    margin-left: 100px;
+    position: relative;
+    z-index: 2;
+}
+
+.section13 h1 {
+    margin-top: -201px;
+    margin-bottom: 36px;
+    width: 816px;
+    color: #000;
+    font-size: 60px;
+    font-weight: 600;
+    line-height: 94.5%;
+    /* 56.7px */
+}
+
+.section13 p {
+    margin-top: 46px;
+    width: 578px;
+    height: 95px;
+    flex-shrink: 0;
+    color: #000;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 94.5%;
+    /* 18.9px */
+}
+
+.section13 p span {
+    color: #000;
+    line-height: 94.5%;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-skip-ink: none;
+    text-decoration-thickness: auto;
+    text-underline-offset: auto;
+    text-underline-position: from-font;
+}
+
+.section13 form input {
+    width: 553px;
+    height: 82px;
+    flex-shrink: 0;
+    border-radius: 50px 0px 0px 50px;
+    border-top: 9px solid #FFF;
+    border-bottom: 9px solid #FFF;
+    border-left: 9px solid #FFF;
+    background: #ECECEC;
+    margin-right: 0;
+
+    /* Drop Shadow */
+    box-shadow: 0px 5px 0px 0px #02187E;
+}
+
+.section13 form {
+    display: flex;
+}
+
+.section13 form div { /* Fabri. Queda un gap entre el input y el "boton" suscribirse*/
+    color: #FFF;
+    -webkit-text-stroke-width: 1;
+    -webkit-text-stroke-color: #FFF;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 94.5%; /* 18.9px */
+    letter-spacing: 2.2px;
+    width: 200px;
+    margin-left: 0;
+    height: 82px;
+    border-radius: 0px 50px 50px 0px;
+    border: 9px solid #FFF;
+    background: #83C252;
+    /* Drop Shadow */
+    box-shadow: 4px 5px 0px 0px #02187E;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.giphy-embed {
+    position: relative;
+    z-index: 2;
+}
+
+.gifP2 {
+    top: 200px;
+    left: 20px
+}
+
+.gifP3 {
+    top: 200px;
+    right: 100px
+}
+
+.gifP7 {
+    top: -720px;
+    left: 750px
+}
+
+
+
+/*                                          FOOTER */
+
+footer {
+    margin-top: auto;
+    background-color: #5E5E5D;
+    width: 1280px;
+    height: 595px;
+}
+
+.consolas-container {
+    background-color: #242424;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-content {
+    height: 486px;
+    margin: 35px  0 0 100px;
+}
+
+.footer-content p {
+    width: 820px;
+    color: #FFF;
+    font-size: 20px;
+    font-weight: 400;
+    /* Fabri. 400 es muy bold, 300 es muy thin. */
+    line-height: 94.5%;
+    letter-spacing: 2.2px;
+    margin-bottom: 20px;
+}
+
+.footer-content .cookies a {
+    color: #FFF;
+    font-size: 20px;
+    letter-spacing: 2.2px;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-skip-ink: none;
+}
+
+.redesSociales { 
+    margin: 35px 0 28px 0;
 }
