@@ -1,0 +1,81 @@
+
+ .section8 {
+    position: relative;
+    overflow: hidden;
+    width: 1280px;
+    height: 1157px;
+    z-index: 0;
+
+}
+
+.section8 svg {
+    position: absolute;
+}
+
+#section8 {
+    width: 1080px;
+    position: relative;
+    z-index: 2;
+    margin: 0 0 0 100px;
+    z-index: 2;
+}
+
+#section8 h1 {
+    position: absolute;
+    width: 950px;
+    height: 153px;
+    top: 170px;
+    color: #FFF;
+    text-align: center;
+    font-size: 61.14px;
+    font-weight: 600;
+    line-height: 110%;
+    margin-left: 65px;
+}
+
+#section8 h1 #span-section8 {
+    color: #FFF;
+    font-size: 61.14px;
+    font-style: italic;
+    font-weight: 700;
+    line-height: 110%;
+}
+
+#section8 div {
+    position: absolute;
+    top: 380px;
+    width: 540px;
+    height: 66px;
+    border-radius: 111px;
+    border: 8px solid #FFF;
+    background: #83C252;
+    box-shadow: 4px 5px 0px 0px #02187E;
+    margin-left: 265px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#section8 div p {
+    color: #FFF;
+    -webkit-text-stroke-width: 1;
+    -webkit-text-stroke-color: #FFF;
+    font-size: 31.14px;
+    font-weight: 400;
+    line-height: 110%;
+}
+
+.section8 {
+    position: relative;
+    
+  }
+
+  #parallaxS8 {
+    position: absolute;
+    top: 500px;
+    left: 700px;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease-out;
+    
+  }

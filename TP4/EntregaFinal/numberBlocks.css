@@ -27,15 +27,17 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-#burger {
-    margin-right: 154px;
+    position: sticky;
 }
 
 #logo {
-    width: 150px;
-    height: 86px;
+    width: 560px;
+    height: 320px;
+    position: absolute;
+    top: 110px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    transition: width 0.1s ease, height 0.1s ease, transform 0.1s ease;
 }
 
 #comprar {
@@ -177,114 +179,30 @@ main {
 #v6 {
     left: 1035.38px;
     top: 737.82px;
-    z-index:7;
+    z-index: 7;
 }
 
 #v7 {
     left: 1072.22px;
     top: 737.82px;
-    z-index:7;
+    z-index: 7;
 }
 
 #v8 {
     left: 1042.78px;
     top: 786.97px;
-    z-index:7;
+    z-index: 7;
 }
 
 /*                            SECTION 4 HERO END */
 
-/*                            SECTION 5 */
 
-.section5 {
-    position: relative;
-    width: 1280px;
-    height: 1300px;
-}
-
-#section5 {
-    width: 1080px;
-    position: relative;
-    z-index: 2;
-    margin: 0 0 0 100px;
-}
-
-.svg5 {
-    position: absolute;
-    z-index: 1;
-}
-
-.title5 {
-    padding-top: 60px;
-    color: #1B428F;
-    font-size: 47px;
-    line-height: 94.5%;
-    font-weight: 600;
-    width: 508px;
-}
-
-.text5 {
-    margin-top: 22px;
-    width: 701px;
-    /* Fabri. NO ES PIXEL PERFECT. Figma es 704px, pero no baja correctamente los renglones. */
-    height: 154px;
-    color: #1B428F;
-    font-size: 20px;
-}
-
-.carrusel5 {
-    width: 518.38px;
-    /*Fabri. Cuenta hecha para restar bordes */
-    height: 266.351px;
-    border-radius: 77px;
-    border: 29px solid #1B5F99;
-    background: url(assets/carrusel6-1.png) lightgray 50% / cover no-repeat;
-    margin: -30px 0 0 136px;
-}
-
-.s5personaje4 {
-    position: absolute;
-    top: 580px;
-    left: -65px
-}
-
-.s5personaje5 {
-    position: absolute;
-    left: 686px;
-    top: -87px
-}
-
-#section7 {
-    width: 1080px;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 140px;
-}
-
-.card {
-    width: 333px;
-}
-
-.card img {
-    width: 315px;
-    height: 284px;
-    border-radius: 41px;
-    border: 9px solid #2982FF;
-    box-shadow: 4px 5px 0px 0px #02187E;
-}
-
-.card p {
-    margin: 20px 0 0 0;
-    width: 333px;
-    height: 190px;
-    flex-shrink: 0;
-    font-size: 20px;
-}
 
 /*                          SECTION 8 */
 
 .section8 {
     position: relative;
+    overflow: hidden;
     width: 1280px;
     height: 1157px;
 }
@@ -304,8 +222,7 @@ main {
     position: relative;
     z-index: 2;
     margin: 0 0 0 100px;
-    /* display: flex;
-    justify-content: center; */
+
 }
 
 #section8 h1 {
@@ -356,12 +273,29 @@ main {
     /* 34.254px */
 }
 
+#parallaxS8 {
+    position: absolute;
+    top: 780px;
+    left: 650px;
+    z-index: 1;
+    transform: translate(-50%, -50%) scale(1.1);
+    transition: transform 0.1s ease-out;
+}
 
 /*                      SECTION 9 */
 
 #section9 {
     width: 1080px;
     margin: 174px 100px 0 100px;
+}
+
+#s9-image {
+    width: 261px;
+    height: 436px;
+    transition: 0.1 s ease-in-out;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    opacity: 1;
+    transform: scale(1); 
 }
 
 #section9 h1 {
@@ -374,16 +308,26 @@ main {
 
 .s9-content-container {
     display: flex;
+    align-items: flex-start; /* Alineación superior de los bloques */
+    gap: 20px;
 }
 
 .s9-img-container {
     margin: 0 0 0 143px;
+    position: sticky;
+    top: 150px; /* Para mantener la imagen en posición mientras se scrollea */
+    width: 200px; /* Ajusta según el tamaño de imagen deseado */
+}
+
+.s9-text-container {
+    width: 467px;
+    margin-left: 180px;
 }
 
 .s9-ind-text {
     width: 464px;
     /* Fabri. Og 467. Segundo texto baja mal */
-    margin: 0 0 267px 179px;
+    margin: 0 0 267px 0px;
 }
 
 .s9-ind-text:nth-child(1) {
@@ -488,6 +432,44 @@ main {
 #section12 {
     width: 1280px;
     margin-bottom: 25px;
+    position: relative;
+}
+
+.bg-12 {
+    position: absolute;
+    z-index: 1;
+}
+
+/* Estilos generales para los personajes */
+[class^="s12p"] {
+    position: relative;
+    z-index: 2;
+    filter: drop-shadow(0px 0 20px white);
+    transition: transform 0.3s ease, filter 0.3s ease;
+
+}
+
+/* Agrandamiento e iluminación al hacer hover */
+[class^="s12p"]:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0px 0 30px white);
+}
+
+/* Posiciones de cada personaje */
+.s12p1 { left: 10px; top: 3px; }
+.s12p2 { left: 48px; top: 3px; }
+.s12p3 { left: 80px; top: 2px; }
+.s12p4 { left: 110px; top: 3px; }
+.s12p5 { left: 140px; top: 3px; }
+.s12p6 { left: 3px; top: 30px; }
+.s12p7 { left: 30px; top: 30px; }
+.s12p8 { left: 56px; top: 30px; }
+.s12p9 { left: 83px; top: 30px; }
+.s12p10 { left: 112px; top: 29px; } 
+
+/* #section12 {
+    width: 1280px;
+    margin-bottom: 25px;
 }
 
 .bg-12 {
@@ -565,11 +547,67 @@ main {
     z-index: 2;
     left: 112px;
     top: 29px;
-}
+} */
 
 #section13 {
     width: 1280px;
     height: 1570px;
+    overflow: hidden;
+}
+
+/* Nubes con parallax */
+#section13 #img-nube-grande-s13,
+#section13 #img-nube-grande2-s13,
+#section13 #img-nube-chica-s13 {
+    position: relative;
+    z-index: 1;
+}
+
+/* Posiciones de las nubes */
+#section13 #img-nube-grande-s13 {
+    top: 180px;
+    left: -300px;
+    animation: moveNubeGrande 15s linear infinite;
+}
+
+#section13 #img-nube-grande2-s13 {
+    top: -80px;
+    left: 80px;
+    animation: moveNubeGrande2 15s linear infinite; /* retraso de 5 segundos */
+}
+
+#section13 #img-nube-chica-s13 {
+    top: -180px;
+    left: 180px;
+    animation: moveNubeChica 15s linear infinite -5s ; /* retraso de 10 segundos */
+}
+
+/* Animaciones individuales para cada nube */
+@keyframes moveNubeGrande {
+    0% {
+        transform: translateX(-150%);
+    }
+    100% {
+        transform: translateX(120vw);
+    }
+}
+
+@keyframes moveNubeGrande2 {
+    0% {
+        transform: translateX(-400%);
+    }
+    100% {
+        transform: translateX(60vw);
+    }
+}
+
+@keyframes moveNubeChica {
+    0% {
+        transform: translateX(-400%);
+    }
+    100% {
+        transform: translateX(40vw);
+    }
 }
 
 #section13 #img-cielo-s13 {
@@ -585,27 +623,6 @@ main {
     height: 389px;
     z-index: 2;
 
-}
-
-#section13 #img-nube-grande-s13 {
-    position: relative;
-    z-index: 2;
-    top: 180px;
-    left: -300px;
-}
-
-#section13 #img-nube-grande2-s13 {
-    position: relative;
-    left: 80px;
-    top: -85px;
-    z-index: 2;
-}
-
-#section13 #img-nube-chica-s13 {
-    position: relative;
-    top: -180px;
-    left: 180px;
-    z-index: 2;
 }
 
 #section13 #img-esrb-s13 {
@@ -671,21 +688,26 @@ main {
     margin-right: 0;
 
     /* Drop Shadow */
-    box-shadow: 0px 5px 0px 0px #02187E;
+    
 }
 
 .section13 form {
     display: flex;
+    width: fit-content;
+    filter: drop-shadow(4px 5px 0px #02187E);
+    border-radius: 0px 50px 50px 50px;
 }
 
-.section13 form div { /* Fabri. Queda un gap entre el input y el "boton" suscribirse*/
+.section13 form div {
+    /* Fabri. Queda un gap entre el input y el "boton" suscribirse*/
     color: #FFF;
     -webkit-text-stroke-width: 1;
     -webkit-text-stroke-color: #FFF;
     font-size: 20px;
     font-style: normal;
     font-weight: 900;
-    line-height: 94.5%; /* 18.9px */
+    line-height: 94.5%;
+    /* 18.9px */
     letter-spacing: 2.2px;
     width: 200px;
     margin-left: 0;
@@ -694,7 +716,7 @@ main {
     border: 9px solid #FFF;
     background: #83C252;
     /* Drop Shadow */
-    box-shadow: 4px 5px 0px 0px #02187E;
+    /* box-shadow: 4px 5px 0px 0px #02187E; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -739,7 +761,7 @@ footer {
 
 .footer-content {
     height: 486px;
-    margin: 35px  0 0 100px;
+    margin: 35px 0 0 100px;
 }
 
 .footer-content p {
@@ -762,6 +784,6 @@ footer {
     text-decoration-skip-ink: none;
 }
 
-.redesSociales { 
+.redesSociales {
     margin: 35px 0 28px 0;
 }

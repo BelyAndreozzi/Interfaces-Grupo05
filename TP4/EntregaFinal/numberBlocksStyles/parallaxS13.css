@@ -1,0 +1,185 @@
+#section13 {
+    width: 1280px;
+    height: 1570px;
+    overflow: hidden;
+    /* position: relative; */
+}
+
+/* Nubes con parallax */
+#section13 #img-nube-grande-s13,
+#section13 #img-nube-grande2-s13,
+#section13 #img-nube-chica-s13 {
+    position: relative;
+    z-index: 1;
+}
+
+/* Posiciones de las nubes */
+#section13 #img-nube-grande-s13 {
+    top: 180px;
+    left: -300px;
+    animation: moveNubeGrande 15s linear infinite;
+}
+
+#section13 #img-nube-grande2-s13 {
+    top: -250px;
+    left: 80px;
+    animation: moveNubeGrande2 10s linear infinite; /* retraso de 5 segundos */
+}
+
+#section13 #img-nube-chica-s13 {
+    top: -180px;
+    left: 180px;
+    animation: moveNubeChica 15s linear infinite -5s ; /* retraso de 10 segundos */
+}
+
+/* Animaciones individuales para cada nube */
+@keyframes moveNubeGrande {
+    0% {
+        transform: translateX(-150%);
+    }
+    100% {
+        transform: translateX(120vw);
+    }
+}
+
+@keyframes moveNubeGrande2 {
+    0% {
+        transform: translateX(-120%);
+    }
+    100% {
+        transform: translateX(100vw);
+    }
+}
+
+@keyframes moveNubeChica {
+    0% {
+        transform: translateX(-400%);
+    }
+    100% {
+        transform: translateX(40vw);
+    }
+}
+
+/* #section13 #img-cielo-s13 {
+    z-index: 0;
+    position: absolute;
+    margin-top: 274px;
+}
+
+#section13 #img-pasto-s13 {
+    position: relative;
+    top: 1180px;
+    width: 1280px;
+    height: 389px;
+    z-index: 2;
+
+} */
+
+/* #section13 #img-nube-grande-s13 {
+    position: relative;
+    z-index: 2;
+    top: 180px;
+    left: -300px;
+}
+
+#section13 #img-nube-grande2-s13 {
+    position: relative;
+    left: 80px;
+    top: -85px;
+    z-index: 2;
+}
+
+#section13 #img-nube-chica-s13 {
+    position: relative;
+    top: -180px;
+    left: 180px;
+    z-index: 2;
+} */
+
+/* #section13 #img-esrb-s13 {
+    position: relative;
+    width: 231px;
+    height: 145px;
+    flex-shrink: 0;
+    z-index: 2;
+    top: -33px;
+    left: 100px;
+} */
+
+/* .section13 {
+    width: 1080px;
+    margin-left: 100px;
+    position: relative;
+    z-index: 2;
+} */
+
+.section13 h1 {
+    margin-top: -201px;
+    margin-bottom: 36px;
+    width: 816px;
+    color: #000;
+    font-size: 60px;
+    font-weight: 600;
+    line-height: 94.5%;
+}
+
+.section13 p {
+    margin-top: 46px;
+    width: 578px;
+    height: 95px;
+    flex-shrink: 0;
+    color: #000;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 94.5%;
+}
+
+.section13 p span {
+    color: #000;
+    line-height: 94.5%;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-skip-ink: none;
+    text-decoration-thickness: auto;
+    text-underline-offset: auto;
+    text-underline-position: from-font;
+}
+
+.section13 form input {
+    width: 553px;
+    height: 82px;
+    flex-shrink: 0;
+    border-radius: 50px 0px 0px 50px;
+    border-top: 9px solid #FFF;
+    border-bottom: 9px solid #FFF;
+    border-left: 9px solid #FFF;
+    background: #ECECEC;
+    margin-right: 0;    
+}
+
+.section13 form {
+    display: flex;
+    width: fit-content;
+    filter: drop-shadow(4px 5px 0px #02187E);
+    border-radius: 0px 50px 50px 50px;
+}
+
+.section13 form div {
+    color: #FFF;
+    -webkit-text-stroke-width: 1;
+    -webkit-text-stroke-color: #FFF;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 94.5%;
+    letter-spacing: 2.2px;
+    width: 200px;
+    margin-left: 0;
+    height: 82px;
+    border-radius: 0px 50px 50px 0px;
+    border: 9px solid #FFF;
+    background: #83C252;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

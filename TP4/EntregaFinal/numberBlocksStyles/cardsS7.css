@@ -1,0 +1,36 @@
+#section7 {
+    width: 1080px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 140px;
+}
+
+.card {
+    width: 333px;
+    opacity: 0;
+    transform: translateY(50px);
+    /* Posición inicial hacia abajo */
+    transition: 1s ease-out;
+}
+
+.card.appear {
+    opacity: 1;
+    transform: translateY(0);
+    /* Posición final */
+}
+
+.card img {
+    width: 315px;
+    height: 284px;
+    border-radius: 41px;
+    border: 9px solid #2982FF;
+    box-shadow: 4px 5px 0px 0px #02187E;
+}
+
+.card p {
+    margin: 20px 0 0 0;
+    width: 333px;
+    height: 190px;
+    flex-shrink: 0;
+    font-size: 20px;
+}

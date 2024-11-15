@@ -1,0 +1,45 @@
+.toggle-input-svg {
+	display: none;
+}
+
+.svg-container {
+	cursor: pointer;
+	width: 120px;
+	height: 120px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* Estilos del SVG */
+.hamburger {
+	width: 100%;
+	/* padding-right: 154px; */
+}
+
+#top-line,
+#bottom-line,
+#middle-line {
+	fill: #F39E46; /* Color de las barras */
+	stroke: #fff; /* Borde blanco */
+	stroke-width: 4px;
+	filter: drop-shadow(4px 5px 0px #02187E); /* Sombra de las barras */
+	transform-box: fill-box;
+	transform-origin: center;
+	transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+}
+
+/* Aplicar animaciones cuando el checkbox está activado */
+.toggle-input-svg:checked ~ .svg-container #top-line {
+	transform: translateY(15.5px) rotate(45deg) scale(0.9);
+	filter: drop-shadow(3px 0px 0px #02187E);
+}
+
+.toggle-input-svg:checked ~ .svg-container #bottom-line {
+	transform: translateY(-6.5px) rotate(-45deg) scale(0.9);
+	filter: drop-shadow(-2px 3px 0px #02187E);
+}
+
+.toggle-input-svg:checked ~ .svg-container #middle-line {
+	opacity: 0;
+}
