@@ -1,133 +1,94 @@
-/* // Selección de elementos
-const imgContainer = document.getElementById('s9-image');
-const textBlocks = document.querySelectorAll('.s9-ind-text');
+/* document.addEventListener('scroll', () => {
+  const contentContainer = document.querySelector('.s9-content-container');
+  const texts = document.querySelectorAll('.s9-ind-text');
+  const img = document.querySelector('.s9-img-container');
 
-// Función para cambiar la imagen según el bloque visible
-function updateImageOnScroll() {
-  let closestBlock = null;
-  let minDistance = window.innerHeight; // Altura de la ventana para calcular la distancia más corta
+  const images = [
+    'url(assets/00-9.svg)',
+    'url(assets/11-9.svg)',
+    'url(assets/22-9.svg)',
+    'url(assets/33-9.svg)',
+    'url(assets/44-9.svg)',
+    'url(assets/55-9.svg)',
+    'url(assets/66-9.svg)',
+    'url(assets/77-9.svg)',
+    'url(assets/88-9.svg)',
+    'url(assets/99-9.svg)',
+    'url(assets/10-9.svg)'
+  ];
 
-  textBlocks.forEach((block) => {
-    const rect = block.getBoundingClientRect();
-    const distanceToCenter = Math.abs(rect.top - window.innerHeight / 2);
+  const viewportHeight = window.innerHeight;
+  const triggerPoint = viewportHeight * 0.75; // 3/4 desde la parte inferior
 
-    // Verifica si el bloque actual está más cercano al centro de la pantalla
-    if (distanceToCenter < minDistance) {
-      minDistance = distanceToCenter;
-      closestBlock = block;
+  function removeClass() {
+    texts.forEach(text => text.classList.remove('text-active'));
+    img.classList.remove('img-active');
+  }
+
+  texts.forEach((text, index) => {
+    const rect = text.getBoundingClientRect();
+    const textMidpoint = rect.top + rect.height / 2; // Punto medio del texto
+
+    if (textMidpoint < triggerPoint && textMidpoint > 0) {
+      removeClass();
+      text.classList.add('text-active');
+      img.style.backgroundImage = images[index];
+      img.classList.add('img-active');
     }
   });
-
-  // Cambia la imagen si se encuentra un bloque visible más cercano
-  if (closestBlock) {
-    const newImgSrc = closestBlock.getAttribute('data-img');
-    if (imgContainer.src !== newImgSrc) {
-      imgContainer.src = newImgSrc;
-    }
-  }
-}
-
-// Escucha el evento de scroll para actualizar la imagen
-window.addEventListener('scroll', updateImageOnScroll);
+});
  */
 
+//////////////
 
-///////////////////////////////////////////////////////////////////////
-/* // Selección de elementos
-const imgContainer = document.getElementById('s9-image');
-const textBlocks = document.querySelectorAll('.s9-ind-text');
+let isThrottling = false;
 
-// Función para cambiar la imagen cuando el bloque de texto está centrado en la pantalla
-function updateImageOnScroll() {
-  let closestBlock = null;
-  let minDistance = window.innerHeight;
+document.addEventListener('scroll', () => {
+  if (isThrottling) return;
 
-  textBlocks.forEach((block) => {
-    const rect = block.getBoundingClientRect();
-    const blockCenter = rect.top + rect.height / 2; // Centro vertical del bloque
-    const distanceToCenter = Math.abs(blockCenter - window.innerHeight / 2);
+  isThrottling = true;
 
-    // Verifica si el centro del bloque actual está más cercano al centro de la pantalla
-    if (distanceToCenter < minDistance) {
-      minDistance = distanceToCenter;
-      closestBlock = block;
+  setTimeout(() => {
+    handleScroll();
+    isThrottling = false;
+  }, 100); // Ajusta este valor según la velocidad de tu scroll (100ms es un buen punto de partida)
+});
+
+function handleScroll() {
+  const texts = document.querySelectorAll('.s9-ind-text');
+  const img = document.querySelector('.s9-img-container');
+
+  const images = [
+    'url(assets/00-9.svg)',
+    'url(assets/11-9.svg)',
+    'url(assets/22-9.svg)',
+    'url(assets/33-9.svg)',
+    'url(assets/44-9.svg)',
+    'url(assets/55-9.svg)',
+    'url(assets/66-9.svg)',
+    'url(assets/77-9.svg)',
+    'url(assets/88-9.svg)',
+    'url(assets/99-9.svg)',
+    'url(assets/10-9.svg)'
+  ];
+
+  const viewportHeight = window.innerHeight;
+  const triggerPoint = viewportHeight * 0.75;
+
+  function removeClass() {
+    texts.forEach(text => text.classList.remove('text-active'));
+    img.classList.remove('img-active');
+  }
+
+  texts.forEach((text, index) => {
+    const rect = text.getBoundingClientRect();
+    const textMidpoint = rect.top + rect.height / 2;
+
+    if (textMidpoint < triggerPoint && textMidpoint > 0) {
+      removeClass();
+      text.classList.add('text-active');
+      img.style.backgroundImage = images[index];
+      img.classList.add('img-active');
     }
   });
-
-  // Cambia la imagen si se encuentra un bloque visible más cercano al centro
-  if (closestBlock) {
-    const newImgSrc = closestBlock.getAttribute('data-img');
-    if (imgContainer.src !== newImgSrc) {
-      imgContainer.src = newImgSrc;
-    }
-  }
 }
-
-// Escucha el evento de scroll para actualizar la imagen
-window.addEventListener('scroll', updateImageOnScroll); */
-///////////////////////////////
-// Selección de elementos
-const imgContainer = document.getElementById('s9-image');
-const textBlocks = document.querySelectorAll('.s9-ind-text');
-
-// Función para cambiar la imagen con un retraso
-function updateImageOnScroll() {
-  let closestBlock = null;
-  let minDistance = window.innerHeight;
-  const transitionThreshold = 0.4; // Umbral para el cambio de imagen (40%)
-
-  textBlocks.forEach((block) => {
-    const rect = block.getBoundingClientRect();
-    const blockCenter = rect.top + rect.height / 2; // Centro vertical del bloque
-    const distanceToCenter = Math.abs(blockCenter - window.innerHeight / 2);
-    
-    // Verifica si el bloque ha pasado más allá del umbral para el cambio
-    if (distanceToCenter < minDistance && rect.top < window.innerHeight * transitionThreshold) {
-      minDistance = distanceToCenter;
-      closestBlock = block;
-    }
-  });
-
-  // Función para obtener solo la ruta relativa de una URL
-function getRelativePath(url) {
-  const a = document.createElement('a');
-  a.href = url;
-  return a.pathname;
-}
-
-  // Cambia la imagen si se encuentra un bloque visible más cercano al centro
-  if (closestBlock) {
-    const newImgSrc = closestBlock.getAttribute('data-img');
-    /* if (imgContainer.src !== newImgSrc) {
-      imgContainer.src = newImgSrc;
-    } */
-  
-     // Comparar las rutas relativas de las imágenes
-     const currentImgSrc = getRelativePath(imgContainer.src);
-     const newImgRelativeSrc = getRelativePath(newImgSrc);
- 
-     // Evitar cambios si la imagen ya es la misma
-     if (currentImgSrc !== newImgRelativeSrc) {
-        console.log("cambiando imagen");
-        // Iniciar la transición de la imagen
-        isTransitioning = true;
-        imgContainer.style.opacity = '0'; // Desvanecer la imagen actual
-        imgContainer.style.transform = 'scale(0.95)'; // Reducir un poco la escala
-  
-        // Usar setTimeout para esperar la transición antes de cambiar la imagen
-        setTimeout(() => {
-          imgContainer.src = newImgSrc; // Cambiar la imagen
-          imgContainer.style.opacity = '1'; // Restaurar opacidad
-          imgContainer.style.transform = 'scale(1)'; // Restaurar la escala
-          lastChangedImage = newImgSrc; // Actualizar la última imagen cambiada
-          isTransitioning = false; // Liberar el bloqueo de transición
-        }, 600); // Tiempo debe coincidir con la duración de la transición CSS
-      }
-  }
-}
-
-// Escucha el evento de scroll para actualizar la imagen
-window.addEventListener('scroll', updateImageOnScroll);
-
-//////////////////////////////////////////////////////
-

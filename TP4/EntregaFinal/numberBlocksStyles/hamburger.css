@@ -13,6 +13,8 @@
 
 /* Estilos del SVG */
 .hamburger {
+	position: relative;
+	z-index: 4;
 	width: 100%;
 	/* padding-right: 154px; */
 }
@@ -43,3 +45,62 @@
 .toggle-input-svg:checked ~ .svg-container #middle-line {
 	opacity: 0;
 }
+
+.menu {
+	position: fixed;
+	top: 0;
+	left: -100%;
+	width: 150px;
+	height: 100vh;
+	background: linear-gradient(to right, #00D1D5 0%, rgba(0, 209, 213, 0.829) 50%, rgba(0, 209, 213, 0.6) 80%, rgba(1, 209, 213, 0.458) 90% , rgba(1, 209, 213, 0) 100%);
+	/* background-color: #00D1D5; */
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 20px;
+	transition: left 0.5s ease-in-out;
+	z-index: 3;
+  }
+  
+  .menu ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+  }
+  
+  .menu li {
+	color: #000;
+	font-size: 1.5em;
+	margin-bottom: 20px;
+	opacity: 0;
+	transform: translateX(-50px);
+  }
+
+  .menu li a {
+	text-decoration: none;
+	color: #000;
+  }
+  
+  /* Animación de ítems */
+  @keyframes slideIn {
+	from {
+	  opacity: 0;
+	  transform: translateX(-50px);
+	}
+	to {
+	  opacity: 1;
+	  transform: translateX(0);
+	}
+  }
+  
+  /* Estado activo del menú */
+  .toggle-input-svg:checked ~ .menu {
+	left: 0;
+  }
+  
+  /* Anima los ítems uno a uno */
+  .toggle-input-svg:checked ~ .menu li {
+	animation: slideIn 0.5s forwards;
+	animation-delay: calc(var(--index) * 0.4s);
+  }
+

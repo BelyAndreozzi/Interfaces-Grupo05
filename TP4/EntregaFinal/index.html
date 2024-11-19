@@ -9,8 +9,10 @@
   <link rel="stylesheet" href="numberBlocksStyles/hamburger.css">
   <link rel="stylesheet" href="numberBlocksStyles/parallax&carruselS5.css">
   <link rel="stylesheet" href="numberBlocksStyles/cardsS7.css">
+  <link rel="stylesheet" href="numberBlocksStyles/scrollS9.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="shortcut icon" href="assets/logo-1.png" type="image/x-icon">
   <link
     href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Play:wght@400;700&display=swap"
     rel="stylesheet">
@@ -18,19 +20,34 @@
 
 <body>
   <header>
+    
     <div id="header-box">
-      <input type="checkbox" id="toggle" class="toggle-input-svg">
-      <label for="toggle" class="svg-container">
-        <svg class="hamburger" viewBox="0 0 100 100" width="120px">
-          <rect id="top-line" width="38" height="8" x="10" y="25" rx="5"></rect>
-          <rect id="middle-line" width="38" height="8" x="10" y="36" rx="5"></rect>
-          <rect id="bottom-line" width="38" height="8" x="10" y="47" rx="5"></rect>
-        </svg>
-      </label>
-      <img src="assets/logo-1.png" alt="logo" id="logo">
-      <div id="comprar">
-        <p>COMPRAR</p>
+      <div class="hamburger-menu">
+        <input type="checkbox" id="toggle" class="toggle-input-svg">
+        <label for="toggle" class="svg-container">
+          <svg class="hamburger" viewBox="0 0 100 100" width="120px">
+            <rect id="top-line" width="38" height="8" x="10" y="25" rx="5"></rect>
+            <rect id="middle-line" width="38" height="8" x="10" y="36" rx="5"></rect>
+            <rect id="bottom-line" width="38" height="8" x="10" y="47" rx="5"></rect>
+          </svg>
+        </label>
+        <nav class="menu">
+          <ul>
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#section8">Descarga</a></li>
+            <li><a href="#section13-form">Suscribirse</a></li>
+            <li><a href="#footer">Contacto</a></li>
+          </ul>
+        </nav>
       </div>
+      
+      <img src="assets/logo-1.png" alt="logo" id="logo">
+      <button id="comprar">
+        <p>COMPRAR</p>
+      </button>
+<!--  <div id="comprar">
+        <p>COMPRAR</p>
+      </div> -->
     </div>
   </header>
   <main>
@@ -889,10 +906,10 @@
       <h1>Más amigos, más diversión!</h1>
       <div class="s9-content-container">
         <div class="s9-img-container">
-          <img id="s9-image" src="assets/00-9.svg" alt="Personaje 0">
+         <!--  <img id="s9-image" src="assets/00-9.svg" alt="Personaje 0"> -->
         </div>
         <div class="s9-text-container">
-          <div class="s9-ind-text" data-img="assets/00-9.svg">
+          <div class="s9-ind-text" id="s9-t-0" data-img="assets/00-9.svg">
             <h2>
               Sumas Mágicas
             </h2>
@@ -902,7 +919,7 @@
               se combinan para formar resultados increíbles!
             </p>
           </div>
-          <div class="s9-ind-text" data-img="assets/11-9.svg">
+          <div class="s9-ind-text" id="s9-t-1" data-img="assets/11-9.svg">
             <h2>
               Rompecabezas de Restas
             </h2>
@@ -912,7 +929,7 @@
               para llegar a la meta!
             </p>
           </div>
-          <div class="s9-ind-text" data-img="assets/22-9.svg">
+          <div class="s9-ind-text" id="s9-t-2" data-img="assets/22-9.svg">
             <h2>
               Carrera de Conteo
             </h2>
@@ -922,7 +939,7 @@
               rápido.
             </p>
           </div>
-          <div class="s9-ind-text" data-img="assets/33-9.svg">
+          <div class="s9-ind-text" id="s9-t-3" data-img="assets/33-9.svg">
             <h2>
               Encuentra el Número Oculto
             </h2>
@@ -932,7 +949,7 @@
               esconde.
             </p>
           </div>
-          <div class="s9-ind-text" data-img="assets/44-9.svg">
+          <div class="s9-ind-text" id="s9-t-4" data-img="assets/44-9.svg">
             <h2>
               Desafío de Comparación
             </h2>
@@ -942,7 +959,7 @@
               cada vez que aciertes!
             </p>
           </div>
-          <div class="s9-ind-text" data-img="assets/55-9.svg">
+          <div class="s9-ind-text" id="s9-t-5" data-img="assets/55-9.svg">
             <h2>
               Forma el Número Correcto
             </h2>
@@ -952,7 +969,7 @@
               encajan!
             </p>
           </div>
-          <div class="s9-ind-text" data-img="assets/66-9.svg">
+          <div class="s9-ind-text" id="s9-t-6" data-img="assets/66-9.svg">
             <h2>
               Encuentra el Número Oculto
             </h2>
@@ -962,7 +979,7 @@
               esconde.
             </p>
           </div>
-          <div class="s9-ind-text" data-img="assets/77-9.svg">
+          <div class="s9-ind-text" id="s9-t-7" data-img="assets/77-9.svg">
             <h2>
               Salto de Sumas
             </h2>
@@ -971,7 +988,7 @@
               lado, ¡y solo podrás hacerlo si sumas correctamente! Cada salto exitoso te acerca a un nuevo nivel.
             </p>
           </div>
-          <div class="s9-ind-text" data-img="assets/88-9.svg">
+          <div class="s9-ind-text" id="s9-t-8" data-img="assets/88-9.svg">
             <h2>
               Rompecabezas de Secuencias
             </h2>
@@ -981,7 +998,7 @@
               especial!
             </p>
           </div>
-          <div class="s9-ind-text" data-img="assets/99-9.svg">
+          <div class="s9-ind-text" id="s9-t-9" data-img="assets/99-9.svg">
             <h2>
               El Desafío del Doble
             </h2>
@@ -990,7 +1007,7 @@
               crecen rápidamente. ¡Una manera emocionante de aprender el concepto de "el doble" y multiplicación básica!
             </p>
           </div>
-          <div class="s9-ind-text" data-img="assets/10-9.svg">
+          <div class="s9-ind-text" id="s9-t-10" data-img="assets/10-9.svg">
             <h2>
               Aventura de Divisiones
             </h2>
@@ -1003,6 +1020,7 @@
         </div>
       </div>
     </section>
+
     <section id="section10">
       <svg class="svg10" xmlns="http://www.w3.org/2000/svg" width="1280" height="1444" viewBox="0 0 1280 1444"
         fill="none">
@@ -1012,8 +1030,22 @@
       </svg>
       <div class="s10-content-container">
         <h1>Mira el video y descubre el sorprendente mundo de los NumberBlocks!</h1>
-        <div class="s10reproductor"></div> <!-- Cambiar a un reproductor -->
-        <img src="assets/33-10.svg" alt="Personaje 3">
+        <div class="s10reproductor">
+          <iframe 
+          id="videoFrame10"
+          src="https://www.youtube.com/embed/0YKa9DQYdRg" 
+          title="NumberBlocks Video" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+          </iframe>
+          <img 
+            id="s10video-thumbnail" 
+            src="assets/miniatura-10.svg" 
+            alt="Video Thumbnail" 
+            class="video-thumbnail"
+          > 
+        </div> 
+        <img id="p3s10" src="assets/33-10.svg" alt="Personaje 3">
       </div>
     </section>
     <section id="section11">
@@ -1027,7 +1059,11 @@
         un impacto real en el entorno, creando un aprendizaje dinámico y emocionante. ¡Cada sesión de juego se convierte
         en una experiencia inolvidable llena de color y diversión!
       </p>
-      <img src="assets/3d-11.png" alt="Cubo 3D">
+      <model-viewer id="reveal" loading="eager" camera-controls touch-action="pan-y" 
+        auto-rotate poster="../../assets/poster-shishkebab.webp" 
+        tone-mapping="aces" src="assets/one.glb" 
+        shadow-intensity="1" alt="A 3D model of a shishkebab">
+      </model-viewer>
     </section>
     <section id="section12">
       <img class="bg-12" src="assets/bg(2)-12.png" alt="Background">
@@ -1049,8 +1085,8 @@
 
       <div class="section13">
         <h1>¿Quieres ser el primero en enterarse de todas las novedades?</h1>
-        <form action="">
-          <input type="text">
+        <form id="section13-form" action="">
+          <input type="text" placeholder="Ingresa aquí tu correo">
           <div>SUSCRIBIRSE</div>
         </form>
         <p>
@@ -1064,15 +1100,15 @@
       <img id="img-nube-chica-s13" src="assets/tinyCloud-13.svg" alt="Nube chica">
       <img id="img-nube-grande2-s13" src="assets/bigCloud-13.svg" alt="Nube grande">
 
-      <iframe src="https://giphy.com/embed/5ddqGqO8x5rrJ7v5tf" width="480" height="480" frameBorder="0"
+      <iframe style="pointer-events: none;" src="https://giphy.com/embed/5ddqGqO8x5rrJ7v5tf" width="480" height="480" frameBorder="0"
         class="giphy-embed gifP2" allowFullScreen></iframe>
-      <iframe src="https://giphy.com/embed/HuocoB7MEUeLMifGFN" width="509" height="509" frameBorder="0"
+      <iframe style="pointer-events: none;" src="https://giphy.com/embed/HuocoB7MEUeLMifGFN" width="509" height="509" frameBorder="0"
         class="giphy-embed gifP3" allowFullScreen></iframe>
-      <iframe src="https://giphy.com/embed/fuTByMqFxstXjmDSYm" width="561" height="997" frameBorder="0"
+      <iframe style="pointer-events: none;" src="https://giphy.com/embed/fuTByMqFxstXjmDSYm" width="561" height="997" frameBorder="0"
         class="giphy-embed gifP7" allowFullScreen></iframe>
     </section>
   </main>
-  <footer>
+  <footer id="footer">
     <div class="consolas-container">
       <img src="assets/consolas-footer.svg" alt="Consolas disponibles">
     </div>
@@ -1103,5 +1139,8 @@
 <script src="numberBlocksScripts/seccion7.js"></script>
 <script src="numberBlocksScripts/seccion8.js"></script>
 <script src="numberBlocksScripts/seccion9.js"></script>
+<script src="numberBlocksScripts/seccion10.js"></script>
+<script src="numberBlocksScripts/menu.js"></script>
+
 
 </html>

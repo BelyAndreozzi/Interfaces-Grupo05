@@ -5,6 +5,10 @@
     vertical-align: baseline;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     width: 1280px;
     min-height: 100vh;
@@ -34,17 +38,18 @@ header {
     width: 560px;
     height: 320px;
     position: absolute;
-    top: 110px;
+    top: 55.33px;
     left: 50%;
     transform: translate(-50%, 0);
-    transition: width 0.1s ease, height 0.1s ease, transform 0.1s ease;
+    transition: width 0.1s ease-in-out, height 0.1s ease-in-out, transform 0.1s ease-in-out;
 }
 
 #comprar {
     width: 200px;
-    height: 50px;
+    height: 60px;
     border-radius: 111px;
     right: -8px;
+    top: -8px;
     position: relative;
     border: 8px solid #FFF;
     background: #83C252;
@@ -59,7 +64,23 @@ header {
     font-weight: 900;
     line-height: 18.9px;
     letter-spacing: 2.2px;
+    cursor: pointer;
+    outline: none; 
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
 }
+
+#comprar:hover {
+    transform: scale(1.1) rotate(5deg);
+    background-color: #4CAF50;
+    box-shadow: 6px 6px 0px 0px #02187E; 
+}
+
+#comprar:active {
+    box-shadow: 2px 3px 0px 0px #02187E;
+    transform: translateY(2px);
+    background-color: #159119;
+}
+
 
 /* ///////////////////////////// */
 
@@ -123,22 +144,22 @@ main {
 
 #sombra1 {
     position: absolute;
-    left: 494.18px;
-    top: 762.33px;
+    left: 467px;
+    top: 736px;
     z-index: 2;
 }
 
 #sombra2 {
     position: absolute;
-    left: 608px;
-    top: 727px;
+    left: 581px;
+    top: 700px;
     z-index: 6;
 }
 
 #sombra3 {
     position: absolute;
-    left: 724px;
-    top: 697px;
+    left: 697px;
+    top: 671px;
     z-index: 2;
 }
 
@@ -282,74 +303,9 @@ main {
     transition: transform 0.1s ease-out;
 }
 
-/*                      SECTION 9 */
-
-#section9 {
-    width: 1080px;
-    margin: 174px 100px 0 100px;
-}
-
-#s9-image {
-    width: 261px;
-    height: 436px;
-    transition: 0.1 s ease-in-out;
-    transition: opacity 0.2s ease, transform 0.2s ease;
-    opacity: 1;
-    transform: scale(1); 
-}
-
-#section9 h1 {
-    width: 802px;
-    font-size: 60px;
-    font-weight: 600;
-    line-height: 94.5%;
-    margin: 0 0 68px 0
-}
-
-.s9-content-container {
-    display: flex;
-    align-items: flex-start; /* Alineación superior de los bloques */
-    gap: 20px;
-}
-
-.s9-img-container {
-    margin: 0 0 0 143px;
-    position: sticky;
-    top: 150px; /* Para mantener la imagen en posición mientras se scrollea */
-    width: 200px; /* Ajusta según el tamaño de imagen deseado */
-}
-
-.s9-text-container {
-    width: 467px;
-    margin-left: 180px;
-}
-
-.s9-ind-text {
-    width: 464px;
-    /* Fabri. Og 467. Segundo texto baja mal */
-    margin: 0 0 267px 0px;
-}
-
-.s9-ind-text:nth-child(1) {
-    margin-top: 91px;
-}
-
-.s9-ind-text h2 {
-    font-size: 40px;
-    font-weight: 400;
-    line-height: 94.5%;
-}
-
-.s9-ind-text p {
-    margin-top: 15px;
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 94.5%;
-}
-
 /*                       SECTION 10 */
 
-#section10 {
+/* #section10 {
     width: 1280px;
     height: 1444px;
 }
@@ -370,7 +326,6 @@ main {
     color: #FFF;
     font-size: 60px;
     font-weight: 600;
-    /* Fabri. Letras muy bold? */
     line-height: 94.5%;
     width: 802px;
     margin-bottom: 46px;
@@ -388,7 +343,136 @@ main {
     position: relative;
     left: 624px;
     top: -620px
+} */
+
+#section10 {
+    width: 1280px;
+    height: 1444px;
 }
+
+.svg10 {
+    position: absolute;
+    z-index: 1;
+}
+
+.s10-content-container {
+    position: relative;
+    z-index: 2;
+    margin: 308.8px 0 0 100px;
+    height: 1000px;
+    overflow: hidden;
+
+}
+
+.s10-content-container h1 {
+    color: #FFF;
+    font-size: 60px;
+    font-weight: 600;
+    /* Fabri. Letras muy bold? */
+    line-height: 94.5%;
+    width: 802px;
+    margin-bottom: 46px;
+}
+
+.s10reproductor {
+    position: relative;
+    width: 746px;
+    height: 394px;
+    border-radius: 45px;
+    border: 29px solid #FFF;
+    opacity: 0;
+
+}
+
+.s10reproductor.active {
+    animation: slideInLeft 1.5s ease-out forwards;
+    opacity: 1;
+
+}
+
+.s10reproductor iframe {
+    position: absolute;
+    top: 197px;
+    left: 373px;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    z-index: 2; 
+    border-radius: 16px;
+}
+
+.s10-content-container #p3s10 {
+    position: relative;
+    left: 624px;
+    top: -620px;
+    z-index: -1;
+    opacity: 0; 
+}
+
+/* Fabri. El bichito queda atras (a diferencia de el figma) para que pueda funcionar bien el reproductor. */
+
+.s10-content-container #p3s10.active {
+    animation: slideInRight 1.5s ease-out forwards;
+    opacity: 1; 
+}
+
+
+/* Animación para el personaje */
+@keyframes slideInLeft {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInRight {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+
+ .s10-content-container #p3s10.active.moving {
+    transform: translateY(0); 
+    animation: moveCharacter 8s linear infinite;
+}
+
+@keyframes moveCharacter {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px); 
+    }
+    100% {
+        transform: translateY(0); 
+    }
+} 
+
+.video-thumbnail {
+    position: absolute;
+    top: -30px;
+    left: -30px;
+    object-fit: cover;
+    cursor: pointer; /* Muestra que es clickeable */
+    z-index: 2; /* Coloca sobre el iframe */
+    transition: opacity 0.3s ease; /* Desvanecimiento suave */
+}
+
+.video-thumbnail.hidden {
+    opacity: 0; /* Oculta la miniatura */
+    pointer-events: none; /* Evita la interacción */
+}
+
 
 #section11 {
     width: 1080px;
@@ -686,9 +770,20 @@ main {
     border-left: 9px solid #FFF;
     background: #ECECEC;
     margin-right: 0;
+    padding-left: 52px;
 
-    /* Drop Shadow */
-    
+
+
+    font-family: Lato;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 94.5%; /* 18.9px */
+    letter-spacing: 2.2px;
+}
+
+.section13 form input::placeholder {
+    color: rgba(0, 0, 0, 0.39);
 }
 
 .section13 form {
