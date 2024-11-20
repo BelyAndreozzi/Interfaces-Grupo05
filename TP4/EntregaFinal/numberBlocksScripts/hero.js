@@ -1,264 +1,118 @@
 //315  "FRAMES"
 
-// LOGO
 window.addEventListener("scroll", () => {
-    const element = document.getElementById("logo");
+    const elementLOGO = document.getElementById("logo");
+    const element1 = document.getElementById("hero-1");
+    const element2 = document.getElementById("hero-2");
+    const element3 = document.getElementById("hero-3");
+    const elementArbol1 = document.getElementById("arbol-1");
+    const elementV2 = document.getElementById("v2");
+    const elementV3 = document.getElementById("v3");
+    const elementV4 = document.getElementById("v4");
+    const elementArbol2 = document.getElementById("arbol-2");
+    const elementArbol3 = document.getElementById("arbol-3");
+    const elementV1 = document.getElementById("v1");
+    const elementV5 = document.getElementById("v5");
+    const elementV6 = document.getElementById("v6");
+    const elementV7 = document.getElementById("v7");
+    const elementV8 = document.getElementById("v8");
+    const elementSombra1 = document.getElementById("sombra1");
+    const elementSombra2 = document.getElementById("sombra2");
+    const elementSombra3 = document.getElementById("sombra3");
+
+
     const scrollY = window.scrollY;
 
-    // Calcular el nuevo ancho y alto en función del scroll
-    const width = Math.max(560 - scrollY, 150); // Se reduce hasta 150px de ancho
-    const mtop = Math.max(55 - scrollY, 53); // Se reduce hasta 150px de ancho
-    const height = Math.max(320 - scrollY * (320 / 560), 86); // Se reduce hasta 86px de alto
+    
+    const widthLOGO = Math.max(560 - scrollY, 150);
+    const mtopLOGO = Math.max(55 - scrollY, 53);
+    const heightLOGO = Math.max(320 - scrollY * (320 / 560), 86); 
 
-    // Ajustar el tamaño y posición
-    element.style.marginTop = `${mtop}px`;
-    element.style.width = `${width}px`;
-    element.style.height = `${height}px`;
-    element.style.transform = `translate(-50%, -${Math.min(scrollY, 100)}px)`;
+    const translateY1 = Math.min(scrollY / 9, 35);
+    const translateX1 = Math.min(scrollY / 19.688, 16);
+    const rotate1 = Math.min(scrollY / 78.75, 4);
 
-});
+    const translateY2 = Math.min(scrollY / (7.875/1.5), 40);
+    const translateX2 = Math.min(scrollY / 2, 0);
+    const rotate2 = Math.min(scrollY / 90, 3.5);
 
+    const translateY3 = Math.min(scrollY / 7, 20);
+    const translateX3 = Math.min(scrollY / 31.5, 15);
+    const rotate3 = Math.min(scrollY / 105, 3);
 
-// HERO-1
-window.addEventListener("scroll", () => {
-    const element = document.getElementById("hero-1");
-    const scrollY = window.scrollY;
+    const translateYArbol1 = Math.min(scrollY / 7, 0);
+    const translateXArbol1 = Math.min(scrollY / 10, 20);
 
-    // Lógica para la segunda imagen (main-image) - sube y rota
-    const translateY = Math.min(scrollY / 9, 35); // Subir hasta 50px
-    const translateX = Math.min(scrollY / 19.688, 16); // Mover hasta 30px a la izquierda
-    const rotate = Math.min(scrollY / 78.75, 4); // Rotar hasta 15 grados
+    const translateYV2 = Math.min(scrollY / 7, 0);
+    const translateXV2 = Math.min(scrollY / 17.5, 18);
 
-    element.style.transform = `translate(-${translateX}px, -${translateY}px) rotate(${-rotate}deg)`;
-});
+    const translateYV3 = Math.min(scrollY / 7, 0);
+    const translateXV3 = Math.min(scrollY / 10, 20);
 
+    const translateYV4 = Math.min(scrollY / 7, 0);
+    const translateXV4 = Math.min(scrollY / 10, 20);
 
-// HERO-2
-window.addEventListener("scroll", () => {
-    const element = document.getElementById("hero-2");
-    const scrollY = window.scrollY;
+    const translateYArbol2 = Math.min(scrollY / 7, 0);
+    const translateXArbol2 = Math.min(scrollY / 18.53, 17);
+    
+    const translateYArbol3 = Math.min(scrollY / 7, 0);
+    const translateXArbol3 = Math.min(scrollY / 31.5, 10);
 
-    const translateY = Math.min(scrollY / (7.875/1.5), 40); // Subir hasta 50px
-    const translateX = Math.min(scrollY / 2, 0); // Mover hasta 30px a la izquierda
-    const rotate = Math.min(scrollY / 90, 3.5); // Rotar hasta 15 grados
+    const translateYV1 = Math.min(scrollY / 7, 0);
+    const translateXV1 = Math.min(scrollY / 35, 9);
 
-    element.style.transform = `translate(-${translateX}px, -${translateY}px) rotate(${-rotate}deg)`;
-});
+    const translateYV5 = Math.min(scrollY / 7, 0);
+    const translateXV5 = Math.min(scrollY / 21, 15);
 
+    const translateYV6 = Math.min(scrollY / 7, 0);
+    const translateXV6 = Math.min(scrollY / 31, 10);
 
-// HERO-3
-window.addEventListener("scroll", () => {
-    const element = document.getElementById("hero-3");
-    const scrollY = window.scrollY;
+    const translateYV7 = Math.min(scrollY / 7, 0);
+    const translateXV7 = Math.min(scrollY / 15.75, 20);
 
-    // Lógica para la segunda imagen (main-image) - sube y rota
-    const translateY = Math.min(scrollY / 7, 20); // Subir hasta 50px
-    const translateX = Math.min(scrollY / 31.5, 15); // Mover hasta 30px a la izquierda
-    const rotate = Math.min(scrollY / 105, 3); // Rotar hasta 15 grados
+    const translateYV8 = Math.min(scrollY / 7, 0);
+    const translateXV8 = Math.min(scrollY / 21, 15);
 
-    element.style.transform = `translate(${translateX}px, -${translateY}px) rotate(${rotate}deg)`;
-});
+    const scaleSombra = Math.max(1 - scrollY / 1000, 0.5);
 
 
+    elementLOGO.style.marginTop = `${mtopLOGO}px`;
+    elementLOGO.style.width = `${widthLOGO}px`;
+    elementLOGO.style.height = `${heightLOGO}px`;
+    elementLOGO.style.transform = `translate(-50%, -${Math.min(scrollY, 100)}px)`;
 
+    element1.style.transform = `translate(-${translateX1}px, -${translateY1}px) rotate(${-rotate1}deg)`;
+    
+    element2.style.transform = `translate(-${translateX2}px, -${translateY2}px) rotate(${-rotate2}deg)`;
 
+    element3.style.transform = `translate(${translateX3}px, -${translateY3}px) rotate(${rotate3}deg)`;
 
+    elementArbol1.style.transform = `translate(-${translateXArbol1}px, -${translateYArbol1}px)`;
 
+    elementV2.style.transform = `translate(-${translateXV2}px, -${translateYV2}px)`;
+    
+    elementV3.style.transform = `translate(-${translateXV3}px, -${translateYV3}px)`;
 
+    elementV4.style.transform = `translate(-${translateXV4}px, -${translateYV4}px)`;
 
+    elementArbol2.style.transform = `translate(${translateXArbol2}px, -${translateYArbol2}px)`;
 
+    elementArbol3.style.transform = `translate(${translateXArbol3}px, -${translateYArbol3}px)`;
 
+    elementV1.style.transform = `translate(${translateXV1}px, -${translateYV1}px)`;
 
+    elementV5.style.transform = `translate(${translateXV5}px, -${translateYV5}px)`;
 
+    elementV6.style.transform = `translate(${translateXV6}px, -${translateYV6}px)`;
 
+    elementV7.style.transform = `translate(${translateXV7}px, -${translateYV7}px)`;
 
+    elementV8.style.transform = `translate(${translateXV8}px, -${translateYV8}px)`;
 
+    elementSombra1.style.transform = `scale(${scaleSombra})`;
 
+    elementSombra2.style.transform = `scale(${scaleSombra})`;
 
+    elementSombra3.style.transform = `scale(${scaleSombra})`;
 
-
-// ARBOL-1
-window.addEventListener("scroll", () => {
-    const element = document.getElementById("arbol-1");
-    const scrollY = window.scrollY;
-
-    // Lógica para la segunda imagen (main-image) - sube y rota
-    const translateY = Math.min(scrollY / 7, 0); // Subir hasta 50px
-    const translateX = Math.min(scrollY / 10, 20); // Mover hasta 30px a la izquierda
-
-    element.style.transform = `translate(-${translateX}px, -${translateY}px)`;
-});
-
-
-//v2
-window.addEventListener("scroll", () => {
-    const element = document.getElementById("v2");
-    const scrollY = window.scrollY;
-
-    // Lógica para la segunda imagen (main-image) - sube y rota
-    const translateY = Math.min(scrollY / 7, 0); // Subir hasta 50px
-    const translateX = Math.min(scrollY / 17.5, 18); // Mover hasta 30px a la izquierda
-
-    element.style.transform = `translate(-${translateX}px, -${translateY}px)`;
-});
-
-
-//v3
-window.addEventListener("scroll", () => {
-    const element = document.getElementById("v3");
-    const scrollY = window.scrollY;
-
-    // Lógica para la segunda imagen (main-image) - sube y rota
-    const translateY = Math.min(scrollY / 7, 0); // Subir hasta 50px
-    const translateX = Math.min(scrollY / 10, 20); // Mover hasta 30px a la izquierda
-
-    element.style.transform = `translate(-${translateX}px, -${translateY}px)`;
-});
-
-
-//v4
-window.addEventListener("scroll", () => {
-    const element = document.getElementById("v4");
-    const scrollY = window.scrollY;
-
-    // Lógica para la segunda imagen (main-image) - sube y rota
-    const translateY = Math.min(scrollY / 7, 0); // Subir hasta 50px
-    const translateX = Math.min(scrollY / 10, 20); // Mover hasta 30px a la izquierda
-
-    element.style.transform = `translate(-${translateX}px, -${translateY}px)`;
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// ARBOL-2
-window.addEventListener("scroll", () => {
-    const element = document.getElementById("arbol-2");
-    const scrollY = window.scrollY;
-
-    // Lógica para la segunda imagen (main-image) - sube y rota
-    const translateY = Math.min(scrollY / 7, 0); // Subir hasta 50px
-    const translateX = Math.min(scrollY / 18.53, 17); // Mover hasta 30px a la izquierda
-
-    element.style.transform = `translate(${translateX}px, -${translateY}px)`;
-});
-
-
-// ARBOL-3
-window.addEventListener("scroll", () => {
-    const element = document.getElementById("arbol-3");
-    const scrollY = window.scrollY;
-
-    // Lógica para la segunda imagen (main-image) - sube y rota
-    const translateY = Math.min(scrollY / 7, 0); // Subir hasta 50px
-    const translateX = Math.min(scrollY / 31.5, 10); // Mover hasta 30px a la izquierda
-
-    element.style.transform = `translate(${translateX}px, -${translateY}px)`;
-});
-
-
-//v1
-window.addEventListener("scroll", () => {
-    const element = document.getElementById("v1");
-    const scrollY = window.scrollY;
-
-    // Lógica para la segunda imagen (main-image) - sube y rota
-    const translateY = Math.min(scrollY / 7, 0); // Subir hasta 50px
-    const translateX = Math.min(scrollY / 35, 9); // Mover hasta 30px a la izquierda
-
-    element.style.transform = `translate(${translateX}px, -${translateY}px)`;
-});
-
-
-//v5
-window.addEventListener("scroll", () => {
-    const element = document.getElementById("v5");
-    const scrollY = window.scrollY;
-
-    // Lógica para la segunda imagen (main-image) - sube y rota
-    const translateY = Math.min(scrollY / 7, 0); // Subir hasta 50px
-    const translateX = Math.min(scrollY / 21, 15); // Mover hasta 30px a la izquierda
-
-    element.style.transform = `translate(${translateX}px, -${translateY}px)`;
-});
-
-
-//v6
-window.addEventListener("scroll", () => {
-    const element = document.getElementById("v6");
-    const scrollY = window.scrollY;
-
-    // Lógica para la segunda imagen (main-image) - sube y rota
-    const translateY = Math.min(scrollY / 7, 0); // Subir hasta 50px
-    const translateX = Math.min(scrollY / 31, 10); // Mover hasta 30px a la izquierda
-
-    element.style.transform = `translate(${translateX}px, -${translateY}px)`;
-});
-
-
-//v7
-window.addEventListener("scroll", () => {
-    const element = document.getElementById("v7");
-    const scrollY = window.scrollY;
-
-    // Lógica para la segunda imagen (main-image) - sube y rota
-    const translateY = Math.min(scrollY / 7, 0); // Subir hasta 50px
-    const translateX = Math.min(scrollY / 15.75, 20); // Mover hasta 30px a la izquierda
-
-    element.style.transform = `translate(${translateX}px, -${translateY}px)`;
-});
-
-
-//v8
-window.addEventListener("scroll", () => {
-    const element = document.getElementById("v8");
-    const scrollY = window.scrollY;
-
-    // Lógica para la segunda imagen (main-image) - sube y rota
-    const translateY = Math.min(scrollY / 7, 0); // Subir hasta 50px
-    const translateX = Math.min(scrollY / 21, 15); // Mover hasta 30px a la izquierda
-
-    element.style.transform = `translate(${translateX}px, -${translateY}px)`;
-});
-
-
-
-// SOMBRA1
-window.addEventListener("scroll", () => {
-    const element = document.getElementById("sombra1");
-    const scrollY = window.scrollY;
-
-
-    const scale = Math.max(1 - scrollY / 1000, 0.5); // Escala mínima de 0.5
-    element.style.transform = `scale(${scale})`;
-});
-
-// SOMBRA 2
-window.addEventListener("scroll", () => {
-    const element = document.getElementById("sombra2");
-    const scrollY = window.scrollY;
-
-
-    const scale = Math.max(1 - scrollY / 1000, 0.5); // Escala mínima de 0.5
-    element.style.transform = `scale(${scale})`;
-});
-
-// SOMBRA 3
-window.addEventListener("scroll", () => {
-    const element = document.getElementById("sombra3");
-    const scrollY = window.scrollY;
-
-
-    const scale = Math.max(1 - scrollY / 1000, 0.5); // Escala mínima de 0.5
-    element.style.transform = `scale(${scale})`;
 });

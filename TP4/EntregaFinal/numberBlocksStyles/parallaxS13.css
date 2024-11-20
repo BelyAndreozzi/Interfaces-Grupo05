@@ -2,10 +2,8 @@
     width: 1280px;
     height: 1570px;
     overflow: hidden;
-    /* position: relative; */
 }
 
-/* Nubes con parallax */
 #section13 #img-nube-grande-s13,
 #section13 #img-nube-grande2-s13,
 #section13 #img-nube-chica-s13 {
@@ -13,7 +11,6 @@
     z-index: 1;
 }
 
-/* Posiciones de las nubes */
 #section13 #img-nube-grande-s13 {
     top: 180px;
     left: -300px;
@@ -23,16 +20,15 @@
 #section13 #img-nube-grande2-s13 {
     top: -250px;
     left: 80px;
-    animation: moveNubeGrande2 10s linear infinite; /* retraso de 5 segundos */
+    animation: moveNubeGrande2 10s linear infinite; 
 }
 
 #section13 #img-nube-chica-s13 {
     top: -180px;
     left: 180px;
-    animation: moveNubeChica 15s linear infinite -5s ; /* retraso de 10 segundos */
+    animation: moveNubeChica 15s linear infinite -5s ; 
 }
 
-/* Animaciones individuales para cada nube */
 @keyframes moveNubeGrande {
     0% {
         transform: translateX(-150%);
@@ -59,59 +55,6 @@
         transform: translateX(40vw);
     }
 }
-
-/* #section13 #img-cielo-s13 {
-    z-index: 0;
-    position: absolute;
-    margin-top: 274px;
-}
-
-#section13 #img-pasto-s13 {
-    position: relative;
-    top: 1180px;
-    width: 1280px;
-    height: 389px;
-    z-index: 2;
-
-} */
-
-/* #section13 #img-nube-grande-s13 {
-    position: relative;
-    z-index: 2;
-    top: 180px;
-    left: -300px;
-}
-
-#section13 #img-nube-grande2-s13 {
-    position: relative;
-    left: 80px;
-    top: -85px;
-    z-index: 2;
-}
-
-#section13 #img-nube-chica-s13 {
-    position: relative;
-    top: -180px;
-    left: 180px;
-    z-index: 2;
-} */
-
-/* #section13 #img-esrb-s13 {
-    position: relative;
-    width: 231px;
-    height: 145px;
-    flex-shrink: 0;
-    z-index: 2;
-    top: -33px;
-    left: 100px;
-} */
-
-/* .section13 {
-    width: 1080px;
-    margin-left: 100px;
-    position: relative;
-    z-index: 2;
-} */
 
 .section13 h1 {
     margin-top: -201px;

@@ -9,14 +9,12 @@
     width: 333px;
     opacity: 0;
     transform: translateY(50px);
-    /* Posición inicial hacia abajo */
     transition: 1s ease-out;
 }
 
 .card.appear {
     opacity: 1;
     transform: translateY(0);
-    /* Posición final */
 }
 
 .card img {

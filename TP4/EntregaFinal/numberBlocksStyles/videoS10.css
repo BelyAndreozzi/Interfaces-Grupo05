@@ -27,14 +27,12 @@ body {
     margin: 308.8px 0 0 100px;
     height: 1000px;
     overflow: hidden;
-
 }
 
 .s10-content-container h1 {
     color: #FFF;
     font-size: 60px;
     font-weight: 600;
-    /* Fabri. Letras muy bold? */
     line-height: 94.5%;
     width: 802px;
     margin-bottom: 46px;
@@ -47,25 +45,23 @@ body {
     border-radius: 45px;
     border: 29px solid #FFF;
     opacity: 0;
-
 }
 
 .s10reproductor.active {
     animation: slideInLeft 1.5s ease-out forwards;
     opacity: 1;
-
 }
 
 .s10reproductor iframe {
     position: absolute;
     top: 197px;
     left: 373px;
-    width: 100%; /* Ajusta al ancho del contenedor */
+    width: 100%; 
     height: 100%;
     transform: translate(-50%, -50%);
-    z-index: 0; /* Más cerca que el personaje */
+    z-index: 0; 
     border-radius: 16px;
-}
+} 
 
 .s10-content-container #p3s10 {
     position: relative;
@@ -85,14 +81,14 @@ body {
         transform: translateY(0);
     }
     50% {
-        transform: translateY(-20px); /* Subida */
+        transform: translateY(-20px); 
     }
     100% {
-        transform: translateY(0); /* Vuelta al inicio */
+        transform: translateY(0); 
     }
 }
 
-/* Animación para el personaje */
+
 @keyframes slideInLeft {
     0% {
         transform: translateX(-100%);
@@ -115,17 +111,3 @@ body {
     }
 }
 
-.video-thumbnail {
-    position: absolute;
-    top: -30px;
-    left: -30px;
-    object-fit: cover;
-    cursor: pointer; /* Muestra que es clickeable */
-    z-index: 3; /* Coloca sobre el iframe */
-    transition: opacity 0.3s ease; /* Desvanecimiento suave */
-}
-
-.video-thumbnail.hidden {
-    opacity: 0; /* Oculta la miniatura */
-    pointer-events: none; /* Evita la interacción */
-}

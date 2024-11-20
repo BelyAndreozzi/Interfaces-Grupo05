@@ -1,22 +1,63 @@
-#ss-p1 {
-    /* Tamaño de la viñeta individual */
-    width:80px;
-    height:156px;
-    /* Cómo hay establecido un tamaño, centramos con margin:auto */
-    margin:auto;  
-    /* Cargamos el sprite (el repeat-x se puede omitir, por defecto se repite) */
-    background:url(../assets/ss-p1.png) repeat-x;
-    /* Aplicamos la animación "walk": 0.8seg, 6 viñetas y repetimos infinitamente */
-    animation:walk .8s steps(6) infinite;
-    /* Posicionamos el personaje sobre el camino de madera */
-    position:relative;
-    bottom:34px;
+#pajarito {
+  height: 90px;
+  width: 55px;
+  margin: auto;
+  background: url(../assets/pajarito.png) repeat-x;
+  background-size: 430px 70px;
+  animation: walk .8s steps(8) infinite;
+  position: absolute;
+  z-index: 2;
+  top: 150px;
+  left: 1100px;
+
+
+}
+
+
+#michito {
+  height: 90px;
+  width: 71px;
+  background: url(../assets/michito.png) repeat-x;
+  background-size: 429px 70px;
+  animation: walk .8s steps(6) infinite;
+  position: absolute;
+  z-index: 2;
+  top: 450px;
+  left: 170px;
+
+}
+
+#conejito {
+  height: 90px;
+  width: 20px;
+  margin: auto;
+  background: url(../assets/conejito.png) repeat-x;
+  background-size: 360px 50px;
+  animation: jump .8s steps(14) infinite;
+  position: absolute;
+  left: 300px;
+  top: 390px;
+}
+
+
+
+@keyframes jump {
+  0% {
+    background-position: 0
   }
-  
-  /* Animación de personaje caminando: Simplemente mueve el sprite sheet hacia la izquierda, realizando el movimiento. */
-  @keyframes walk {
-    /* Partimos de la primera viñeta del sprite sheet */
-    0% { background-position:0 }
-    /* El tamaño total de ancho del sprite. Es negativo para que no "camine" hacia atrás */
-    100% { background-position:-672px }
+  100% {
+    background-position: 350px
   }
+}
+
+
+
+
+@keyframes walk {
+  0% {
+    background-position: 0
+  }
+  100% {
+    background-position: -430px
+  }
+}

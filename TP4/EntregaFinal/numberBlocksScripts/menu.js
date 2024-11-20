@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const menuItems = document.querySelectorAll('.menu li');
   
-    // Asignar índices a cada ítem para la animación escalonada
+    // Asigna indices a cada item para la animacion escalonada
     menuItems.forEach((item, index) => {
       item.style.setProperty('--index', index);
     });

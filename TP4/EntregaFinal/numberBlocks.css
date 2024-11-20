@@ -13,7 +13,6 @@ body {
     width: 1280px;
     min-height: 100vh;
     font-family: 'Lato', sans-serif;
-    /* Fabri. Importada de Google Fonts. Es mas gordita? */
 }
 
 /* //////////// Header ////////// */
@@ -305,46 +304,6 @@ main {
 
 /*                       SECTION 10 */
 
-/* #section10 {
-    width: 1280px;
-    height: 1444px;
-}
-
-.svg10 {
-    position: absolute;
-    z-index: 1;
-}
-
-.s10-content-container {
-    position: relative;
-    z-index: 2;
-    margin: 308.8px 0 0 100px;
-    height: 1000px;
-}
-
-.s10-content-container h1 {
-    color: #FFF;
-    font-size: 60px;
-    font-weight: 600;
-    line-height: 94.5%;
-    width: 802px;
-    margin-bottom: 46px;
-}
-
-.s10reproductor {
-    width: 746px;
-    height: 394px;
-    border-radius: 45px;
-    border: 29px solid #FFF;
-    background: url(assets/video.svg) lightgray 50% / cover no-repeat;
-}
-
-.s10-content-container img {
-    position: relative;
-    left: 624px;
-    top: -620px
-} */
-
 #section10 {
     width: 1280px;
     height: 1444px;
@@ -368,7 +327,6 @@ main {
     color: #FFF;
     font-size: 60px;
     font-weight: 600;
-    /* Fabri. Letras muy bold? */
     line-height: 94.5%;
     width: 802px;
     margin-bottom: 46px;
@@ -381,13 +339,11 @@ main {
     border-radius: 45px;
     border: 29px solid #FFF;
     opacity: 0;
-
 }
 
 .s10reproductor.active {
     animation: slideInLeft 1.5s ease-out forwards;
     opacity: 1;
-
 }
 
 .s10reproductor iframe {
@@ -416,8 +372,6 @@ main {
     opacity: 1; 
 }
 
-
-/* Animación para el personaje */
 @keyframes slideInLeft {
     0% {
         transform: translateX(-100%);
@@ -463,52 +417,59 @@ main {
     top: -30px;
     left: -30px;
     object-fit: cover;
-    cursor: pointer; /* Muestra que es clickeable */
-    z-index: 2; /* Coloca sobre el iframe */
-    transition: opacity 0.3s ease; /* Desvanecimiento suave */
+    cursor: pointer; 
+    z-index: 2; 
+    transition: opacity 0.3s ease; 
 }
 
 .video-thumbnail.hidden {
-    opacity: 0; /* Oculta la miniatura */
-    pointer-events: none; /* Evita la interacción */
+    opacity: 0; 
+    pointer-events: none; 
 }
 
+/*                          SECTION 11 */
 
 #section11 {
-    width: 1080px;
+    width: 1280px;
     height: 1034px;
+    overflow: hidden;
 
 }
 
 #section11 h1 {
-    /* position: relative;
-    top: 220px;
-    left: 102px; */
     width: 746px;
     height: 285px;
-    margin-top: 220px;
     color: #9D2121;
     font-size: 60px;
     font-style: normal;
     font-weight: 600;
     line-height: 94.5%;
+    margin: 220px 0 0 100px;  
 }
 
 #section11 p {
     margin-top: 43px;
     width: 464px;
-    /* Fabri. No se consiguio alinear las palabras tal cual el figma. */
     color: #000;
     font-size: 20px;
     font-weight: 400;
     line-height: 94.5%;
-    /* 18.9px */
+    margin: 43px 0 0 100px;  
 }
 
 #section11 img {
     position: relative;
     top: -730px;
     left: 500px;
+}
+
+
+#model-viewer {
+    position: relative;
+    left: 560px;
+    top: -700px;
+    width: 737px;
+    height: 873px;
 }
 
 /*                       SECTION 12 */
@@ -524,26 +485,26 @@ main {
     z-index: 1;
 }
 
-/* Estilos generales para los personajes */
+
 [class^="s12p"] {
     position: relative;
     z-index: 2;
-    filter: drop-shadow(0px 0 20px white);
-    transition: transform 0.3s ease, filter 0.3s ease;
+    filter: drop-shadow(0 0 2px white);
+    transition: transform 0.3s ease, filter 0.2s ease;
 
 }
 
-/* Agrandamiento e iluminación al hacer hover */
+
 [class^="s12p"]:hover {
-    transform: scale(1.1);
-    filter: drop-shadow(0px 0 30px white);
+    transform: scale(1.04);
+    filter: drop-shadow(0 0 15px white);
 }
 
-/* Posiciones de cada personaje */
+
 .s12p1 { left: 10px; top: 3px; }
 .s12p2 { left: 48px; top: 3px; }
-.s12p3 { left: 80px; top: 2px; }
-.s12p4 { left: 110px; top: 3px; }
+.s12p3 { left: 80px; top: 1px; }
+.s12p4 { left: 110px; top: 1px; }
 .s12p5 { left: 140px; top: 3px; }
 .s12p6 { left: 3px; top: 30px; }
 .s12p7 { left: 30px; top: 30px; }
@@ -551,87 +512,8 @@ main {
 .s12p9 { left: 83px; top: 30px; }
 .s12p10 { left: 112px; top: 29px; } 
 
-/* #section12 {
-    width: 1280px;
-    margin-bottom: 25px;
-}
 
-.bg-12 {
-    position: absolute;
-    z-index: 1;
-}
-
-.s12p1 {
-    position: relative;
-    z-index: 2;
-    left: 10px;
-    top: 3px;
-    filter: drop-shadow(0px 0 20px white);
-}
-
-.s12p2 {
-    position: relative;
-    z-index: 2;
-    left: 48px;
-    top: 3px;
-    filter: drop-shadow(0px 0 20px white);
-}
-
-.s12p3 {
-    position: relative;
-    z-index: 2;
-    left: 80px;
-    top: 2px;
-}
-
-.s12p4 {
-    position: relative;
-    z-index: 2;
-    left: 110px;
-    top: 3px;
-}
-
-.s12p5 {
-    position: relative;
-    z-index: 2;
-    left: 140px;
-    top: 3px;
-}
-
-.s12p6 {
-    position: relative;
-    z-index: 2;
-    left: 3px;
-    top: 30px;
-}
-
-.s12p7 {
-    position: relative;
-    z-index: 2;
-    left: 30px;
-    top: 30px;
-}
-
-.s12p8 {
-    position: relative;
-    z-index: 2;
-    left: 56px;
-    top: 30px;
-}
-
-.s12p9 {
-    position: relative;
-    z-index: 2;
-    left: 83px;
-    top: 30px;
-}
-
-.s12p10 {
-    position: relative;
-    z-index: 2;
-    left: 112px;
-    top: 29px;
-} */
+/*                          SECTION 13 */
 
 #section13 {
     width: 1280px;
@@ -639,7 +521,6 @@ main {
     overflow: hidden;
 }
 
-/* Nubes con parallax */
 #section13 #img-nube-grande-s13,
 #section13 #img-nube-grande2-s13,
 #section13 #img-nube-chica-s13 {
@@ -647,7 +528,6 @@ main {
     z-index: 1;
 }
 
-/* Posiciones de las nubes */
 #section13 #img-nube-grande-s13 {
     top: 180px;
     left: -300px;
@@ -657,16 +537,15 @@ main {
 #section13 #img-nube-grande2-s13 {
     top: -80px;
     left: 80px;
-    animation: moveNubeGrande2 15s linear infinite; /* retraso de 5 segundos */
+    animation: moveNubeGrande2 15s linear infinite; 
 }
 
 #section13 #img-nube-chica-s13 {
     top: -180px;
     left: 180px;
-    animation: moveNubeChica 15s linear infinite -5s ; /* retraso de 10 segundos */
+    animation: moveNubeChica 15s linear infinite -5s ; 
 }
 
-/* Animaciones individuales para cada nube */
 @keyframes moveNubeGrande {
     0% {
         transform: translateX(-150%);
@@ -734,7 +613,6 @@ main {
     font-size: 60px;
     font-weight: 600;
     line-height: 94.5%;
-    /* 56.7px */
 }
 
 .section13 p {
@@ -746,7 +624,6 @@ main {
     font-size: 20px;
     font-weight: 400;
     line-height: 94.5%;
-    /* 18.9px */
 }
 
 .section13 p span {
@@ -778,7 +655,7 @@ main {
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
-    line-height: 94.5%; /* 18.9px */
+    line-height: 94.5%; 
     letter-spacing: 2.2px;
 }
 
@@ -794,7 +671,6 @@ main {
 }
 
 .section13 form div {
-    /* Fabri. Queda un gap entre el input y el "boton" suscribirse*/
     color: #FFF;
     -webkit-text-stroke-width: 1;
     -webkit-text-stroke-color: #FFF;
@@ -802,7 +678,6 @@ main {
     font-style: normal;
     font-weight: 900;
     line-height: 94.5%;
-    /* 18.9px */
     letter-spacing: 2.2px;
     width: 200px;
     margin-left: 0;
@@ -810,8 +685,6 @@ main {
     border-radius: 0px 50px 50px 0px;
     border: 9px solid #FFF;
     background: #83C252;
-    /* Drop Shadow */
-    /* box-shadow: 4px 5px 0px 0px #02187E; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -842,6 +715,7 @@ main {
 /*                                          FOOTER */
 
 footer {
+    position: relative;
     margin-top: auto;
     background-color: #5E5E5D;
     width: 1280px;
@@ -864,7 +738,6 @@ footer {
     color: #FFF;
     font-size: 20px;
     font-weight: 400;
-    /* Fabri. 400 es muy bold, 300 es muy thin. */
     line-height: 94.5%;
     letter-spacing: 2.2px;
     margin-bottom: 20px;

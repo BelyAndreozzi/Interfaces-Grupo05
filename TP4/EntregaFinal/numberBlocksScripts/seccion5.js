@@ -9,7 +9,7 @@ let currentIndex = 0;
 setInterval(() => {
   carrusel.style.backgroundImage = images[currentIndex];
   currentIndex = (currentIndex + 1) % images.length;
-}, 3000); // Cambia cada 3 segundos
+}, 3000); 
 
 
 window.addEventListener('scroll', () => {
@@ -17,11 +17,11 @@ window.addEventListener('scroll', () => {
     const personaje4 = document.querySelector('.s5personaje4');
     const personaje5 = document.querySelector('.s5personaje5');
     
-    // Calcula la posición de la sección en el viewport
+    // Calcula la posicion de la seccion en el viewport
     const sectionTop = section5.getBoundingClientRect().top;
-    const windowHeight = window.innerHeight - 100;
+    const windowHeight = window.innerHeight - 400;
   
-    // Activa la animación cuando la sección esté visible
+    // Activa la animacion cuando la seccion este visible
     if (sectionTop < windowHeight && sectionTop > 0) {
       personaje4.classList.add('parallax-active');
       personaje5.classList.add('parallax-active');

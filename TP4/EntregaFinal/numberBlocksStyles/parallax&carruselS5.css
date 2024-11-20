@@ -48,8 +48,7 @@
     position: absolute;
     top: 580px;
     left: -65px;
-    transform: translateX(-10%);
-    /* Posición inicial hacia el costado izquierdo */
+    transform: translateX(-30%);
     transition: transform 1s ease-out;
     will-change: transform;
 }
@@ -57,20 +56,16 @@
 .s5personaje5 {
     position: absolute;
     top: -87px;
-    left: 667px; /* og 686 */
-    transform: translateX(0%);
+    left: 686px; 
+    transform: translateY(10%);
     transition: transform 1s ease-out;
     will-change: transform;
 }
 
 .s5personaje4.parallax-active {
     transform: translateX(0);
-    /* Posición final definida en CSS */
 }
 
 .s5personaje5.parallax-active {
-    transform: translateX(4%);
-    /*  Posición final definida en CSS  */
+    transform: translateY(0%); 
 }
-
-

@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 1280px;
+    min-height: 100vh;
+    font-family: 'Lato', sans-serif;
+}
+
+#loader {
+    background: url(../assets/backgroundLoader3.png) no-repeat center ;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    width: 1280px;
+    z-index: 999;
+    transition: transform 0.5s ease, opacity 1s ease;
+}
+
+#loader.hide {
+    transform: translate(0, -100%);
+    border-radius: 20px;
+}
+
+.box-loader-1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 20%;
+    width: 60%;
+}
+
+#box-loader-2 {
+    margin-left: 42.5%;
+    width: 20%;
+    text-align: left;
+    font-size: 50px;
+    font-weight: 800;
+    text-shadow: 5px 3px 0px whitesmoke;
+}
+
+.signo {
+    font-size: 50px;
+}
+
+.loader-img {
+    width: 200px;
+}
+
+.load-1, .load-2, .load-3, .load-4, .load-5, .load-5-question {
+    height: max-content;
+}
+
+.load-1 {
+    transform: translateY(-50%);
+    opacity: 0;
+    animation: aparecerLoad 0.5s ease forwards;
+}
+
+.load-2 {
+    transform: translateY(-50%);
+    opacity: 0;
+    animation: aparecerLoad 0.5s ease forwards;
+    animation-delay: 0.5s; 
+}
+
+.load-3 {
+    transform: translateY(-50%);
+    opacity: 0;
+    animation: aparecerLoad 0.5s ease forwards;
+    animation-delay: 1s; 
+}
+
+.load-4 {
+    transform: translateY(-50%);
+    opacity: 0;
+    animation: aparecerLoad 0.5s ease forwards;
+    animation-delay: 1.5s;
+}
+
+.load-5-question {
+    position: fixed;
+    left: 900px;
+    opacity: 0;
+    animation: aparecerLoad 0.5s ease forwards 2s, desaparecerLoad 0.5s ease forwards 3.5s;
+}
+
+.load-5 {
+    transform: translateY(-50%);
+    opacity: 0;
+    animation: aparecerLoad 0.5s ease forwards;
+    animation-delay: 4s; 
+}
+
+@keyframes aparecerLoad {
+    0% {
+      opacity: 0; 
+      transform: translateY(-50%); 
+    }
+    100% {
+      opacity: 1; 
+      transform: translateY(0); 
+    }
+}
+
+@keyframes desaparecerLoad {
+    0% { 
+      opacity: 1; 
+      transform: translateY(0); 
+    }
+    100% {
+      opacity: 0; 
+      transform: translateY(50%); 
+    }
+}
