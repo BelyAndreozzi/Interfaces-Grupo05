@@ -67,7 +67,8 @@ body {
     position: relative;
     left: 624px;
     top: -620px;
-    z-index: 2;
+    z-index: 5;
+    pointer-events: none;
     opacity: 0; 
 }
 

@@ -361,7 +361,7 @@ main {
     position: relative;
     left: 624px;
     top: -620px;
-    z-index: -1;
+    z-index: 2;
     opacity: 0; 
 }
 

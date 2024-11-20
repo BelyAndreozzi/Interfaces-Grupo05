@@ -50,11 +50,11 @@ body {
 }
 
 .signo {
-    font-size: 50px;
+    font-size: 100px;
 }
 
 .loader-img {
-    width: 200px;
+    width: 150px;
 }
 
 .load-1, .load-2, .load-3, .load-4, .load-5, .load-5-question {
