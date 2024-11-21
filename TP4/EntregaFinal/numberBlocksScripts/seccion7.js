@@ -1,3 +1,5 @@
+//Detecta si el top de la card esta dentro de la altura de la ventana, revela cada una de las cards de forma escalonada, 
+//con un retraso de 200ms entre ellas.
 const cards = document.querySelectorAll('.card');
 
 function revealCards() {
@@ -9,7 +11,7 @@ function revealCards() {
     if (cardTop < windowHeight) {
       setTimeout(() => {
         card.classList.add('appear');
-      }, index * 300); // Retraso de 200 ms entre tarjetas
+      }, index * 300); 
     }
   });
 }

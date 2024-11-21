@@ -1,18 +1,19 @@
+//Utilizando Intersection Observer se activan las animaciones de la seccion cuando esta es visible. 
+//Además, cuando el usuario clickea para ver el video, se remueve la imagen de miniatura que está sobre el mismo. 
+
 document.addEventListener('DOMContentLoaded', () => {
     const section = document.getElementById('section10');
     const videoContainer = document.querySelector('.s10reproductor');
     const character = document.getElementById('p3s10');
   
-    // Configuracion del Intersection Observer
     const observerOptions = {
-      root: null, // Viewport
-      threshold: 0.5, // Activa cuando el 50% de la seccion es visible
+      root: null, 
+      threshold: 0.5, 
     };
   
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          // Activa las animaciones cuando la seccion es visible
           videoContainer.classList.add('active');
           character.classList.add('active');
           setTimeout(() => {
@@ -23,13 +24,10 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }, observerOptions);
 
-    
-    // Observa la seccion
     observer.observe(section);
   
-    // Logica para la miniatura del video
     const thumbnail = document.querySelector('.video-thumbnail');
     thumbnail.addEventListener('click', () => {
       thumbnail.classList.add('hidden'); 
     });
-  });
+});

@@ -20,19 +20,20 @@
 #section13 #img-nube-grande2-s13 {
     top: -250px;
     left: 80px;
-    animation: moveNubeGrande2 10s linear infinite; 
+    animation: moveNubeGrande2 10s linear infinite;
 }
 
 #section13 #img-nube-chica-s13 {
     top: -180px;
     left: 180px;
-    animation: moveNubeChica 15s linear infinite -5s ; 
+    animation: moveNubeChica 15s linear infinite -5s;
 }
 
 @keyframes moveNubeGrande {
     0% {
         transform: translateX(-150%);
     }
+
     100% {
         transform: translateX(120vw);
     }
@@ -42,6 +43,7 @@
     0% {
         transform: translateX(-120%);
     }
+
     100% {
         transform: translateX(100vw);
     }
@@ -51,6 +53,7 @@
     0% {
         transform: translateX(-400%);
     }
+
     100% {
         transform: translateX(40vw);
     }
@@ -97,7 +100,7 @@
     border-bottom: 9px solid #FFF;
     border-left: 9px solid #FFF;
     background: #ECECEC;
-    margin-right: 0;    
+    margin-right: 0;
 }
 
 .section13 form {

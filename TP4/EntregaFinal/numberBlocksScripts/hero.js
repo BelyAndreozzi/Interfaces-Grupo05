@@ -1,5 +1,4 @@
-//315  "FRAMES"
-
+// Al hacer scroll se cambian los tamaños y posiciones de los Elementos del hero
 window.addEventListener("scroll", () => {
     const elementLOGO = document.getElementById("logo");
     const element1 = document.getElementById("hero-1");

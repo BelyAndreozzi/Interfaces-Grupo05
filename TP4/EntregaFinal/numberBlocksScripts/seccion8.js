@@ -1,3 +1,6 @@
+// Con el evento mousemove detecta si el usuario esta moviendo el cursor. 
+// Calcula el centro de la ventana, obtiene la posicion del cursor y con esos valores calcula la profundidad del movimiento.
+// Aplica una transformacion al elemento en base a la profundidad, dandole tambien un ligero zoom.
 (function () {
     document.addEventListener("mousemove", parallax);
   
@@ -13,4 +16,4 @@
   
       elem.style.transform = `translate(${depthX}px, ${depthY}px) translate(-50%, -50%) scale(1.1)`;
     }
-  })();
+})();

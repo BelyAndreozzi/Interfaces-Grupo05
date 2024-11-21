@@ -1,3 +1,5 @@
+// Se verifica si el usuario está a la altura de la sección para activar la animación de los personajes y el cambio cada 3 segundos de imagen dentro del carrusel.
+
 const carrusel = document.querySelector('.carrusel5');
 const images = [
   'url(assets/carrusel6-1.png)',
@@ -17,11 +19,9 @@ window.addEventListener('scroll', () => {
     const personaje4 = document.querySelector('.s5personaje4');
     const personaje5 = document.querySelector('.s5personaje5');
     
-    // Calcula la posicion de la seccion en el viewport
     const sectionTop = section5.getBoundingClientRect().top;
     const windowHeight = window.innerHeight - 400;
-  
-    // Activa la animacion cuando la seccion este visible
+
     if (sectionTop < windowHeight && sectionTop > 0) {
       personaje4.classList.add('parallax-active');
       personaje5.classList.add('parallax-active');

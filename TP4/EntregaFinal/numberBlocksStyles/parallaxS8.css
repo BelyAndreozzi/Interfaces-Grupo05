@@ -1,11 +1,9 @@
-
- .section8 {
+.section8 {
     position: relative;
     overflow: hidden;
     width: 1280px;
     height: 1157px;
     z-index: 0;
-
 }
 
 .section8 svg {
@@ -67,15 +65,13 @@
 
 .section8 {
     position: relative;
-    
-  }
+}
 
-  #parallaxS8 {
+#parallaxS8 {
     position: absolute;
     top: 500px;
     left: 700px;
     z-index: 1;
     transform: translate(-50%, -50%);
     transition: transform 0.1s ease-out;
-    
 }
